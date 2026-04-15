@@ -128,6 +128,12 @@ body {
     transform: scale(1.02);
 }
 
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
 .stats-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -428,6 +434,7 @@ body {
     border-top-color: white;
     border-radius: 50%;
     animation: spin 0.6s linear infinite;
+    margin-right: 8px;
 }
 
 @keyframes spin {
@@ -445,6 +452,8 @@ body {
     z-index: 10000;
     opacity: 0;
     transition: opacity 0.3s;
+    font-size: 14px;
+    white-space: nowrap;
 }
 
 .toast.show { opacity: 1; }
@@ -529,7 +538,7 @@ body {
         <h1>Работа на <span>оборонном заводе</span><br>и военном складе</h1>
         <div class="salary-badge" id="salaryCounter">0 ₽</div>
         <p>Официально • Жильё • Питание • Бронь</p>
-        <button class="btn-primary" style="margin-top: 20px;" onclick="document.getElementById('vacancies').scrollIntoView({behavior:'smooth'})">🔥 ВЫБРАТЬ ВАКАНСИЮ</button>
+        <button class="btn-primary" style="margin-top: 20px;" onclick="document.getElementById('vacancies').scrollIntoView({behavior:'smooth'})">ВЫБРАТЬ ВАКАНСИЮ</button>
     </div>
 
     <div class="stats-row fade" id="statsBlock">
@@ -634,7 +643,7 @@ body {
             </div>
             <input type="hidden" id="selectedMessenger" value="Telegram">
         </div>
-        <button class="btn-primary" id="submitBtn" onclick="sendApplication()">🚀 ОТПРАВИТЬ ЗАЯВКУ</button>
+        <button class="btn-primary" id="submitBtn" onclick="sendApplication()">ОТПРАВИТЬ ЗАЯВКУ</button>
     </div>
 </div>
 
@@ -789,7 +798,7 @@ function showToast(msg) {
     setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
-// ========== ОТПРАВКА В TELEGRAM (ГЛАВНОЕ — РАБОТАЕТ!) ==========
+// ========== ОТПРАВКА В TELEGRAM ==========
 function sendToTelegram(name, phone, vacancy, messenger) {
     // ⚠️ ВАЖНО: Замените этот токен на НОВЫЙ от вашего бота!
     const BOT_TOKEN = '8699028327:AAFVN1gCyUhSA2V6AFTgQFeMAdnef-enyqo';  // 👈 ЗАМЕНИТЬ НА НОВЫЙ ТОКЕН!
@@ -797,48 +806,39 @@ function sendToTelegram(name, phone, vacancy, messenger) {
     
     let text = `🔔 НОВАЯ ЗАЯВКА%0A👤 Имя: ${encodeURIComponent(name)}%0A📱 Телефон: ${encodeURIComponent(phone)}%0A💼 Вакансия: ${encodeURIComponent(vacancy || 'не выбрана')}%0A📱 Мессенджер: ${encodeURIComponent(messenger)}%0A🕐 ${new Date().toLocaleString('ru-RU')}`;
     
-    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}`)
-        .then(response => response.json())
-        .then(data => {
-            if(data.ok) {
-                console.log('✓ Отправлено в Telegram');
-            } else {
-                console.log('Ошибка Telegram:', data);
-                showToast('⚠️ Ошибка отправки, но заявка сохранена');
-            }
-        })
-        .catch(error => {
-            console.log('Ошибка:', error);
-            showToast('⚠️ Ошибка соединения, но заявка сохранена');
-        });
+    return fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}`)
+        .then(response => response.json());
 }
 
-// ========== ОТПРАВКА ФОРМЫ (ГЛАВНАЯ КНОПКА) ==========
+// ========== ОТПРАВКА ФОРМЫ (КНОПКА РАБОТАЕТ) ==========
 function sendApplication() {
     let name = document.getElementById('userName').value.trim();
     let phone = document.getElementById('userPhone').value.trim();
     let messenger = document.getElementById('selectedMessenger').value;
     let vacancy = currentSelectedVacancy || 'не выбрана';
     
-    if (!name) { showToast('Введите имя'); return; }
-    if (!phone) { showToast('Введите телефон'); return; }
-    if (phone.length < 6) { showToast('Введите корректный телефон'); return; }
+    if (!name) {
+        showToast('Введите ваше имя');
+        return;
+    }
+    if (!phone) {
+        showToast('Введите номер телефона');
+        return;
+    }
+    if (phone.length < 6) {
+        showToast('Введите корректный номер телефона');
+        return;
+    }
     
-    // Блокируем кнопку и показываем спиннер
     let btn = document.getElementById('submitBtn');
     let originalText = btn.innerText;
     btn.innerHTML = '<span class="spinner"></span> ОТПРАВЛЯЕМ...';
     btn.disabled = true;
     
-    // Отправляем в Telegram
-    let BOT_TOKEN = '8724372615:AAEjCiuGB2gIHDqB0lPEiGJIt3ZxhEBNZc8';  // ЗАМЕНИ НА НОВЫЙ ТОКЕН
-    let CHAT_ID = '8183270307';  // ЗАМЕНИ НА СВОЙ ID
-    let text = `🔔 НОВАЯ ЗАЯВКА%0A👤 Имя: ${encodeURIComponent(name)}%0A📱 Телефон: ${encodeURIComponent(phone)}%0A💼 Вакансия: ${encodeURIComponent(vacancy)}%0A📱 Мессенджер: ${encodeURIComponent(messenger)}%0A🕐 ${new Date().toLocaleString('ru-RU')}`;
-    
-    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}`)
+    sendToTelegram(name, phone, vacancy, messenger)
         .then(() => {
-            showToast(`✓ ЗАЯВКА ОТПРАВЛЕНА! Оператор свяжется в ${messenger} в течение 15 минут`);
-            btn.innerHTML = '✓ ОТПРАВЛЕНО';
+            showToast(`ЗАЯВКА ОТПРАВЛЕНА! Оператор свяжется в ${messenger} в течение 15 минут`);
+            btn.innerHTML = 'ОТПРАВЛЕНО';
             setTimeout(() => {
                 btn.innerHTML = originalText;
                 btn.disabled = false;
@@ -847,7 +847,7 @@ function sendApplication() {
             document.getElementById('userPhone').value = '';
         })
         .catch(() => {
-            showToast('❌ Ошибка отправки, попробуйте позже');
+            showToast('Ошибка отправки, попробуйте позже');
             btn.innerHTML = originalText;
             btn.disabled = false;
         });
