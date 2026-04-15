@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 <title>Работа на складах и заводах | Трудоустройство от 200 000 ₽</title>
-<meta name="description" content="Трудоустройство на склады и заводы от 200 000 ₽. Официально, проживание, питание. Помогли сотням людей с 2022 года.">
+<meta name="description" content="Трудоустройство на склады и заводы от 200 000 ₽. Официально, проживание, питание. Помогли тысячам людей с 2022 года.">
 
 <style>
 * {
@@ -14,16 +14,34 @@
 }
 
 body {
+    margin: 0;
+    padding: 0;
     font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-    background: #f5f7fa;
+    background: linear-gradient(135deg, #f5f7fa 0%, #eef2f6 100%);
     color: #1a1a2e;
     line-height: 1.5;
+    position: relative;
+    min-height: 100vh;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: -30%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+    background: radial-gradient(circle at 20% 30%, rgba(229,57,53,0.04) 0%, rgba(255,215,0,0.02) 50%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .container {
     max-width: 640px;
     margin: auto;
     padding: 16px;
+    position: relative;
+    z-index: 1;
 }
 
 /* HEADER */
@@ -32,11 +50,13 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 12px 20px;
-    background: white;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
     box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-radius: 0 0 20px 20px;
 }
 
 .logo {
@@ -154,7 +174,8 @@ body {
 }
 
 .stat-card {
-    background: white;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(4px);
     padding: 16px 8px;
     border-radius: 20px;
     text-align: center;
@@ -175,11 +196,12 @@ body {
 
 /* БЛОКИ */
 .block {
-    background: white;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(2px);
     padding: 24px;
     border-radius: 24px;
     margin-top: 16px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.04), 0 2px 4px rgba(0,0,0,0.02);
 }
 
 .block h2 {
@@ -372,6 +394,7 @@ input, select {
     border: 1px solid #e0e0e0;
     font-size: 16px;
     transition: all 0.2s;
+    background: white;
 }
 
 input:focus, select:focus {
@@ -402,7 +425,7 @@ input:focus, select:focus {
     opacity: 1;
 }
 
-/* ПОПАП */
+/* ПОПАПЫ */
 .popup {
     position: fixed;
     top: 0;
@@ -482,6 +505,12 @@ input:focus, select:focus {
     text-decoration: none;
     font-weight: bold;
     font-size: 14px;
+    transition: all 0.2s;
+}
+
+.tg-btn:hover {
+    transform: scale(1.02);
+    background: #f0f0f0;
 }
 
 /* КНОПКА ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ */
@@ -489,6 +518,46 @@ input:focus, select:focus {
     background: #ffd700;
     color: #1a1a2e;
     margin-top: 10px;
+}
+
+/* МЕССЕНДЖЕРЫ В ФОРМЕ */
+.messenger-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 5px;
+}
+
+.messenger-option {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+}
+
+.messenger-option.selected {
+    border-color: #e53935;
+    background: rgba(229,57,53,0.05);
+    box-shadow: 0 0 0 2px rgba(229,57,53,0.2);
+}
+
+.messenger-option span {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.messenger-option small {
+    font-size: 11px;
+    color: #666;
+}
+
+/* Скрытый инпут для мессенджера */
+#selectedMessenger {
+    display: none;
 }
 </style>
 </head>
@@ -522,7 +591,7 @@ input:focus, select:focus {
             <div class="stat-label">года работаем</div>
         </div>
         <div class="stat-card">
-            <div class="stat-number">100+</div>
+            <div class="stat-number">1000+</div>
             <div class="stat-label">довольных клиентов</div>
         </div>
         <div class="stat-card">
@@ -534,7 +603,7 @@ input:focus, select:focus {
     <!-- КТО МЫ -->
     <div class="block fade" id="about">
         <h2>👋 Кто мы</h2>
-        <p style="margin-bottom: 12px;"><strong>Наша организация работает с 2022 года</strong> — за это время мы помогли <strong>сотням людей</strong> найти стабильную и высокооплачиваемую работу.</p>
+        <p style="margin-bottom: 12px;"><strong>Наша организация работает с 2022 года</strong> — за это время мы помогли <strong>тысячам людей</strong> найти стабильную и высокооплачиваемую работу.</p>
         <div class="features-list">
             <div class="feature-item"><span class="feature-icon">📌</span> Трудоустройство на склады и заводы</div>
             <div class="feature-item"><span class="feature-icon">🏭</span> Логистика и производственные объекты</div>
@@ -680,10 +749,10 @@ input:focus, select:focus {
         </div>
     </div>
 
-    <!-- ТГ КАНАЛ -->
+    <!-- ТГ КАНАЛ С ССЫЛКОЙ -->
     <div class="tg-banner fade">
         <span>📢 Наш Telegram канал <br><strong>1300 подписчиков</strong></span>
-        <a href="https://t.me/+79290000000" class="tg-btn" target="_blank">Подписаться →</a>
+        <a href="https://t.me/zavodrabotarf" class="tg-btn" target="_blank">Подписаться →</a>
     </div>
 
     <!-- ФОРМА -->
@@ -709,6 +778,27 @@ input:focus, select:focus {
                     <option>Контролёр ОТК</option>
                 </select>
             </div>
+            
+            <!-- ВЫБОР МЕССЕНДЖЕРА -->
+            <div class="form-group">
+                <label style="font-size: 14px; color: #555; margin-bottom: 8px; display: block;">📱 Удобный способ связи:</label>
+                <div class="messenger-group">
+                    <div class="messenger-option selected" data-messenger="Telegram" onclick="selectMessenger(this, 'Telegram')">
+                        <span>📨</span>
+                        <small>Telegram</small>
+                    </div>
+                    <div class="messenger-option" data-messenger="WhatsApp" onclick="selectMessenger(this, 'WhatsApp')">
+                        <span>💚</span>
+                        <small>WhatsApp</small>
+                    </div>
+                    <div class="messenger-option" data-messenger="Viber" onclick="selectMessenger(this, 'Viber')">
+                        <span>💜</span>
+                        <small>Viber</small>
+                    </div>
+                </div>
+                <input type="hidden" id="selectedMessenger" value="Telegram">
+            </div>
+            
             <button class="btn btn-block" onclick="sendForm('main')">🔥 Отправить заявку</button>
         </div>
     </div>
@@ -729,6 +819,24 @@ input:focus, select:focus {
         <div class="form-group">
             <input type="tel" id="applyPhone" placeholder="Номер телефона">
         </div>
+        <div class="form-group">
+            <label style="font-size: 14px; color: #555; margin-bottom: 8px; display: block;">📱 Мессенджер:</label>
+            <div class="messenger-group">
+                <div class="messenger-option selected" data-messenger="Telegram" onclick="selectPopupMessenger(this, 'Telegram')">
+                    <span>📨</span>
+                    <small>Telegram</small>
+                </div>
+                <div class="messenger-option" data-messenger="WhatsApp" onclick="selectPopupMessenger(this, 'WhatsApp')">
+                    <span>💚</span>
+                    <small>WhatsApp</small>
+                </div>
+                <div class="messenger-option" data-messenger="Viber" onclick="selectPopupMessenger(this, 'Viber')">
+                    <span>💜</span>
+                    <small>Viber</small>
+                </div>
+            </div>
+            <input type="hidden" id="popupMessenger" value="Telegram">
+        </div>
         <button class="btn btn-block" onclick="sendFromApply()">Отправить</button>
     </div>
 </div>
@@ -745,6 +853,24 @@ input:focus, select:focus {
         <div class="form-group">
             <input type="tel" id="consultPhone" placeholder="Номер телефона">
         </div>
+        <div class="form-group">
+            <label style="font-size: 14px; color: #555; margin-bottom: 8px; display: block;">📱 Мессенджер:</label>
+            <div class="messenger-group">
+                <div class="messenger-option selected" data-messenger="Telegram" onclick="selectConsultMessenger(this, 'Telegram')">
+                    <span>📨</span>
+                    <small>Telegram</small>
+                </div>
+                <div class="messenger-option" data-messenger="WhatsApp" onclick="selectConsultMessenger(this, 'WhatsApp')">
+                    <span>💚</span>
+                    <small>WhatsApp</small>
+                </div>
+                <div class="messenger-option" data-messenger="Viber" onclick="selectConsultMessenger(this, 'Viber')">
+                    <span>💜</span>
+                    <small>Viber</small>
+                </div>
+            </div>
+            <input type="hidden" id="consultMessenger" value="Telegram">
+        </div>
         <button class="btn btn-block" onclick="sendConsult()">Перезвоните мне</button>
     </div>
 </div>
@@ -754,11 +880,32 @@ input:focus, select:focus {
 
 <script>
 // ⚠️ ВАЖНО: Замени на СВОЙ токен и chat_id Telegram бота
-const BOT_TOKEN = '8699028327:AAFVN1gCyUhSA2V6AFTgQFeMAdnef-enyqo';  
-const CHAT_ID = '8183270307'; 
+const BOT_TOKEN = '8724372615:AAEjCiuGB2gIHDqB0lPEiGJIt3ZxhEBNZc8';  // ЗАМЕНИ НА НОВЫЙ ТОКЕН!
+const CHAT_ID = '8183270307';  // ЗАМЕНИ НА СВОЙ CHAT_ID
 
 let formSubmitted = false;
 let currentApplyVacancy = '';
+
+// Выбор мессенджера в основной форме
+function selectMessenger(element, messenger) {
+    document.querySelectorAll('#mainForm .messenger-option').forEach(opt => opt.classList.remove('selected'));
+    element.classList.add('selected');
+    document.getElementById('selectedMessenger').value = messenger;
+}
+
+// Выбор мессенджера в попапе вакансии
+function selectPopupMessenger(element, messenger) {
+    document.querySelectorAll('#applyPopup .messenger-option').forEach(opt => opt.classList.remove('selected'));
+    element.classList.add('selected');
+    document.getElementById('popupMessenger').value = messenger;
+}
+
+// Выбор мессенджера в попапе консультации
+function selectConsultMessenger(element, messenger) {
+    document.querySelectorAll('#consultPopup .messenger-option').forEach(opt => opt.classList.remove('selected'));
+    element.classList.add('selected');
+    document.getElementById('consultMessenger').value = messenger;
+}
 
 function showToast(msg) {
     let toast = document.getElementById('toast');
@@ -776,23 +923,21 @@ function sendToTelegram(name, phone, extra = '') {
 
 function sendForm(type) {
     if (formSubmitted) { showToast('Заявка уже отправлена! Мы свяжемся'); return; }
-    let name, phone, vacancy = '';
-    if (type === 'main') {
-        name = document.getElementById('mainName').value.trim();
-        phone = document.getElementById('mainPhone').value.trim();
-        vacancy = document.getElementById('mainVacancy').value;
-        if (!vacancy) vacancy = 'Любая вакансия';
-    }
+    let name = document.getElementById('mainName').value.trim();
+    let phone = document.getElementById('mainPhone').value.trim();
+    let vacancy = document.getElementById('mainVacancy').value;
+    let messenger = document.getElementById('selectedMessenger').value;
+    
+    if (!vacancy) vacancy = 'Любая вакансия';
     if (!name || !phone) { showToast('Заполните имя и телефон'); return; }
     if (phone.length < 6) { showToast('Введите корректный телефон'); return; }
     
     formSubmitted = true;
-    sendToTelegram(name, phone, `💼 Вакансия: ${vacancy}`);
+    sendToTelegram(name, phone, `💼 Вакансия: ${vacancy}%0A📱 Мессенджер: ${messenger}`);
     showToast('✓ Заявка отправлена! Мы свяжемся');
-    if (type === 'main') {
-        document.getElementById('mainName').value = '';
-        document.getElementById('mainPhone').value = '';
-    }
+    
+    document.getElementById('mainName').value = '';
+    document.getElementById('mainPhone').value = '';
 }
 
 function openApplyForm(vacancy) {
@@ -809,10 +954,13 @@ function sendFromApply() {
     if (formSubmitted) { showToast('Заявка уже отправлена'); closeApplyPopup(); return; }
     let name = document.getElementById('applyName').value.trim();
     let phone = document.getElementById('applyPhone').value.trim();
+    let messenger = document.getElementById('popupMessenger').value;
+    
     if (!name || !phone) { showToast('Заполните имя и телефон'); return; }
     if (phone.length < 6) { showToast('Введите корректный телефон'); return; }
+    
     formSubmitted = true;
-    sendToTelegram(name, phone, `💼 Вакансия: ${currentApplyVacancy}`);
+    sendToTelegram(name, phone, `💼 Вакансия: ${currentApplyVacancy}%0A📱 Мессенджер: ${messenger}`);
     showToast('✓ Отклик отправлен!');
     closeApplyPopup();
     document.getElementById('applyName').value = '';
@@ -831,10 +979,13 @@ function sendConsult() {
     if (formSubmitted) { showToast('Заявка уже отправлена'); closeConsultPopup(); return; }
     let name = document.getElementById('consultName').value.trim();
     let phone = document.getElementById('consultPhone').value.trim();
+    let messenger = document.getElementById('consultMessenger').value;
+    
     if (!name || !phone) { showToast('Заполните имя и телефон'); return; }
     if (phone.length < 6) { showToast('Введите корректный телефон'); return; }
+    
     formSubmitted = true;
-    sendToTelegram(name, phone, '💬 Консультация');
+    sendToTelegram(name, phone, `💬 Консультация%0A📱 Мессенджер: ${messenger}`);
     showToast('Скоро перезвоним!');
     closeConsultPopup();
     document.getElementById('consultName').value = '';
