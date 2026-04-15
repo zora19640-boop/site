@@ -16,6 +16,7 @@ body {
     background: #0f1a2c;
     color: #e8eef2;
     line-height: 1.5;
+    overflow-x: hidden;
 }
 
 .container {
@@ -24,6 +25,85 @@ body {
     padding: 16px;
     position: relative;
     z-index: 1;
+}
+
+/* ЗАТЕМНЕНИЕ ПРИ ОТКРЫТОМ МОДАЛЬНОМ ОКНЕ */
+body.modal-open {
+    overflow: hidden;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-card {
+    width: 90%;
+    max-width: 400px;
+    background: #0a1220;
+    border: 3px solid #c0392b;
+    border-radius: 20px;
+    padding: 28px 24px;
+    text-align: center;
+    animation: modalPop 0.3s ease-out;
+    box-shadow: 0 0 30px rgba(192, 57, 43, 0.5);
+}
+
+@keyframes modalPop {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-card .vacancy-title {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.modal-card .vacancy-salary {
+    font-size: 28px;
+    margin: 15px 0;
+}
+
+.modal-card .vacancy-features {
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #8a9bb5;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #c0392b;
+}
+
+.modal-card .btn-primary {
+    margin-top: 10px;
 }
 
 .header {
@@ -205,11 +285,6 @@ body {
     transform: translateY(-3px);
 }
 
-.vacancy-card.selected {
-    border: 2px solid #c0392b;
-    background: #152032;
-}
-
 .vacancy-header {
     display: flex;
     justify-content: space-between;
@@ -256,41 +331,7 @@ body {
     margin-bottom: 16px;
 }
 
-.phone-group {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.country-code {
-    width: 120px;
-    background: #1a2535;
-    border: 1px solid #2c3e50;
-    border-radius: 6px;
-    color: white;
-    padding: 14px 8px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.phone-input {
-    flex: 1;
-    min-width: 200px;
-    background: #1a2535;
-    border: 1px solid #2c3e50;
-    border-radius: 6px;
-    color: white;
-    padding: 14px 16px;
-    font-size: 16px;
-}
-
-.phone-input:focus {
-    outline: none;
-    border-color: #c0392b;
-}
-
-.form-group input, .form-group select {
+.form-group input {
     width: 100%;
     padding: 14px 16px;
     background: #1a2535;
@@ -615,6 +656,20 @@ body {
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
+
+/* ИНФОРМАЦИОННЫЙ БЛОК ДЛЯ ИНОСТРАНЦЕВ */
+.info-block {
+    background: linear-gradient(135deg, #1e3a5f, #0a1220);
+    border: 1px solid #2c3e50;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.info-block p {
+    margin: 5px 0;
+}
 </style>
 </head>
 <body>
@@ -645,6 +700,13 @@ body {
         <div class="stat-card"><div class="stat-number">30-70</div><div class="stat-label">человек в месяц</div></div>
     </div>
 
+    <!-- ИНФОРМАЦИЯ ДЛЯ ИНОСТРАННЫХ ГРАЖДАН -->
+    <div class="info-block fade">
+        <p>🌍 <strong>РАБОТАЕМ С ИНОСТРАННЫМИ ГРАЖДАНАМИ</strong></p>
+        <p>Граждане СНГ могут трудоустроиться на наших предприятиях</p>
+        <p>Помогаем с оформлением патента и разрешительных документов</p>
+    </div>
+
     <!-- ВАКАНСИИ - КАРУСЕЛЬ -->
     <div class="fade" id="vacancies">
         <div class="section-title">📦 ДОСТУПНЫЕ ВАКАНСИИ</div>
@@ -653,32 +715,43 @@ body {
             <div class="carousel-arrow right" id="vacanciesRight" onclick="scrollVacancies(1)">▶</div>
             <div class="vacancies-container" id="vacanciesContainer">
                 <div class="vacancies-track">
-                    <div class="vacancy-card" data-vacancy="Водитель на завод" data-salary="230 000 – 280 000">
+                    <div class="vacancy-card" data-vacancy="Водитель на завод" data-salary="230 000 – 280 000" data-features="🏠 Жильё, 🚛 Категория C, ✅ Официально">
                         <div class="vacancy-header"><span class="vacancy-title">🚚 Водитель на завод</span><span class="vacancy-salary">230 000 – 280 000 ₽</span></div>
                         <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🚛 Категория C</span><span class="feature-tag">✅ Официально</span></div>
                     </div>
-                    <div class="vacancy-card" data-vacancy="Инженер на производство" data-salary="260 000 – 320 000">
+                    <div class="vacancy-card" data-vacancy="Инженер на производство" data-salary="260 000 – 320 000" data-features="🏠 Жильё, 📐 Высшее, 🎓 Обучение">
                         <div class="vacancy-header"><span class="vacancy-title">⚙️ Инженер на производство</span><span class="vacancy-salary">260 000 – 320 000 ₽</span></div>
                         <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">📐 Высшее</span><span class="feature-tag">🎓 Обучение</span></div>
                     </div>
-                    <div class="vacancy-card" data-vacancy="Сварщик на завод" data-salary="240 000 – 290 000">
+                    <div class="vacancy-card" data-vacancy="Сварщик на завод" data-salary="240 000 – 290 000" data-features="🏠 Жильё, 🛠️ Разряды 4-6, 🍽️ Питание">
                         <div class="vacancy-header"><span class="vacancy-title">🔥 Сварщик на завод</span><span class="vacancy-salary">240 000 – 290 000 ₽</span></div>
                         <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🛠️ Разряды 4-6</span><span class="feature-tag">🍽️ Питание</span></div>
                     </div>
-                    <div class="vacancy-card" data-vacancy="Разнорабочий на завод" data-salary="200 000 – 240 000">
+                    <div class="vacancy-card" data-vacancy="Разнорабочий на завод" data-salary="200 000 – 240 000" data-features="🏠 Жильё, 👍 Без опыта, 🍽️ Питание">
                         <div class="vacancy-header"><span class="vacancy-title">🔧 Разнорабочий на завод</span><span class="vacancy-salary">200 000 – 240 000 ₽</span></div>
                         <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">👍 Без опыта</span><span class="feature-tag">🍽️ Питание</span></div>
                     </div>
-                    <div class="vacancy-card" data-vacancy="Кладовщик на склад" data-salary="210 000 – 250 000">
+                    <div class="vacancy-card" data-vacancy="Кладовщик на склад" data-salary="210 000 – 250 000" data-features="🏠 Жильё рядом, 📋 Учёт, ✅ Официально">
                         <div class="vacancy-header"><span class="vacancy-title">📦 Кладовщик на склад</span><span class="vacancy-salary">210 000 – 250 000 ₽</span></div>
                         <div class="vacancy-features"><span class="feature-tag">🏠 Жильё рядом</span><span class="feature-tag">📋 Учёт</span><span class="feature-tag">✅ Официально</span></div>
                     </div>
-                    <div class="vacancy-card" data-vacancy="Оператор склада" data-salary="220 000 – 260 000">
+                    <div class="vacancy-card" data-vacancy="Оператор склада" data-salary="220 000 – 260 000" data-features="🏠 Жильё, 🖥️ Работа с ПК, ✅ Опыт не нужен">
                         <div class="vacancy-header"><span class="vacancy-title">📦 Оператор склада</span><span class="vacancy-salary">220 000 – 260 000 ₽</span></div>
                         <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🖥️ Работа с ПК</span><span class="feature-tag">✅ Опыт не нужен</span></div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ ВАКАНСИИ -->
+    <div class="modal-overlay" id="vacancyModal" onclick="closeModal(event)">
+        <div class="modal-card" id="modalCard">
+            <div class="modal-close" onclick="closeModal()">✕</div>
+            <div class="vacancy-title" id="modalTitle">🚚 Водитель на завод</div>
+            <div class="vacancy-salary" id="modalSalary">230 000 – 280 000 ₽</div>
+            <div class="vacancy-features" id="modalFeatures"></div>
+            <button class="btn-primary" id="modalApplyBtn" onclick="applyFromModal()">📝 ЗАПОЛНИТЬ АНКЕТУ</button>
         </div>
     </div>
 
@@ -737,7 +810,7 @@ body {
     <div class="fade" id="faq">
         <div class="section-title">❓ ЧАСТЫЕ ВОПРОСЫ</div>
         <div class="faq-item"><div class="faq-question">Отправляют ли на СВО? <span>▼</span></div><div class="faq-answer">Нет, наши предприятия не связаны с отправкой в зону СВО. Работа на заводе — это гражданская профессия.</div></div>
-        <div class="faq-item"><div class="faq-question">Могут ли работать иностранцы? <span>▼</span></div><div class="faq-answer">Да, граждане СНГ могут трудоустроиться при наличии патента или разрешения на работу.</div></div>
+        <div class="faq-item"><div class="faq-question">Могут ли работать иностранцы? <span>▼</span></div><div class="faq-answer">Да, граждане СНГ могут трудоустроиться. Мы помогаем с оформлением патента и разрешительных документов.</div></div>
         <div class="faq-item"><div class="faq-question">Как быстро связывается менеджер? <span>▼</span></div><div class="faq-answer">Менеджер связывается в течение 15 минут после отправки заявки в выбранном мессенджере.</div></div>
         <div class="faq-item"><div class="faq-question">Нужен ли опыт? <span>▼</span></div><div class="faq-answer">Нет, большинство вакансий не требуют опыта — мы обучаем на месте.</div></div>
         <div class="faq-item"><div class="faq-question">Предоставляют ли жильё? <span>▼</span></div><div class="faq-answer">Да, на большинстве объектов предоставляется бесплатное проживание.</div></div>
@@ -748,23 +821,12 @@ body {
         <a href="https://t.me/zavodrabotarf" target="_blank">ПОДПИСАТЬСЯ →</a>
     </div>
 
-    <!-- ФОРМА С АВТОПОДСТАНОВКОЙ КОДА СТРАНЫ -->
+    <!-- ФОРМА -->
     <div class="form-block fade" id="form">
         <div class="section-title">📞 ОСТАВИТЬ ЗАЯВКУ</div>
         <p style="margin-bottom: 16px; color: #8a9bb5;">Выбранная вакансия: <strong id="selectedVacancyDisplay" style="color:#e67e22;">не выбрана</strong></p>
         <div class="form-group"><input type="text" id="userName" placeholder="Ваше имя"></div>
-        <div class="form-group">
-            <div class="phone-group">
-                <select id="countryCode" class="country-code" onchange="updatePhonePrefix()">
-                    <option value="7">+7 (Россия)</option>
-                    <option value="375">+375 (Беларусь)</option>
-                    <option value="996">+996 (Кыргызстан)</option>
-                    <option value="998">+998 (Узбекистан)</option>
-                    <option value="992">+992 (Таджикистан)</option>
-                </select>
-                <input type="tel" id="userPhone" class="phone-input" placeholder="Номер телефона" oninput="validatePhone()">
-            </div>
-        </div>
+        <div class="form-group"><input type="tel" id="userPhone" placeholder="Номер телефона"></div>
         <div class="form-group">
             <label>📱 Удобный способ связи:</label>
             <div class="messenger-group">
@@ -795,38 +857,43 @@ body {
 
 <script>
 let currentSelectedVacancy = null;
-let currentCountryCode = '7';
+let selectedVacancyData = null;
 
-// ФУНКЦИЯ ДЛЯ АВТОПОДСТАНОВКИ КОДА СТРАНЫ
-function updatePhonePrefix() {
-    let select = document.getElementById('countryCode');
-    let phoneInput = document.getElementById('userPhone');
-    currentCountryCode = select.value;
+// МОДАЛЬНОЕ ОКНО
+function openModal(vacancyCard) {
+    let title = vacancyCard.querySelector('.vacancy-title').innerText;
+    let salary = vacancyCard.querySelector('.vacancy-salary').innerText;
+    let featuresHTML = vacancyCard.querySelector('.vacancy-features').innerHTML;
     
-    let currentValue = phoneInput.value;
-    if (!currentValue.startsWith('+')) {
-        phoneInput.value = '';
-        phoneInput.placeholder = `+${currentCountryCode} XXX XXX XX XX`;
-    }
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalSalary').innerText = salary;
+    document.getElementById('modalFeatures').innerHTML = featuresHTML;
+    
+    selectedVacancyData = {
+        title: title,
+        salary: salary,
+        card: vacancyCard
+    };
+    
+    document.getElementById('vacancyModal').classList.add('show');
+    document.body.classList.add('modal-open');
 }
 
-function validatePhone() {
-    let phoneInput = document.getElementById('userPhone');
-    let value = phoneInput.value;
-    let code = document.getElementById('countryCode').value;
-    
-    if (value.length > 0 && !value.startsWith('+')) {
-        if (!value.startsWith(code)) {
-            // Не трогаем, просто очищаем от пробелов
-        }
-    }
+function closeModal(event) {
+    if (event && event.target !== event.currentTarget && event.target.className !== 'modal-close') return;
+    document.getElementById('vacancyModal').classList.remove('show');
+    document.body.classList.remove('modal-open');
 }
 
-// При загрузке устанавливаем плейсхолдер
-document.addEventListener('DOMContentLoaded', function() {
-    let code = document.getElementById('countryCode').value;
-    document.getElementById('userPhone').placeholder = `+${code} XXX XXX XX XX`;
-});
+function applyFromModal() {
+    if (selectedVacancyData) {
+        selectVacancy(selectedVacancyData.title, selectedVacancyData.salary);
+        closeModal();
+        setTimeout(() => {
+            document.getElementById('form').scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+    }
+}
 
 // КАРУСЕЛЬ ВАКАНСИЙ
 function scrollVacancies(direction) {
@@ -868,18 +935,18 @@ function selectVacancy(vacancyName, salary) {
     document.getElementById('selectedVacancyDisplay').innerHTML = `${vacancyName} | ${salary} ₽`;
     
     document.querySelectorAll('.vacancy-card').forEach(c => c.classList.remove('selected'));
-    let selectedCard = Array.from(document.querySelectorAll('.vacancy-card')).find(c => c.dataset.vacancy === vacancyName);
+    let selectedCard = Array.from(document.querySelectorAll('.vacancy-card')).find(c => c.querySelector('.vacancy-title')?.innerText === vacancyName);
     if(selectedCard) selectedCard.classList.add('selected');
     
     showToast(`✓ ВЫБРАНО: ${vacancyName} | ${salary} ₽`);
-    
-    setTimeout(() => {
-        document.getElementById('form').scrollIntoView({ behavior: 'smooth' });
-    }, 300);
 }
 
+// ОБРАБОТЧИК КЛИКА ПО ВАКАНСИИ (ОТКРЫВАЕТ МОДАЛЬНОЕ ОКНО)
 document.querySelectorAll('.vacancy-card').forEach(card => {
-    card.addEventListener('click', () => selectVacancy(card.dataset.vacancy, card.querySelector('.vacancy-salary')?.innerText || '200 000+'));
+    card.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openModal(card);
+    });
 });
 
 // КВИЗ
@@ -959,12 +1026,11 @@ function showToast(msg) {
     setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
-function sendToTelegram(name, phone, vacancy, messenger, countryCode) {
+function sendToTelegram(name, phone, vacancy, messenger) {
     const BOT_TOKEN = '8724372615:AAEjCiuGB2gIHDqB0lPEiGJIt3ZxhEBNZc8';
     const CHAT_ID = '8183270307';
     
-    let fullPhone = `+${countryCode} ${phone}`;
-    let text = `🔔 НОВАЯ ЗАЯВКА%0A👤 Имя: ${encodeURIComponent(name)}%0A📱 Телефон: ${encodeURIComponent(fullPhone)}%0A💼 Вакансия: ${encodeURIComponent(vacancy || 'не выбрана')}%0A📱 Мессенджер: ${encodeURIComponent(messenger)}%0A🕐 ${new Date().toLocaleString('ru-RU')}`;
+    let text = `🔔 НОВАЯ ЗАЯВКА%0A👤 Имя: ${encodeURIComponent(name)}%0A📱 Телефон: ${encodeURIComponent(phone)}%0A💼 Вакансия: ${encodeURIComponent(vacancy || 'не выбрана')}%0A📱 Мессенджер: ${encodeURIComponent(messenger)}%0A🕐 ${new Date().toLocaleString('ru-RU')}`;
     
     return fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}`)
         .then(response => response.json());
@@ -973,7 +1039,6 @@ function sendToTelegram(name, phone, vacancy, messenger, countryCode) {
 function sendApplication() {
     let name = document.getElementById('userName').value.trim();
     let phone = document.getElementById('userPhone').value.trim();
-    let countryCode = document.getElementById('countryCode').value;
     let messenger = document.getElementById('selectedMessenger').value;
     let vacancy = currentSelectedVacancy || 'не выбрана';
     
@@ -995,7 +1060,7 @@ function sendApplication() {
     btn.innerHTML = '<span class="spinner"></span> ОТПРАВЛЯЕМ...';
     btn.disabled = true;
     
-    sendToTelegram(name, phone, vacancy, messenger, countryCode)
+    sendToTelegram(name, phone, vacancy, messenger)
         .then(() => {
             showToast(`ЗАЯВКА ОТПРАВЛЕНА! Оператор свяжется в ${messenger} в течение 15 минут`);
             btn.innerHTML = 'ОТПРАВЛЕНО';
