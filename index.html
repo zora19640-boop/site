@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-<title>Оборонпром | Работа на военных заводах и складах</title>
+<title>Работа на заводе | Вакансии с зарплатой от 200 000 ₽</title>
 <style>
 * {
     margin: 0;
@@ -41,7 +41,6 @@ body {
 .logo {
     font-size: 20px;
     font-weight: 800;
-    letter-spacing: 1px;
 }
 
 .logo span {
@@ -132,7 +131,6 @@ body {
 .btn-primary:disabled {
     opacity: 0.6;
     cursor: not-allowed;
-    transform: none;
 }
 
 .stats-row {
@@ -148,12 +146,6 @@ body {
     padding: 16px 8px;
     text-align: center;
     border-radius: 8px;
-    transition: all 0.3s;
-}
-
-.stat-card:hover {
-    transform: translateY(-3px);
-    border-color: #c0392b;
 }
 
 .stat-number {
@@ -165,7 +157,6 @@ body {
 .stat-label {
     font-size: 11px;
     color: #8a9bb5;
-    text-transform: uppercase;
 }
 
 .section-title {
@@ -176,42 +167,26 @@ body {
     padding-left: 12px;
 }
 
-.vacancies-carousel {
-    position: relative;
+/* ВАКАНСИИ СЕТКОЙ */
+.vacancies-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     margin-bottom: 20px;
 }
 
-.carousel-container {
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-}
-
-.carousel-container::-webkit-scrollbar {
-    display: none;
-}
-
-.carousel-track {
-    display: flex;
-    gap: 16px;
-    padding: 4px 4px 8px 4px;
-}
-
 .vacancy-card {
-    min-width: 280px;
     background: #0a1220;
     border: 1px solid #2c3e50;
     border-radius: 12px;
-    padding: 20px;
+    padding: 16px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s;
 }
 
 .vacancy-card:hover {
-    transform: translateY(-5px);
     border-color: #c0392b;
-    box-shadow: 0 8px 25px rgba(192,57,43,0.2);
+    transform: translateX(5px);
 }
 
 .vacancy-card.selected {
@@ -219,24 +194,30 @@ body {
     background: #152032;
 }
 
-.vacancy-title {
-    font-size: 18px;
-    font-weight: 700;
+.vacancy-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     margin-bottom: 8px;
 }
 
+.vacancy-title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
 .vacancy-salary {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 800;
     color: #e67e22;
-    margin: 10px 0;
 }
 
 .vacancy-features {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin: 12px 0;
+    margin-top: 8px;
 }
 
 .feature-tag {
@@ -246,27 +227,7 @@ body {
     font-size: 11px;
 }
 
-.carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 36px;
-    height: 36px;
-    background: #c0392b;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    font-weight: bold;
-    opacity: 0.9;
-}
-
-.carousel-arrow.left { left: -12px; }
-.carousel-arrow.right { right: -12px; }
-.carousel-arrow.disabled { opacity: 0.3; cursor: not-allowed; }
-
+/* ФОРМА С ВЫБОРОМ КОДА СТРАНЫ */
 .form-block {
     background: #0a1220;
     border: 1px solid #2c3e50;
@@ -277,6 +238,32 @@ body {
 
 .form-group {
     margin-bottom: 16px;
+}
+
+.phone-group {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.country-code {
+    width: 90px;
+    background: #1a2535;
+    border: 1px solid #2c3e50;
+    border-radius: 6px;
+    color: white;
+    padding: 12px 8px;
+    font-size: 16px;
+}
+
+.phone-input {
+    flex: 1;
+    background: #1a2535;
+    border: 1px solid #2c3e50;
+    border-radius: 6px;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
 }
 
 .form-group input, .form-group select {
@@ -294,6 +281,7 @@ body {
     border-color: #c0392b;
 }
 
+/* МЕССЕНДЖЕРЫ */
 .messenger-group {
     display: flex;
     gap: 12px;
@@ -308,7 +296,6 @@ body {
     border: 1px solid #2c3e50;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.2s;
 }
 
 .messenger-option.selected {
@@ -331,6 +318,7 @@ body {
 .wa-avatar { background: #25D366; }
 .max-avatar { background: #f7931e; }
 
+/* КВИЗ */
 .quiz-block {
     background: #0a1220;
     border: 1px solid #2c3e50;
@@ -350,12 +338,10 @@ body {
     margin-bottom: 8px;
     cursor: pointer;
     border: 1px solid #2c3e50;
-    transition: all 0.2s;
 }
 
 .quiz-option:hover {
     border-color: #c0392b;
-    transform: translateX(5px);
 }
 
 .quiz-option.selected {
@@ -386,27 +372,104 @@ body {
     display: none;
 }
 
-.fade {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+/* КАРУСЕЛЬ ОТЗЫВОВ */
+.reviews-carousel {
+    position: relative;
+    margin-bottom: 20px;
 }
 
-.fade.show {
-    opacity: 1;
-    transform: translateY(0);
+.reviews-container {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(192,57,43,0.7); }
-    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(192,57,43,0); }
-    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(192,57,43,0); }
+.reviews-container::-webkit-scrollbar {
+    display: none;
 }
 
-.floating-btn {
+.reviews-track {
+    display: flex;
+    gap: 16px;
+    padding: 4px;
+}
+
+.review-card {
+    min-width: 280px;
+    background: #0a1220;
+    border: 1px solid #2c3e50;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.review-text {
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.review-author {
+    font-size: 12px;
+    color: #8a9bb5;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    background: #c0392b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 16px;
+}
+
+.carousel-arrow.left { left: -12px; }
+.carousel-arrow.right { right: -12px; }
+.carousel-arrow.disabled { opacity: 0.3; cursor: not-allowed; }
+
+/* FAQ */
+.faq-item {
+    background: #0a1220;
+    border: 1px solid #2c3e50;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.faq-question {
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+}
+
+.faq-answer {
+    display: none;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #2c3e50;
+    color: #8a9bb5;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+/* ПЛАВАЮЩАЯ КНОПКА С ПАНЕЛЬЮ */
+.floating-menu {
     position: fixed;
     bottom: 20px;
     right: 20px;
+    z-index: 1000;
+}
+
+.floating-btn {
     background: #c0392b;
     color: white;
     width: 56px;
@@ -416,30 +479,60 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 999;
     font-size: 24px;
-    animation: pulse 2s infinite;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     transition: all 0.2s;
 }
 
 .floating-btn:hover {
-    transform: scale(1.1);
-    animation: none;
+    transform: scale(1.05);
 }
 
-.spinner {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 2px solid rgba(255,255,255,0.3);
-    border-top-color: white;
-    border-radius: 50%;
-    animation: spin 0.6s linear infinite;
-    margin-right: 8px;
+.floating-panel {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    background: #0a1220;
+    border: 1px solid #2c3e50;
+    border-radius: 12px;
+    padding: 16px;
+    width: 260px;
+    display: none;
+    flex-direction: column;
+    gap: 12px;
 }
 
-@keyframes spin {
-    to { transform: rotate(360deg); }
+.floating-panel.show {
+    display: flex;
+}
+
+.panel-text {
+    font-size: 14px;
+    text-align: center;
+    color: #e8eef2;
+}
+
+.panel-icons {
+    display: flex;
+    justify-content: space-around;
+    gap: 12px;
+}
+
+.panel-icon {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    background: #1a2535;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+}
+
+.panel-icon span {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 4px;
 }
 
 .toast {
@@ -478,52 +571,37 @@ body {
     text-decoration: none;
 }
 
-.review-card {
-    background: #0a1220;
-    border: 1px solid #2c3e50;
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 12px;
-    transition: all 0.2s;
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.5s ease;
 }
 
-.review-card:hover {
-    transform: translateX(5px);
-    border-color: #c0392b;
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.faq-item {
-    background: #0a1220;
-    border: 1px solid #2c3e50;
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 10px;
-    cursor: pointer;
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-right: 8px;
 }
 
-.faq-question {
-    font-weight: 700;
-    display: flex;
-    justify-content: space-between;
-}
-
-.faq-answer {
-    display: none;
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px solid #2c3e50;
-    color: #8a9bb5;
-}
-
-.faq-item.active .faq-answer {
-    display: block;
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 </style>
 </head>
 <body>
 
 <div class="header">
-    <div class="logo">⚡ <span>ОБОРОНПРОМ</span> <span class="badge">ГОСЗАКАЗ</span></div>
+    <div class="logo">⚡ <span>РАБОТА НА ЗАВОДЕ</span> <span class="badge">ПРЯМЫЕ РАБОТОДАТЕЛИ</span></div>
     <div class="menu-btn" id="menuBtn">☰</div>
     <div class="menu" id="menu">
         <a href="#vacancies">Вакансии</a>
@@ -536,50 +614,50 @@ body {
 
 <div class="container">
     <div class="hero fade">
-        <h1>Работа на <span>оборонном заводе</span><br>и военном складе</h1>
+        <h1>Работа на <span>заводе</span> и <span>складе</span></h1>
         <div class="salary-badge" id="salaryCounter">0 ₽</div>
-        <p>Официально • Жильё • Питание • Бронь</p>
+        <p>Официально • Жильё • Питание • Стабильные выплаты</p>
         <button class="btn-primary" style="margin-top: 20px;" onclick="document.getElementById('vacancies').scrollIntoView({behavior:'smooth'})">ВЫБРАТЬ ВАКАНСИЮ</button>
     </div>
 
-    <div class="stats-row fade" id="statsBlock">
+    <div class="stats-row fade">
         <div class="stat-card"><div class="stat-number" id="statYear">0</div><div class="stat-label">года работаем</div></div>
         <div class="stat-card"><div class="stat-number" id="statClients">0</div><div class="stat-label">трудоустроено</div></div>
         <div class="stat-card"><div class="stat-number" id="statMonth">0</div><div class="stat-label">человек в месяц</div></div>
     </div>
 
+    <!-- ВАКАНСИИ - РЕАЛЬНЫЕ ПРОФЕССИИ -->
     <div class="fade" id="vacancies">
-        <div class="section-title">📦 ВАКАНСИИ ОБОРОННЫХ ПРЕДПРИЯТИЙ</div>
-        <div class="vacancies-carousel">
-            <div class="carousel-arrow left" id="carouselLeft" onclick="scrollCarousel(-1)">◀</div>
-            <div class="carousel-arrow right" id="carouselRight" onclick="scrollCarousel(1)">▶</div>
-            <div class="carousel-container" id="carouselContainer">
-                <div class="carousel-track">
-                    <div class="vacancy-card" data-vacancy="Сборщик военной техники" data-salary="240 000 – 290 000">
-                        <div class="vacancy-title">🔧 Сборщик военной техники</div>
-                        <div class="vacancy-salary">240 000 – 290 000 ₽</div>
-                        <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🍽️ Питание</span><span class="feature-tag">✅ Официально</span></div>
-                    </div>
-                    <div class="vacancy-card" data-vacancy="Оператор военного склада" data-salary="210 000 – 250 000">
-                        <div class="vacancy-title">📦 Оператор военного склада</div>
-                        <div class="vacancy-salary">210 000 – 250 000 ₽</div>
-                        <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">📋 Учёт</span><span class="feature-tag">🛡️ Бронь</span></div>
-                    </div>
-                    <div class="vacancy-card" data-vacancy="Водитель военной техники" data-salary="250 000 – 300 000">
-                        <div class="vacancy-title">🚚 Водитель военной техники</div>
-                        <div class="vacancy-salary">250 000 – 300 000 ₽</div>
-                        <div class="vacancy-features"><span class="feature-tag">🚛 КамАЗ</span><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">⛽ Топливо</span></div>
-                    </div>
-                    <div class="vacancy-card" data-vacancy="Инженер-испытатель" data-salary="270 000 – 320 000">
-                        <div class="vacancy-title">⚙️ Инженер-испытатель</div>
-                        <div class="vacancy-salary">270 000 – 320 000 ₽</div>
-                        <div class="vacancy-features"><span class="feature-tag">📐 Высшее</span><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🎓 Обучение</span></div>
-                    </div>
-                </div>
+        <div class="section-title">📦 ДОСТУПНЫЕ ВАКАНСИИ</div>
+        <div class="vacancies-grid" id="vacanciesGrid">
+            <div class="vacancy-card" data-vacancy="Водитель на завод" data-salary="230 000 – 280 000">
+                <div class="vacancy-header"><span class="vacancy-title">🚚 Водитель на завод</span><span class="vacancy-salary">230 000 – 280 000 ₽</span></div>
+                <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🚛 Категория C</span><span class="feature-tag">✅ Официально</span></div>
+            </div>
+            <div class="vacancy-card" data-vacancy="Инженер на производство" data-salary="260 000 – 320 000">
+                <div class="vacancy-header"><span class="vacancy-title">⚙️ Инженер на производство</span><span class="vacancy-salary">260 000 – 320 000 ₽</span></div>
+                <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">📐 Высшее</span><span class="feature-tag">🎓 Обучение</span></div>
+            </div>
+            <div class="vacancy-card" data-vacancy="Сварщик на завод" data-salary="240 000 – 290 000">
+                <div class="vacancy-header"><span class="vacancy-title">🔥 Сварщик на завод</span><span class="vacancy-salary">240 000 – 290 000 ₽</span></div>
+                <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🛠️ Разряды 4-6</span><span class="feature-tag">🍽️ Питание</span></div>
+            </div>
+            <div class="vacancy-card" data-vacancy="Разнорабочий на завод" data-salary="200 000 – 240 000">
+                <div class="vacancy-header"><span class="vacancy-title">🔧 Разнорабочий на завод</span><span class="vacancy-salary">200 000 – 240 000 ₽</span></div>
+                <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">👍 Без опыта</span><span class="feature-tag">🍽️ Питание</span></div>
+            </div>
+            <div class="vacancy-card" data-vacancy="Кладовщик на склад" data-salary="210 000 – 250 000">
+                <div class="vacancy-header"><span class="vacancy-title">📦 Кладовщик на склад</span><span class="vacancy-salary">210 000 – 250 000 ₽</span></div>
+                <div class="vacancy-features"><span class="feature-tag">🏠 Жильё рядом</span><span class="feature-tag">📋 Учёт</span><span class="feature-tag">✅ Официально</span></div>
+            </div>
+            <div class="vacancy-card" data-vacancy="Оператор склада" data-salary="220 000 – 260 000">
+                <div class="vacancy-header"><span class="vacancy-title">📦 Оператор склада</span><span class="vacancy-salary">220 000 – 260 000 ₽</span></div>
+                <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🖥️ Работа с ПК</span><span class="feature-tag">✅ Опыт не нужен</span></div>
             </div>
         </div>
     </div>
 
+    <!-- КВИЗ -->
     <div class="quiz-block fade" id="quiz">
         <h3 style="margin-bottom: 16px;">🎯 ПОДБОР ВАКАНСИИ ЗА 2 МИНУТЫ</h3>
         <div class="quiz-progress"><div class="quiz-progress-bar" id="quizProgress"></div></div>
@@ -612,17 +690,32 @@ body {
         <div class="quiz-result" id="quizResult"></div>
     </div>
 
+    <!-- ОТЗЫВЫ - ГОРИЗОНТАЛЬНАЯ КАРУСЕЛЬ -->
     <div class="fade" id="reviews">
-        <div class="section-title">⭐ РЕАЛЬНЫЕ ОТЗЫВЫ</div>
-        <div class="review-card"><div class="review-text">«Устроился на военный склад за 3 дня. ЗП 245к, жильё дали. Всё честно!»</div><div class="review-author">— Дмитрий</div></div>
-        <div class="review-card"><div class="review-text">«Работаю сборщиком уже 4 месяца. Зарплата вовремя, бронь от призыва»</div><div class="review-author">— Александр</div></div>
+        <div class="section-title">⭐ ОТЗЫВЫ НАШИХ СОТРУДНИКОВ</div>
+        <div class="reviews-carousel">
+            <div class="carousel-arrow left" id="reviewsLeft" onclick="scrollReviews(-1)">◀</div>
+            <div class="carousel-arrow right" id="reviewsRight" onclick="scrollReviews(1)">▶</div>
+            <div class="reviews-container" id="reviewsContainer">
+                <div class="reviews-track">
+                    <div class="review-card"><div class="review-text">«Устроился водителем, дали жильё, зарплата вовремя. Всё честно»</div><div class="review-author">— Дмитрий, водитель</div></div>
+                    <div class="review-card"><div class="review-text">«Работаю сварщиком 3 месяца, хорошие условия, коллектив нормальный»</div><div class="review-author">— Александр, сварщик</div></div>
+                    <div class="review-card"><div class="review-text">«Без опыта взяли разнорабочим, обучили, сейчас уже на станке работаю»</div><div class="review-author">— Михаил, разнорабочий</div></div>
+                    <div class="review-card"><div class="review-text">«Инженером устроился, предоставили жильё, доволен»</div><div class="review-author">— Сергей, инженер</div></div>
+                    <div class="review-card"><div class="review-text">«Склад, нормальная работа, платят без задержек»</div><div class="review-author">— Андрей, кладовщик</div></div>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <!-- FAQ -->
     <div class="fade" id="faq">
         <div class="section-title">❓ ЧАСТЫЕ ВОПРОСЫ</div>
-        <div class="faq-item"><div class="faq-question">Нужен ли опыт? <span>▼</span></div><div class="faq-answer">Нет, обучаем на месте. Есть вакансии без опыта.</div></div>
-        <div class="faq-item"><div class="faq-question">Дают ли бронь от призыва? <span>▼</span></div><div class="faq-answer">Да, на оборонных предприятиях официальное бронирование.</div></div>
-        <div class="faq-item"><div class="faq-question">Есть ли жильё? <span>▼</span></div><div class="faq-answer">Да, предоставляем бесплатное проживание.</div></div>
+        <div class="faq-item"><div class="faq-question">Отправляют ли на СВО? <span>▼</span></div><div class="faq-answer">Нет, наши предприятия не связаны с отправкой в зону СВО. Работа на заводе — это гражданская профессия.</div></div>
+        <div class="faq-item"><div class="faq-question">Могут ли работать иностранцы? <span>▼</span></div><div class="faq-answer">Да, граждане СНГ могут трудоустроиться при наличии патента или разрешения на работу.</div></div>
+        <div class="faq-item"><div class="faq-question">Как быстро связывается менеджер? <span>▼</span></div><div class="faq-answer">Менеджер связывается в течение 15 минут после отправки заявки в выбранном мессенджере.</div></div>
+        <div class="faq-item"><div class="faq-question">Нужен ли опыт? <span>▼</span></div><div class="faq-answer">Нет, большинство вакансий не требуют опыта — мы обучаем на месте.</div></div>
+        <div class="faq-item"><div class="faq-question">Предоставляют ли жильё? <span>▼</span></div><div class="faq-answer">Да, на большинстве объектов предоставляется бесплатное проживание.</div></div>
     </div>
 
     <div class="tg-banner fade">
@@ -630,17 +723,30 @@ body {
         <a href="https://t.me/zavodrabotarf" target="_blank">ПОДПИСАТЬСЯ →</a>
     </div>
 
+    <!-- ФОРМА С ВЫБОРОМ КОДА СТРАНЫ -->
     <div class="form-block fade" id="form">
         <div class="section-title">📞 ОСТАВИТЬ ЗАЯВКУ</div>
         <p style="margin-bottom: 16px; color: #8a9bb5;">Выбранная вакансия: <strong id="selectedVacancyDisplay" style="color:#e67e22;">не выбрана</strong></p>
         <div class="form-group"><input type="text" id="userName" placeholder="Ваше имя"></div>
-        <div class="form-group"><input type="tel" id="userPhone" placeholder="Номер телефона"></div>
+        <div class="form-group">
+            <div class="phone-group">
+                <select id="countryCode" class="country-code">
+                    <option value="7">+7 (РФ)</option>
+                    <option value="380">+380 (Украина)</option>
+                    <option value="375">+375 (Беларусь)</option>
+                    <option value="996">+996 (Кыргызстан)</option>
+                    <option value="998">+998 (Узбекистан)</option>
+                    <option value="992">+992 (Таджикистан)</option>
+                </select>
+                <input type="tel" id="userPhone" class="phone-input" placeholder="Номер телефона">
+            </div>
+        </div>
         <div class="form-group">
             <label>📱 Удобный способ связи:</label>
             <div class="messenger-group">
                 <div class="messenger-option selected" onclick="selectMessenger(this, 'Telegram')"><div class="avatar tg-avatar">📨</div><small>Telegram</small></div>
                 <div class="messenger-option" onclick="selectMessenger(this, 'WhatsApp')"><div class="avatar wa-avatar">💚</div><small>WhatsApp</small></div>
-                <div class="messenger-option" onclick="selectMessenger(this, 'MAX')"><div class="avatar max-avatar">⭐</div><small>МАХ</small></div>
+                <div class="messenger-option" onclick="selectMessenger(this, 'MAX')"><div class="avatar max-avatar">⭐</div><small>MAX</small></div>
             </div>
             <input type="hidden" id="selectedMessenger" value="Telegram">
         </div>
@@ -648,13 +754,25 @@ body {
     </div>
 </div>
 
-<div class="floating-btn" onclick="window.open('https://t.me/zavodrabotarf', '_blank')">📞</div>
+<!-- ПЛАВАЮЩАЯ КНОПКА С ПАНЕЛЬЮ -->
+<div class="floating-menu">
+    <div class="floating-btn" onclick="toggleFloatingPanel()">📞</div>
+    <div class="floating-panel" id="floatingPanel">
+        <div class="panel-text">Есть вопрос? Задайте его лично менеджеру</div>
+        <div class="panel-icons">
+            <a href="https://t.me/zavodrabotarf" target="_blank" class="panel-icon"><span>📨</span>TG</a>
+            <a href="https://wa.me/79991234567" target="_blank" class="panel-icon"><span>💚</span>WA</a>
+            <a href="#" class="panel-icon" onclick="showToast('Напишите нам в MAX: @max_support'); return false;"><span>⭐</span>MAX</a>
+        </div>
+    </div>
+</div>
+
 <div class="toast" id="toast">✓ ЗАЯВКА ОТПРАВЛЕНА!</div>
 
 <script>
 let currentSelectedVacancy = null;
 
-// ========== АНИМАЦИИ ==========
+// АНИМАЦИИ
 function animateSalary() {
     let el = document.getElementById('salaryCounter');
     let start = 0, end = 210000, duration = 1500;
@@ -688,7 +806,7 @@ function animateStats() {
     animateNumber('statMonth', 0, 70, 1000);
 }
 
-// ========== ВЫБОР ВАКАНСИИ ==========
+// ВЫБОР ВАКАНСИИ
 function selectVacancy(vacancyName, salary) {
     currentSelectedVacancy = vacancyName;
     document.getElementById('selectedVacancyDisplay').innerHTML = `${vacancyName} | ${salary} ₽`;
@@ -708,24 +826,24 @@ document.querySelectorAll('.vacancy-card').forEach(card => {
     card.addEventListener('click', () => selectVacancy(card.dataset.vacancy, card.querySelector('.vacancy-salary')?.innerText || '200 000+'));
 });
 
-// ========== КАРУСЕЛЬ ==========
-function scrollCarousel(direction) {
-    const container = document.getElementById('carouselContainer');
+// КАРУСЕЛЬ ОТЗЫВОВ
+function scrollReviews(direction) {
+    const container = document.getElementById('reviewsContainer');
     container.scrollLeft += direction * 300;
-    setTimeout(updateArrows, 100);
+    setTimeout(updateReviewsArrows, 100);
 }
 
-function updateArrows() {
-    let container = document.getElementById('carouselContainer');
-    let left = document.getElementById('carouselLeft');
-    let right = document.getElementById('carouselRight');
+function updateReviewsArrows() {
+    let container = document.getElementById('reviewsContainer');
+    let left = document.getElementById('reviewsLeft');
+    let right = document.getElementById('reviewsRight');
     if(container.scrollLeft <= 10) left.classList.add('disabled');
     else left.classList.remove('disabled');
     if(container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) right.classList.add('disabled');
     else right.classList.remove('disabled');
 }
 
-// ========== КВИЗ ==========
+// КВИЗ
 let quizStep = 1;
 let quizAnswers = {1: null, 2: null, 3: null, 4: null};
 
@@ -767,10 +885,10 @@ function nextQuiz() {
         
         let exp = parseInt(quizAnswers[1]);
         let salary = parseInt(quizAnswers[2]);
-        let rec = exp <= 1 ? 'Комплектовщик склада' : (exp === 2 ? 'Сборщик техники' : 'Инженер-испытатель');
-        if(salary === 2) rec = 'Инженер-испытатель или водитель';
+        let rec = exp <= 1 ? 'Разнорабочий или кладовщик' : (exp === 2 ? 'Водитель или сварщик' : 'Инженер');
+        if(salary === 2) rec = 'Инженер или водитель';
         
-        document.getElementById('quizResult').innerHTML = `<strong>🎯 ВАША ИДЕАЛЬНАЯ ВАКАНСИЯ:</strong><br>${rec}<br><br><button class="btn-primary" style="background:#e67e22" onclick="selectVacancy('${rec}', '260 000+'); document.getElementById('form').scrollIntoView({behavior:'smooth'})">📝 ОСТАВИТЬ ЗАЯВКУ</button>`;
+        document.getElementById('quizResult').innerHTML = `<strong>📋 МЫ УЧЛИ ВАШИ ПРЕДПОЧТЕНИЯ</strong><br><br>На основе ваших ответов мы подберем для вас лучший вариант из вакансий: <strong>${rec}</strong><br><br><button class="btn-primary" style="background:#e67e22" onclick="selectVacancy('${rec}', 'от 230 000'); document.getElementById('form').scrollIntoView({behavior:'smooth'})">📝 ОСТАВИТЬ ЗАЯВКУ</button>`;
         document.getElementById('quizResult').style.display = 'block';
         document.getElementById('nextQuizBtn').style.display = 'none';
         updateQuizProgress();
@@ -784,14 +902,20 @@ document.querySelectorAll('.quiz-option').forEach(opt => {
     });
 });
 
-// ========== МЕССЕНДЖЕРЫ ==========
+// МЕССЕНДЖЕРЫ
 function selectMessenger(el, messenger) {
     document.querySelectorAll('.messenger-option').forEach(o => o.classList.remove('selected'));
     el.classList.add('selected');
     document.getElementById('selectedMessenger').value = messenger;
 }
 
-// ========== УВЕДОМЛЕНИЯ ==========
+// ПЛАВАЮЩАЯ ПАНЕЛЬ
+function toggleFloatingPanel() {
+    let panel = document.getElementById('floatingPanel');
+    panel.classList.toggle('show');
+}
+
+// УВЕДОМЛЕНИЯ
 function showToast(msg) {
     let toast = document.getElementById('toast');
     toast.innerText = msg;
@@ -799,22 +923,23 @@ function showToast(msg) {
     setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
-// ========== ОТПРАВКА В TELEGRAM ==========
-function sendToTelegram(name, phone, vacancy, messenger) {
-    // ⚠️ ВАЖНО: Замените этот токен на НОВЫЙ от вашего бота!
-    const BOT_TOKEN = '8699028327:AAFVN1gCyUhSA2V6AFTgQFeMAdnef-enyqo';  // 👈 ЗАМЕНИТЬ НА НОВЫЙ ТОКЕН!
-    const CHAT_ID = '8183270307';  // 👈 ЗАМЕНИТЬ НА ВАШ CHAT_ID
+// ОТПРАВКА В TELEGRAM
+function sendToTelegram(name, phone, vacancy, messenger, countryCode) {
+    const BOT_TOKEN = '8724372615:AAEjCiuGB2gIHDqB0lPEiGJIt3ZxhEBNZc8';  // ЗАМЕНИТЬ НА НОВЫЙ ТОКЕН!
+    const CHAT_ID = '8183270307';  // ЗАМЕНИТЬ НА ВАШ CHAT_ID
     
-    let text = `🔔 НОВАЯ ЗАЯВКА%0A👤 Имя: ${encodeURIComponent(name)}%0A📱 Телефон: ${encodeURIComponent(phone)}%0A💼 Вакансия: ${encodeURIComponent(vacancy || 'не выбрана')}%0A📱 Мессенджер: ${encodeURIComponent(messenger)}%0A🕐 ${new Date().toLocaleString('ru-RU')}`;
+    let fullPhone = `+${countryCode} ${phone}`;
+    let text = `🔔 НОВАЯ ЗАЯВКА%0A👤 Имя: ${encodeURIComponent(name)}%0A📱 Телефон: ${encodeURIComponent(fullPhone)}%0A💼 Вакансия: ${encodeURIComponent(vacancy || 'не выбрана')}%0A📱 Мессенджер: ${encodeURIComponent(messenger)}%0A🕐 ${new Date().toLocaleString('ru-RU')}`;
     
     return fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}`)
         .then(response => response.json());
 }
 
-// ========== ОТПРАВКА ФОРМЫ ==========
+// ОТПРАВКА ФОРМЫ С ПРОВЕРКОЙ НОМЕРА
 function sendApplication() {
     let name = document.getElementById('userName').value.trim();
     let phone = document.getElementById('userPhone').value.trim();
+    let countryCode = document.getElementById('countryCode').value;
     let messenger = document.getElementById('selectedMessenger').value;
     let vacancy = currentSelectedVacancy || 'не выбрана';
     
@@ -826,7 +951,7 @@ function sendApplication() {
         showToast('Введите номер телефона');
         return;
     }
-    if (phone.length < 6) {
+    if (phone.length < 5) {
         showToast('Введите корректный номер телефона');
         return;
     }
@@ -836,7 +961,7 @@ function sendApplication() {
     btn.innerHTML = '<span class="spinner"></span> ОТПРАВЛЯЕМ...';
     btn.disabled = true;
     
-    sendToTelegram(name, phone, vacancy, messenger)
+    sendToTelegram(name, phone, vacancy, messenger, countryCode)
         .then(() => {
             showToast(`ЗАЯВКА ОТПРАВЛЕНА! Оператор свяжется в ${messenger} в течение 15 минут`);
             btn.innerHTML = 'ОТПРАВЛЕНО';
@@ -854,7 +979,7 @@ function sendApplication() {
         });
 }
 
-// ========== МЕНЮ ==========
+// МЕНЮ
 document.getElementById('menuBtn').addEventListener('click', (e) => {
     e.stopPropagation();
     let m = document.getElementById('menu');
@@ -869,7 +994,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// ========== FAQ ==========
+// FAQ
 document.querySelectorAll('.faq-item').forEach(item => {
     item.addEventListener('click', function() {
         this.classList.toggle('active');
@@ -878,7 +1003,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
     });
 });
 
-// ========== ПЛАВНЫЙ СКРОЛЛ ==========
+// ПЛАВНЫЙ СКРОЛЛ
 document.querySelectorAll('.menu a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -888,7 +1013,7 @@ document.querySelectorAll('.menu a').forEach(anchor => {
     });
 });
 
-// ========== АНИМАЦИЯ ПОЯВЛЕНИЯ ==========
+// АНИМАЦИЯ ПОЯВЛЕНИЯ
 let observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
         if(e.isIntersecting) {
@@ -899,12 +1024,21 @@ let observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 document.querySelectorAll('.fade').forEach(el => observer.observe(el));
 
-// ========== ЗАПУСК ==========
+// ЗАПУСК
 setTimeout(() => {
     animateSalary();
-    updateArrows();
+    updateReviewsArrows();
 }, 100);
-setInterval(updateArrows, 200);
+setInterval(updateReviewsArrows, 200);
+
+// Закрывать панель при клике вне
+document.addEventListener('click', function(e) {
+    let panel = document.getElementById('floatingPanel');
+    let btn = document.querySelector('.floating-btn');
+    if(panel.classList.contains('show') && !panel.contains(e.target) && e.target !== btn) {
+        panel.classList.remove('show');
+    }
+});
 </script>
 </body>
 </html>
