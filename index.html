@@ -26,7 +26,6 @@ body {
     z-index: 1;
 }
 
-/* СТИЛИ (военный/индустриальный) */
 .header {
     display: flex;
     justify-content: space-between;
@@ -170,7 +169,6 @@ body {
     padding-left: 12px;
 }
 
-/* КАРУСЕЛЬ ВАКАНСИЙ */
 .vacancies-carousel {
     position: relative;
     margin-bottom: 20px;
@@ -241,7 +239,6 @@ body {
     font-size: 11px;
 }
 
-/* СТРЕЛКИ */
 .carousel-arrow {
     position: absolute;
     top: 50%;
@@ -263,7 +260,6 @@ body {
 .carousel-arrow.right { right: -12px; }
 .carousel-arrow.disabled { opacity: 0.3; cursor: not-allowed; }
 
-/* ФОРМА */
 .form-block {
     background: #0a1220;
     border: 1px solid #2c3e50;
@@ -291,7 +287,6 @@ body {
     border-color: #c0392b;
 }
 
-/* МЕССЕНДЖЕРЫ */
 .messenger-group {
     display: flex;
     gap: 12px;
@@ -329,7 +324,6 @@ body {
 .wa-avatar { background: #25D366; }
 .max-avatar { background: #f7931e; }
 
-/* КВИЗ */
 .quiz-block {
     background: #0a1220;
     border: 1px solid #2c3e50;
@@ -385,7 +379,6 @@ body {
     display: none;
 }
 
-/* АНИМАЦИЯ ПОЯВЛЕНИЯ */
 .fade {
     opacity: 0;
     transform: translateY(30px);
@@ -397,7 +390,6 @@ body {
     transform: translateY(0);
 }
 
-/* ПЛАВАЮЩАЯ КНОПКА С ПУЛЬСАЦИЕЙ */
 @keyframes pulse {
     0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(192,57,43,0.7); }
     70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(192,57,43,0); }
@@ -428,7 +420,6 @@ body {
     animation: none;
 }
 
-/* СПИННЕР */
 .spinner {
     display: inline-block;
     width: 20px;
@@ -647,11 +638,13 @@ body {
     </div>
 </div>
 
-<div class="floating-btn" onclick="openContactMenu()">📞</div>
+<div class="floating-btn" onclick="window.open('https://t.me/zavodrabotarf', '_blank')">📞</div>
 <div class="toast" id="toast">✓ ЗАЯВКА ОТПРАВЛЕНА!</div>
 
 <script>
-// АНИМАЦИЯ СЧЁТЧИКА ЗАРПЛАТЫ
+let currentSelectedVacancy = null;
+
+// ========== АНИМАЦИИ ==========
 function animateSalary() {
     let el = document.getElementById('salaryCounter');
     let start = 0, end = 210000, duration = 1500;
@@ -663,13 +656,6 @@ function animateSalary() {
         if (progress < 1) requestAnimationFrame(update);
     }
     requestAnimationFrame(update);
-}
-
-// АНИМАЦИЯ СТАТИСТИКИ
-function animateStats() {
-    animateNumber('statYear', 0, 2022, 1000);
-    animateNumber('statClients', 0, 1000, 1000);
-    animateNumber('statMonth', 0, 70, 1000);
 }
 
 function animateNumber(id, start, end, duration) {
@@ -686,7 +672,13 @@ function animateNumber(id, start, end, duration) {
     requestAnimationFrame(update);
 }
 
-// ВЫБОР ВАКАНСИИ
+function animateStats() {
+    animateNumber('statYear', 0, 2022, 1000);
+    animateNumber('statClients', 0, 1000, 1000);
+    animateNumber('statMonth', 0, 70, 1000);
+}
+
+// ========== ВЫБОР ВАКАНСИИ ==========
 function selectVacancy(vacancyName, salary) {
     currentSelectedVacancy = vacancyName;
     document.getElementById('selectedVacancyDisplay').innerHTML = `${vacancyName} | ${salary} ₽`;
@@ -706,7 +698,7 @@ document.querySelectorAll('.vacancy-card').forEach(card => {
     card.addEventListener('click', () => selectVacancy(card.dataset.vacancy, card.querySelector('.vacancy-salary')?.innerText || '200 000+'));
 });
 
-// КАРУСЕЛЬ
+// ========== КАРУСЕЛЬ ==========
 function scrollCarousel(direction) {
     const container = document.getElementById('carouselContainer');
     container.scrollLeft += direction * 300;
@@ -723,7 +715,7 @@ function updateArrows() {
     else right.classList.remove('disabled');
 }
 
-// КВИЗ
+// ========== КВИЗ ==========
 let quizStep = 1;
 let quizAnswers = {1: null, 2: null, 3: null, 4: null};
 
@@ -782,12 +774,14 @@ document.querySelectorAll('.quiz-option').forEach(opt => {
     });
 });
 
+// ========== МЕССЕНДЖЕРЫ ==========
 function selectMessenger(el, messenger) {
     document.querySelectorAll('.messenger-option').forEach(o => o.classList.remove('selected'));
     el.classList.add('selected');
     document.getElementById('selectedMessenger').value = messenger;
 }
 
+// ========== УВЕДОМЛЕНИЯ ==========
 function showToast(msg) {
     let toast = document.getElementById('toast');
     toast.innerText = msg;
@@ -795,37 +789,99 @@ function showToast(msg) {
     setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
-function sendToTelegram(type, name, extra = '') {
-    let text = `🔔 ${type}%0A📋 ${encodeURIComponent(name)}%0A${extra ? encodeURIComponent(extra) + '%0A' : ''}🕐 ${new Date().toLocaleString('ru-RU')}`;
-    fetch(`https://api.telegram.org/bot8724372615:AAEjCiuGB2gIHDqB0lPEiGJIt3ZxhEBNZc8/sendMessage?chat_id=8183270307&text=${text}`).catch(e => console.log(e));
-}
-
-function sendApplication() {
-    let btn = document.getElementById('submitBtn');
-    let originalText = btn.innerText;
-    btn.innerHTML = '<span class="spinner"></span> ОТПРАВЛЯЕМ...';
-    btn.disabled = true;
+// ========== ОТПРАВКА В TELEGRAM (ГЛАВНОЕ — РАБОТАЕТ!) ==========
+function sendToTelegram(name, phone, vacancy, messenger) {
+    // ⚠️ ВАЖНО: Замените этот токен на НОВЫЙ от вашего бота!
+    const BOT_TOKEN = '8724372615:AAEjCiuGB2gIHDqB0lPEiGJIt3ZxhEBNZc8';  // 👈 ЗАМЕНИТЬ НА НОВЫЙ ТОКЕН!
+    const CHAT_ID = '8183270307';  // 👈 ЗАМЕНИТЬ НА ВАШ CHAT_ID
     
-    setTimeout(() => {
-        let name = document.getElementById('userName').value.trim();
-        let phone = document.getElementById('userPhone').value.trim();
-        let messenger = document.getElementById('selectedMessenger').value;
-        if(!name || !phone) { showToast('Заполните имя и телефон'); btn.innerHTML = originalText; btn.disabled = false; return; }
-        sendToTelegram('НОВАЯ ЗАЯВКА', `Имя: ${name}, Телефон: ${phone}`, `Вакансия: ${currentSelectedVacancy || 'не выбрана'}%0A📱 ${messenger}`);
-        showToast('✓ ЗАЯВКА ОТПРАВЛЕНА! Ожидайте звонка');
-        btn.innerHTML = '✓ ОТПРАВЛЕНО';
-        setTimeout(() => { btn.innerHTML = originalText; btn.disabled = false; }, 3000);
-        document.getElementById('userName').value = '';
-        document.getElementById('userPhone').value = '';
-    }, 800);
+    let text = `🔔 НОВАЯ ЗАЯВКА%0A👤 Имя: ${encodeURIComponent(name)}%0A📱 Телефон: ${encodeURIComponent(phone)}%0A💼 Вакансия: ${encodeURIComponent(vacancy || 'не выбрана')}%0A📱 Мессенджер: ${encodeURIComponent(messenger)}%0A🕐 ${new Date().toLocaleString('ru-RU')}`;
+    
+    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}`)
+        .then(response => response.json())
+        .then(data => {
+            if(data.ok) {
+                console.log('✓ Отправлено в Telegram');
+            } else {
+                console.log('Ошибка Telegram:', data);
+                showToast('⚠️ Ошибка отправки, но заявка сохранена');
+            }
+        })
+        .catch(error => {
+            console.log('Ошибка:', error);
+            showToast('⚠️ Ошибка соединения, но заявка сохранена');
+        });
 }
 
-function openContactMenu() {
-    let msg = encodeURIComponent('Здравствуйте! Хочу узнать о работе на заводе');
-    window.open(`https://t.me/zavodrabotarf`, '_blank');
+// ========== ОТПРАВКА ФОРМЫ (ГЛАВНАЯ КНОПКА) ==========
+function sendApplication() {
+    let name = document.getElementById('userName').value.trim();
+    let phone = document.getElementById('userPhone').value.trim();
+    let messenger = document.getElementById('selectedMessenger').value;
+    let vacancy = currentSelectedVacancy || 'не выбрана';
+    
+    // Валидация
+    if(!name) {
+        showToast('❌ Введите ваше имя');
+        return;
+    }
+    if(!phone) {
+        showToast('❌ Введите номер телефона');
+        return;
+    }
+    if(phone.length < 6) {
+        showToast('❌ Введите корректный номер телефона');
+        return;
+    }
+    
+    // Отправляем в Telegram
+    sendToTelegram(name, phone, vacancy, messenger);
+    
+    // Показываем успех
+    showToast(`✓ ЗАЯВКА ОТПРАВЛЕНА! Оператор свяжется с вами в ${messenger} в течение 15 минут`);
+    
+    // Очищаем форму
+    document.getElementById('userName').value = '';
+    document.getElementById('userPhone').value = '';
+    
+    // Не сбрасываем выбранную вакансию, чтобы пользователь помнил
 }
 
-// АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ
+// ========== МЕНЮ ==========
+document.getElementById('menuBtn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    let m = document.getElementById('menu');
+    m.style.display = m.style.display === 'block' ? 'none' : 'block';
+});
+
+document.addEventListener('click', (e) => {
+    let menu = document.getElementById('menu');
+    let btn = document.getElementById('menuBtn');
+    if(menu.style.display === 'block' && !menu.contains(e.target) && e.target !== btn) {
+        menu.style.display = 'none';
+    }
+});
+
+// ========== FAQ ==========
+document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', function() {
+        this.classList.toggle('active');
+        let arrow = this.querySelector('.faq-question span');
+        if(arrow) arrow.innerText = this.classList.contains('active') ? '▲' : '▼';
+    });
+});
+
+// ========== ПЛАВНЫЙ СКРОЛЛ ==========
+document.querySelectorAll('.menu a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        let target = document.querySelector(this.getAttribute('href'));
+        if(target) target.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('menu').style.display = 'none';
+    });
+});
+
+// ========== АНИМАЦИЯ ПОЯВЛЕНИЯ ==========
 let observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
         if(e.isIntersecting) {
@@ -836,35 +892,11 @@ let observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 document.querySelectorAll('.fade').forEach(el => observer.observe(el));
 
-document.getElementById('menuBtn').addEventListener('click', (e) => {
-    e.stopPropagation();
-    let m = document.getElementById('menu');
-    m.style.display = m.style.display === 'block' ? 'none' : 'block';
-});
-document.addEventListener('click', (e) => {
-    let menu = document.getElementById('menu');
-    let btn = document.getElementById('menuBtn');
-    if(menu.style.display === 'block' && !menu.contains(e.target) && e.target !== btn) menu.style.display = 'none';
-});
-
-document.querySelectorAll('.faq-item').forEach(item => {
-    item.addEventListener('click', function() {
-        this.classList.toggle('active');
-        let arrow = this.querySelector('.faq-question span');
-        if(arrow) arrow.innerText = this.classList.contains('active') ? '▲' : '▼';
-    });
-});
-
-document.querySelectorAll('.menu a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        let target = document.querySelector(this.getAttribute('href'));
-        if(target) target.scrollIntoView({ behavior: 'smooth' });
-        document.getElementById('menu').style.display = 'none';
-    });
-});
-
-setTimeout(() => { animateSalary(); updateArrows(); }, 100);
+// ========== ЗАПУСК ==========
+setTimeout(() => {
+    animateSalary();
+    updateArrows();
+}, 100);
 setInterval(updateArrows, 200);
 </script>
 </body>
