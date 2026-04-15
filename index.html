@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-<title>Работа на военных складах и заводах | Трудоустройство от 200 000 ₽</title>
-<meta name="description" content="Официальное трудоустройство на военные склады и заводы. Зарплата от 200 000 ₽. Жильё, питание, полный соцпакет. Помогли 1000+ человек.">
-
+<title>Оборонпром | Трудоустройство на военные заводы и склады</title>
 <style>
 * {
     margin: 0;
@@ -14,40 +12,10 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: #f0f2f5;
-    color: #1a1a2e;
+    font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+    background: #0a0f1a;
+    color: #e8eef2;
     line-height: 1.5;
-}
-
-/* ПРЕМИУМ ФОН */
-body {
-    background: linear-gradient(135deg, #e8edf2 0%, #d4dce4 100%);
-    position: relative;
-}
-
-body::before {
-    content: '';
-    position: fixed;
-    top: -30%;
-    left: -20%;
-    width: 140%;
-    height: 140%;
-    background: radial-gradient(circle at 20% 30%, rgba(0,100,200,0.08) 0%, rgba(200,50,50,0.04) 50%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-body::after {
-    content: '';
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 85% 90%, rgba(26,26,46,0.06) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 0;
 }
 
 .container {
@@ -58,158 +26,113 @@ body::after {
     z-index: 1;
 }
 
-/* ХЕДЕР */
+/* ВОЕННЫЙ/ИНДУСТРИАЛЬНЫЙ СТИЛЬ */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 12px 20px;
-    background: rgba(255,255,255,0.96);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    background: #0f1622;
+    border-bottom: 2px solid #c0392b;
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-radius: 20px;
-    margin-bottom: 16px;
 }
 
 .logo {
     font-size: 20px;
     font-weight: 800;
+    letter-spacing: 1px;
 }
 
 .logo span {
-    background: linear-gradient(135deg, #1e3a5f, #0d2b45);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #c0392b;
 }
 
 .badge {
-    background: #e53935;
+    background: #c0392b;
     color: white;
     padding: 4px 10px;
-    border-radius: 40px;
-    font-size: 11px;
+    border-radius: 4px;
+    font-size: 10px;
     font-weight: 600;
+    margin-left: 8px;
 }
 
 .menu-btn {
     font-size: 24px;
     cursor: pointer;
-    background: #f0f2f5;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 30px;
-    transition: all 0.2s;
-}
-
-.menu-btn:hover {
-    background: #e0e4e8;
+    color: #e8eef2;
 }
 
 .menu {
     display: none;
     position: absolute;
     right: 20px;
-    top: 60px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    top: 55px;
+    background: #0f1622;
+    border: 1px solid #2c3e50;
+    border-radius: 8px;
     z-index: 9999;
-    overflow: hidden;
     min-width: 180px;
 }
 
 .menu a {
     display: block;
-    padding: 14px 20px;
+    padding: 12px 20px;
     text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: all 0.2s;
+    color: #e8eef2;
+    border-bottom: 1px solid #1a2535;
 }
 
 .menu a:hover {
-    background: #f5f7fa;
-    color: #1e3a5f;
+    background: #c0392b;
+    color: white;
 }
 
 /* ГЕРОЙ */
 .hero {
-    background: linear-gradient(135deg, #0d2b45 0%, #1a3a5f 100%);
-    border-radius: 28px;
+    background: linear-gradient(135deg, #0a0f1a 0%, #141c2c 100%);
+    border: 1px solid #2c3e50;
+    border-radius: 12px;
     padding: 32px 24px;
-    color: white;
     margin-bottom: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::after {
-    content: '⚡';
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    font-size: 120px;
-    opacity: 0.1;
-    pointer-events: none;
+    text-align: center;
 }
 
 .hero h1 {
-    font-size: 32px;
+    font-size: 28px;
     margin-bottom: 12px;
-    line-height: 1.2;
+    color: #fff;
 }
 
 .hero h1 span {
-    color: #ffd700;
-    display: inline-block;
+    color: #c0392b;
 }
 
 .salary-badge {
-    font-size: 44px;
+    font-size: 40px;
     font-weight: 800;
-    color: #ffd700;
+    color: #e67e22;
     margin: 15px 0 8px;
 }
 
 .btn-primary {
-    display: inline-block;
-    background: linear-gradient(135deg, #e53935, #c62828);
+    background: #c0392b;
     color: white;
-    padding: 14px 28px;
-    border-radius: 40px;
-    text-decoration: none;
+    padding: 14px 24px;
+    border-radius: 6px;
     font-weight: 700;
-    transition: all 0.2s;
     border: none;
     cursor: pointer;
     font-size: 16px;
-    box-shadow: 0 6px 20px rgba(229,57,53,0.35);
     width: 100%;
     text-align: center;
+    transition: all 0.2s;
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(229,57,53,0.45);
-}
-
-.btn-secondary {
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(10px);
-    color: white;
-    border: 1px solid rgba(255,255,255,0.3);
-}
-
-.btn-secondary:hover {
-    background: rgba(255,255,255,0.25);
+    background: #a93226;
 }
 
 /* СТАТИСТИКА */
@@ -221,196 +144,146 @@ body::after {
 }
 
 .stat-card {
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(8px);
+    background: #0f1622;
+    border: 1px solid #2c3e50;
     padding: 16px 8px;
-    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-radius: 8px;
 }
 
 .stat-number {
     font-size: 28px;
     font-weight: 800;
-    color: #1e3a5f;
+    color: #e67e22;
 }
 
 .stat-label {
     font-size: 11px;
-    color: #555;
-    margin-top: 4px;
+    color: #8a9bb5;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* КАРТОЧКИ ВАКАНСИЙ */
 .section-title {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    border-left: 4px solid #c0392b;
+    padding-left: 12px;
 }
 
-.section-title::before {
-    content: "▎";
-    color: #e53935;
-    font-size: 30px;
-}
-
-.vacancies-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+/* КАРУСЕЛЬ ВАКАНСИЙ СО СТРЕЛКАМИ */
+.vacancies-carousel {
+    position: relative;
     margin-bottom: 20px;
 }
 
-.vacancy-item {
-    background: white;
-    border-radius: 24px;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    transition: all 0.2s;
-    border: 1px solid rgba(0,0,0,0.05);
-    cursor: pointer;
-    position: relative;
+.carousel-container {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 4px 0;
 }
 
-.vacancy-item:hover {
-    transform: translateX(5px);
-    border-color: #1e3a5f;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+.carousel-container::-webkit-scrollbar {
+    display: none;
 }
 
-.vacancy-header {
+.carousel-track {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-    flex-wrap: wrap;
+    gap: 16px;
+    padding: 4px 4px 8px 4px;
+}
+
+.vacancy-card {
+    min-width: 280px;
+    background: #0f1622;
+    border: 1px solid #2c3e50;
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.vacancy-card:hover {
+    border-color: #c0392b;
+    transform: translateY(-4px);
+}
+
+.vacancy-card.selected {
+    border: 2px solid #c0392b;
+    background: #1a2535;
 }
 
 .vacancy-title {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
-    color: #1a1a2e;
+    margin-bottom: 8px;
 }
 
 .vacancy-salary {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 800;
-    color: #e53935;
+    color: #e67e22;
+    margin: 10px 0;
 }
 
 .vacancy-features {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 8px;
     margin: 12px 0;
 }
 
 .feature-tag {
-    background: #f0f2f5;
-    padding: 5px 12px;
-    border-radius: 30px;
-    font-size: 12px;
-    color: #555;
-}
-
-.vacancy-desc {
-    color: #666;
-    font-size: 14px;
-    margin-top: 8px;
-}
-
-.select-vacancy-btn {
-    margin-top: 16px;
-    background: #1e3a5f;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 30px;
-    font-weight: 600;
-    cursor: pointer;
-    width: 100%;
-    transition: all 0.2s;
-}
-
-.select-vacancy-btn:hover {
-    background: #0d2b45;
-}
-
-.selected-badge {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: #4caf50;
-    color: white;
+    background: #1a2535;
     padding: 4px 10px;
-    border-radius: 30px;
+    border-radius: 4px;
     font-size: 11px;
-    font-weight: 600;
+    color: #8a9bb5;
 }
 
-/* КВИЗ */
-.quiz-block {
-    background: linear-gradient(135deg, #1e3a5f, #0d2b45);
-    border-radius: 28px;
-    padding: 28px 24px;
-    color: white;
-    margin-bottom: 20px;
-}
-
-.quiz-question {
-    margin-bottom: 20px;
-}
-
-.quiz-question p {
-    font-weight: 600;
-    margin-bottom: 12px;
-    font-size: 18px;
-}
-
-.quiz-options {
+/* СТРЕЛКИ */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    background: #c0392b;
+    border-radius: 50%;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.quiz-option {
-    background: rgba(255,255,255,0.1);
-    padding: 14px 16px;
-    border-radius: 16px;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: all 0.2s;
-    border: 1px solid rgba(255,255,255,0.2);
+    z-index: 10;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    opacity: 0.9;
 }
 
-.quiz-option:hover {
-    background: rgba(255,255,255,0.2);
-    transform: translateX(5px);
+.carousel-arrow.left {
+    left: -12px;
 }
 
-.quiz-option.selected {
-    background: #ffd700;
-    color: #1a1a2e;
-    border-color: #ffd700;
+.carousel-arrow.right {
+    right: -12px;
 }
 
-.quiz-result {
-    margin-top: 20px;
-    padding: 16px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 20px;
-    display: none;
+.carousel-arrow.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
 }
 
-/* ФОРМА ЗАЯВКИ */
+/* ФОРМА */
 .form-block {
-    background: white;
-    border-radius: 28px;
-    padding: 28px 24px;
+    background: #0f1622;
+    border: 1px solid #2c3e50;
+    border-radius: 12px;
+    padding: 24px;
     margin-bottom: 20px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
 .form-group {
@@ -419,17 +292,17 @@ body::after {
 
 .form-group input, .form-group select {
     width: 100%;
-    padding: 14px 16px;
-    border-radius: 16px;
-    border: 1px solid #e0e0e0;
+    padding: 12px 16px;
+    background: #1a2535;
+    border: 1px solid #2c3e50;
+    border-radius: 6px;
+    color: white;
     font-size: 16px;
-    transition: all 0.2s;
 }
 
 .form-group input:focus, .form-group select:focus {
     outline: none;
-    border-color: #1e3a5f;
-    box-shadow: 0 0 0 3px rgba(30,58,95,0.1);
+    border-color: #c0392b;
 }
 
 /* МЕССЕНДЖЕРЫ */
@@ -442,139 +315,79 @@ body::after {
 .messenger-option {
     flex: 1;
     text-align: center;
-    padding: 12px;
-    border: 1px solid #e0e0e0;
-    border-radius: 16px;
+    padding: 10px;
+    background: #1a2535;
+    border: 1px solid #2c3e50;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.2s;
-    background: white;
 }
 
 .messenger-option.selected {
-    border-color: #1e3a5f;
-    background: rgba(30,58,95,0.05);
-    box-shadow: 0 0 0 2px rgba(30,58,95,0.2);
+    border-color: #c0392b;
+    background: #c0392b20;
 }
 
 .messenger-option .avatar {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     margin: 0 auto 6px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 20px;
 }
 
-.messenger-option .tg-avatar { background: linear-gradient(135deg, #29a9e1, #1e88e5); }
-.messenger-option .wa-avatar { background: linear-gradient(135deg, #25D366, #128C7E); }
-.messenger-option .max-avatar { background: linear-gradient(135deg, #ff6b35, #f7931e); }
+.tg-avatar { background: #29a9e1; }
+.wa-avatar { background: #25D366; }
+.max-avatar { background: #f7931e; }
 
-.messenger-option small { font-size: 11px; color: #666; display: block; }
-
-/* ТОСТ */
-.toast {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #1a1a2e;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 50px;
-    font-size: 14px;
-    z-index: 10000;
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none;
-    white-space: nowrap;
+/* КВИЗ */
+.quiz-block {
+    background: #0f1622;
+    border: 1px solid #2c3e50;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
 }
 
-.toast.show { opacity: 1; }
+.quiz-question {
+    margin-bottom: 20px;
+}
 
-/* ПОПАП */
-.popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.85);
+.quiz-option {
+    background: #1a2535;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    border: 1px solid #2c3e50;
+}
+
+.quiz-option:hover {
+    border-color: #c0392b;
+}
+
+.quiz-option.selected {
+    border-color: #c0392b;
+    background: #c0392b20;
+}
+
+.quiz-result {
+    margin-top: 20px;
+    padding: 16px;
+    background: #1a2535;
+    border-radius: 8px;
     display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 10001;
-    backdrop-filter: blur(4px);
-}
-
-.popup-content {
-    background: white;
-    padding: 28px;
-    border-radius: 32px;
-    width: 90%;
-    max-width: 380px;
-    position: relative;
-    animation: slideUp 0.3s ease;
-}
-
-@keyframes slideUp {
-    from { transform: translateY(30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-.popup-close {
-    position: absolute;
-    top: 16px;
-    right: 20px;
-    font-size: 28px;
-    cursor: pointer;
-    color: #999;
-}
-
-/* ПЛАВАЮЩАЯ КНОПКА */
-.floating-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, #e53935, #c62828);
-    color: white;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 6px 20px rgba(229,57,53,0.4);
-    cursor: pointer;
-    z-index: 999;
-    font-size: 24px;
-    transition: all 0.2s;
-}
-
-.floating-btn:hover {
-    transform: scale(1.05);
-}
-
-/* АНИМАЦИЯ */
-.fade {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: 0.5s ease;
-}
-
-.fade.show {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* ОТЗЫВЫ */
 .review-card {
-    background: white;
-    padding: 18px;
-    border-radius: 20px;
+    background: #0f1622;
+    border: 1px solid #2c3e50;
+    border-radius: 8px;
+    padding: 16px;
     margin-bottom: 12px;
-    border-left: 4px solid #ffd700;
 }
 
 .review-text {
@@ -583,16 +396,16 @@ body::after {
 }
 
 .review-author {
-    font-size: 13px;
-    color: #666;
-    font-weight: 500;
+    font-size: 12px;
+    color: #8a9bb5;
 }
 
 /* FAQ */
 .faq-item {
-    background: white;
+    background: #0f1622;
+    border: 1px solid #2c3e50;
+    border-radius: 8px;
     padding: 16px;
-    border-radius: 20px;
     margin-bottom: 10px;
     cursor: pointer;
 }
@@ -607,51 +420,19 @@ body::after {
     display: none;
     margin-top: 12px;
     padding-top: 12px;
-    border-top: 1px solid #eee;
-    color: #555;
-    font-size: 14px;
+    border-top: 1px solid #2c3e50;
+    color: #8a9bb5;
 }
 
 .faq-item.active .faq-answer {
     display: block;
 }
 
-/* 4 ШАГА */
-.steps-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    margin: 20px 0;
-}
-
-.step {
-    text-align: center;
-}
-
-.step-number {
-    width: 40px;
-    height: 40px;
-    background: #1e3a5f;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 8px;
-    font-weight: 700;
-}
-
-.step-text {
-    font-size: 11px;
-    color: #555;
-}
-
-/* ТГ БАННЕР */
 .tg-banner {
-    background: linear-gradient(135deg, #0088cc, #006699);
-    color: white;
+    background: linear-gradient(135deg, #1e3a5f, #0f1622);
+    border: 1px solid #2c3e50;
+    border-radius: 12px;
     padding: 16px 20px;
-    border-radius: 20px;
     margin: 20px 0;
     display: flex;
     justify-content: space-between;
@@ -659,19 +440,63 @@ body::after {
 }
 
 .tg-banner a {
-    background: white;
-    color: #0088cc;
+    background: #c0392b;
+    color: white;
     padding: 8px 18px;
-    border-radius: 30px;
+    border-radius: 6px;
     text-decoration: none;
-    font-weight: bold;
+}
+
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #c0392b;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.toast.show { opacity: 1; }
+
+.floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #c0392b;
+    color: white;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999;
+    font-size: 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.5s ease;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 </style>
 </head>
 <body>
 
 <div class="header">
-    <div class="logo">⚡ <span>ЗАВОД-СКЛАД</span> <span class="badge">Оборонзаказ</span></div>
+    <div class="logo">⚡ <span>ОБОРОНПРОМ</span> <span class="badge">ГОСЗАКАЗ</span></div>
     <div class="menu-btn" id="menuBtn">☰</div>
     <div class="menu" id="menu">
         <a href="#vacancies">Вакансии</a>
@@ -683,184 +508,114 @@ body::after {
 </div>
 
 <div class="container">
-    <!-- ГЕРОЙ -->
     <div class="hero fade">
-        <h1>Работа на <span>оборонном заводе</span> и военном складе</h1>
+        <h1>Работа на <span>оборонном заводе</span><br>и военном складе</h1>
         <div class="salary-badge">от 200 000 ₽</div>
         <p>Официально • Жильё • Питание • Бронь</p>
-        <button class="btn-primary" style="margin-top: 20px;" onclick="scrollToVacancies()">🔥 Выбрать вакансию</button>
+        <button class="btn-primary" style="margin-top: 20px;" onclick="document.getElementById('vacancies').scrollIntoView({behavior:'smooth'})">🔥 Выбрать вакансию</button>
     </div>
 
-    <!-- СТАТИСТИКА -->
     <div class="stats-row fade">
         <div class="stat-card"><div class="stat-number">с 2022</div><div class="stat-label">года работаем</div></div>
         <div class="stat-card"><div class="stat-number">1000+</div><div class="stat-label">трудоустроено</div></div>
         <div class="stat-card"><div class="stat-number">30-70</div><div class="stat-label">человек в месяц</div></div>
     </div>
 
-    <!-- ВАКАНСИИ С ВОЗМОЖНОСТЬЮ ВЫБОРА -->
+    <!-- КАРУСЕЛЬ ВАКАНСИЙ СО СТРЕЛКАМИ -->
     <div class="fade" id="vacancies">
-        <div class="section-title">📦 Вакансии оборонных предприятий</div>
-        <div class="vacancies-grid" id="vacanciesGrid">
-            <!-- Вакансия 1 -->
-            <div class="vacancy-item" data-vacancy="Сборщик военной техники">
-                <div class="vacancy-header">
-                    <span class="vacancy-title">🔧 Сборщик военной техники</span>
-                    <span class="vacancy-salary">240 000 – 290 000 ₽</span>
+        <div class="section-title">📦 ВАКАНСИИ ОБОРОННЫХ ПРЕДПРИЯТИЙ</div>
+        <div class="vacancies-carousel">
+            <div class="carousel-arrow left" id="carouselLeft" onclick="scrollCarousel(-1)">◀</div>
+            <div class="carousel-arrow right" id="carouselRight" onclick="scrollCarousel(1)">▶</div>
+            <div class="carousel-container" id="carouselContainer">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="vacancy-card" data-vacancy="Сборщик военной техники">
+                        <div class="vacancy-title">🔧 Сборщик военной техники</div>
+                        <div class="vacancy-salary">240 000 – 290 000 ₽</div>
+                        <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🍽️ Питание</span><span class="feature-tag">✅ Официально</span></div>
+                        <div class="vacancy-desc">Сборка военной техники на заводе. Бронь от призыва.</div>
+                    </div>
+                    <div class="vacancy-card" data-vacancy="Оператор военного склада">
+                        <div class="vacancy-title">📦 Оператор военного склада</div>
+                        <div class="vacancy-salary">210 000 – 250 000 ₽</div>
+                        <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">📋 Учёт</span><span class="feature-tag">🛡️ Бронь</span></div>
+                    </div>
+                    <div class="vacancy-card" data-vacancy="Водитель военной техники">
+                        <div class="vacancy-title">🚚 Водитель военной техники</div>
+                        <div class="vacancy-salary">250 000 – 300 000 ₽</div>
+                        <div class="vacancy-features"><span class="feature-tag">🚛 КамАЗ</span><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">⛽ Топливо</span></div>
+                    </div>
+                    <div class="vacancy-card" data-vacancy="Инженер-испытатель">
+                        <div class="vacancy-title">⚙️ Инженер-испытатель</div>
+                        <div class="vacancy-salary">270 000 – 320 000 ₽</div>
+                        <div class="vacancy-features"><span class="feature-tag">📐 Высшее</span><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🎓 Обучение</span></div>
+                    </div>
+                    <div class="vacancy-card" data-vacancy="Сварщик оборонного завода">
+                        <div class="vacancy-title">🔥 Сварщик оборонного завода</div>
+                        <div class="vacancy-salary">230 000 – 280 000 ₽</div>
+                        <div class="vacancy-features"><span class="feature-tag">🛠️ 4-6 разряд</span><span class="feature-tag">🏠 Жильё</span></div>
+                    </div>
                 </div>
-                <div class="vacancy-features">
-                    <span class="feature-tag">🏠 Жильё</span>
-                    <span class="feature-tag">🍽️ Питание</span>
-                    <span class="feature-tag">✅ Официально</span>
-                    <span class="feature-tag">🎓 Обучение</span>
-                </div>
-                <div class="vacancy-desc">Сборка и комплектация военной техники на заводе. Полный соцпакет, бронь от призыва.</div>
-                <button class="select-vacancy-btn" onclick="selectVacancy('Сборщик военной техники')">📌 Выбрать эту вакансию</button>
-            </div>
-
-            <!-- Вакансия 2 -->
-            <div class="vacancy-item" data-vacancy="Оператор военного склада">
-                <div class="vacancy-header">
-                    <span class="vacancy-title">📦 Оператор военного склада</span>
-                    <span class="vacancy-salary">210 000 – 250 000 ₽</span>
-                </div>
-                <div class="vacancy-features">
-                    <span class="feature-tag">🏠 Жильё рядом</span>
-                    <span class="feature-tag">📋 Учёт ГСМ</span>
-                    <span class="feature-tag">🛡️ Бронь</span>
-                </div>
-                <div class="vacancy-desc">Работа на складах Министерства обороны. Приём, учёт, выдача имущества.</div>
-                <button class="select-vacancy-btn" onclick="selectVacancy('Оператор военного склада')">📌 Выбрать эту вакансию</button>
-            </div>
-
-            <!-- Вакансия 3 -->
-            <div class="vacancy-item" data-vacancy="Водитель военной техники">
-                <div class="vacancy-header">
-                    <span class="vacancy-title">🚚 Водитель военной техники</span>
-                    <span class="vacancy-salary">250 000 – 300 000 ₽</span>
-                </div>
-                <div class="vacancy-features">
-                    <span class="feature-tag">🚛 КамАЗ, Урал</span>
-                    <span class="feature-tag">🏠 Жильё</span>
-                    <span class="feature-tag">⛽ Топливо</span>
-                </div>
-                <div class="vacancy-desc">Управление грузовой военной техникой. Категория C, E. Опыт приветствуется.</div>
-                <button class="select-vacancy-btn" onclick="selectVacancy('Водитель военной техники')">📌 Выбрать эту вакансию</button>
-            </div>
-
-            <!-- Вакансия 4 -->
-            <div class="vacancy-item" data-vacancy="Инженер-испытатель">
-                <div class="vacancy-header">
-                    <span class="vacancy-title">⚙️ Инженер-испытатель</span>
-                    <span class="vacancy-salary">270 000 – 320 000 ₽</span>
-                </div>
-                <div class="vacancy-features">
-                    <span class="feature-tag">📐 Техническое образование</span>
-                    <span class="feature-tag">🏠 Жильё</span>
-                    <span class="feature-tag">🎓 Повышение квалификации</span>
-                </div>
-                <div class="vacancy-desc">Испытания военной продукции. Высшее техническое образование приветствуется.</div>
-                <button class="select-vacancy-btn" onclick="selectVacancy('Инженер-испытатель')">📌 Выбрать эту вакансию</button>
-            </div>
-
-            <!-- Вакансия 5 -->
-            <div class="vacancy-item" data-vacancy="Сварщик оборонного завода">
-                <div class="vacancy-header">
-                    <span class="vacancy-title">🔥 Сварщик оборонного завода</span>
-                    <span class="vacancy-salary">230 000 – 280 000 ₽</span>
-                </div>
-                <div class="vacancy-features">
-                    <span class="feature-tag">🛠️ Разряды 4-6</span>
-                    <span class="feature-tag">🏠 Жильё</span>
-                    <span class="feature-tag">🍽️ Питание</span>
-                </div>
-                <div class="vacancy-desc">Сварка металлоконструкций для военной техники. Опыт от 1 года.</div>
-                <button class="select-vacancy-btn" onclick="selectVacancy('Сварщик оборонного завода')">📌 Выбрать эту вакансию</button>
             </div>
         </div>
     </div>
 
-    <!-- КВИЗ ТЕСТ -->
+    <!-- КВИЗ -->
     <div class="quiz-block fade" id="quiz">
-        <h3 style="margin-bottom: 16px;">🎯 Подбери идеальную вакансию за 2 минуты</h3>
+        <h3 style="margin-bottom: 16px;">🎯 ПОДБОР ВАКАНСИИ ЗА 2 МИНУТЫ</h3>
         <div id="quizContainer">
             <div class="quiz-question" id="q1">
                 <p>1. Какой у вас опыт работы?</p>
-                <div class="quiz-options">
-                    <div class="quiz-option" data-q="1" data-val="0">Нет опыта, готов учиться</div>
-                    <div class="quiz-option" data-q="1" data-val="1">От 6 месяцев до 2 лет</div>
-                    <div class="quiz-option" data-q="1" data-val="2">От 2 до 5 лет</div>
-                    <div class="quiz-option" data-q="1" data-val="3">Более 5 лет</div>
-                </div>
+                <div class="quiz-option" data-q="1" data-val="0">Нет опыта, готов учиться</div>
+                <div class="quiz-option" data-q="1" data-val="1">От 6 месяцев до 2 лет</div>
+                <div class="quiz-option" data-q="1" data-val="2">От 2 до 5 лет</div>
+                <div class="quiz-option" data-q="1" data-val="3">Более 5 лет</div>
             </div>
             <div class="quiz-question" id="q2" style="display:none;">
                 <p>2. Какая зарплата вас устроит?</p>
-                <div class="quiz-options">
-                    <div class="quiz-option" data-q="2" data-val="0">200 000 – 230 000 ₽</div>
-                    <div class="quiz-option" data-q="2" data-val="1">230 000 – 260 000 ₽</div>
-                    <div class="quiz-option" data-q="2" data-val="2">260 000 – 300 000 ₽</div>
-                </div>
+                <div class="quiz-option" data-q="2" data-val="0">200 000 – 230 000 ₽</div>
+                <div class="quiz-option" data-q="2" data-val="1">230 000 – 260 000 ₽</div>
+                <div class="quiz-option" data-q="2" data-val="2">260 000 – 300 000 ₽</div>
             </div>
             <div class="quiz-question" id="q3" style="display:none;">
                 <p>3. Нужно ли жильё?</p>
-                <div class="quiz-options">
-                    <div class="quiz-option" data-q="3" data-val="1">Да, нужно жильё</div>
-                    <div class="quiz-option" data-q="3" data-val="0">Нет, своё жильё</div>
-                </div>
+                <div class="quiz-option" data-q="3" data-val="1">Да, нужно жильё</div>
+                <div class="quiz-option" data-q="3" data-val="0">Нет, своё жильё</div>
             </div>
             <div class="quiz-question" id="q4" style="display:none;">
                 <p>4. Готовы ли к командировкам?</p>
-                <div class="quiz-options">
-                    <div class="quiz-option" data-q="4" data-val="1">Да, готов</div>
-                    <div class="quiz-option" data-q="4" data-val="0">Нет, ищу рядом с домом</div>
-                </div>
+                <div class="quiz-option" data-q="4" data-val="1">Да, готов</div>
+                <div class="quiz-option" data-q="4" data-val="0">Нет, ищу рядом с домом</div>
             </div>
         </div>
-        <button class="btn-primary" id="nextQuizBtn" style="margin-top: 16px;" onclick="nextQuiz()">Далее →</button>
+        <button class="btn-primary" id="nextQuizBtn" onclick="nextQuiz()">ДАЛЕЕ →</button>
         <div class="quiz-result" id="quizResult"></div>
     </div>
 
-    <!-- 4 ШАГА -->
-    <div class="form-block fade">
-        <div class="section-title">📋 4 шага к трудоустройству</div>
-        <div class="steps-grid">
-            <div class="step"><div class="step-number">1</div><div class="step-text">Заявка</div></div>
-            <div class="step"><div class="step-number">2</div><div class="step-text">Собеседование</div></div>
-            <div class="step"><div class="step-number">3</div><div class="step-text">Оформление</div></div>
-            <div class="step"><div class="step-number">4</div><div class="step-text">Работа</div></div>
-        </div>
-    </div>
-
-    <!-- ОТЗЫВЫ -->
     <div class="fade" id="reviews">
-        <div class="section-title">⭐ Реальные отзывы</div>
+        <div class="section-title">⭐ РЕАЛЬНЫЕ ОТЗЫВЫ</div>
         <div class="review-card"><div class="review-text">«Устроился на военный склад за 3 дня. ЗП 245к, жильё дали. Всё честно!»</div><div class="review-author">— Дмитрий, оператор склада</div></div>
         <div class="review-card"><div class="review-text">«Работаю сборщиком уже 4 месяца. Зарплата вовремя, бронь от призыва. Спасибо!»</div><div class="review-author">— Александр, сборщик</div></div>
-        <div class="review-card"><div class="review-text">«Помогли с документами и оформлением. Прошел на завод инженером. Очень доволен»</div><div class="review-author">— Михаил, инженер</div></div>
     </div>
 
-    <!-- FAQ -->
     <div class="fade" id="faq">
-        <div class="section-title">❓ Частые вопросы</div>
+        <div class="section-title">❓ ЧАСТЫЕ ВОПРОСЫ</div>
         <div class="faq-item"><div class="faq-question">Нужен ли опыт? <span>▼</span></div><div class="faq-answer">Нет, обучаем на месте. Есть вакансии без опыта.</div></div>
         <div class="faq-item"><div class="faq-question">Дают ли бронь от призыва? <span>▼</span></div><div class="faq-answer">Да, на оборонных предприятиях официальное бронирование.</div></div>
         <div class="faq-item"><div class="faq-question">Есть ли жильё? <span>▼</span></div><div class="faq-answer">Да, предоставляем бесплатное проживание.</div></div>
     </div>
 
-    <!-- ТГ КАНАЛ -->
     <div class="tg-banner fade">
-        <span>📢 Наш Telegram <br><strong>1300 подписчиков</strong></span>
-        <a href="https://t.me/zavodrabotarf" target="_blank">Подписаться →</a>
+        <span>📢 НАШ TELEGRAM КАНАЛ <br><strong>1300 подписчиков</strong></span>
+        <a href="https://t.me/zavodrabotarf" target="_blank">ПОДПИСАТЬСЯ →</a>
     </div>
 
-    <!-- ФОРМА ЗАЯВКИ -->
+    <!-- ФОРМА -->
     <div class="form-block fade" id="form">
-        <div class="section-title">📞 Оставить заявку</div>
-        <p style="margin-bottom: 16px; color: #555;">Выбранная вакансия: <strong id="selectedVacancyDisplay">не выбрана</strong></p>
-        
+        <div class="section-title">📞 ОСТАВИТЬ ЗАЯВКУ</div>
+        <p style="margin-bottom: 16px; color: #8a9bb5;">Выбранная вакансия: <strong id="selectedVacancyDisplay" style="color:#e67e22;">не выбрана</strong></p>
         <div class="form-group"><input type="text" id="userName" placeholder="Ваше имя"></div>
         <div class="form-group"><input type="tel" id="userPhone" placeholder="Номер телефона"></div>
-        
         <div class="form-group">
             <label>📱 Удобный способ связи:</label>
             <div class="messenger-group">
@@ -870,51 +625,64 @@ body::after {
             </div>
             <input type="hidden" id="selectedMessenger" value="Telegram">
         </div>
-        
-        <button class="btn-primary" onclick="sendApplication()">🚀 Отправить заявку</button>
+        <button class="btn-primary" onclick="sendApplication()">🚀 ОТПРАВИТЬ ЗАЯВКУ</button>
     </div>
 </div>
 
-<!-- ПЛАВАЮЩАЯ КНОПКА -->
-<div class="floating-btn" onclick="scrollToForm()">✉️</div>
-
-<!-- TOAST -->
-<div class="toast" id="toast">✓ Заявка отправлена!</div>
+<div class="floating-btn" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})">✉️</div>
+<div class="toast" id="toast">✓ ЗАЯВКА ОТПРАВЛЕНА!</div>
 
 <script>
 let currentSelectedVacancy = null;
 let quizStep = 1;
 let quizAnswers = {1: null, 2: null, 3: null, 4: null};
+let quizRecommendation = '';
 
-// Выбор вакансии
+// КАРУСЕЛЬ СО СТРЕЛКАМИ
+function scrollCarousel(direction) {
+    const container = document.getElementById('carouselContainer');
+    const scrollAmount = 300;
+    if(direction === 1) container.scrollLeft += scrollAmount;
+    else container.scrollLeft -= scrollAmount;
+    updateArrows();
+}
+
+function updateArrows() {
+    const container = document.getElementById('carouselContainer');
+    const leftArrow = document.getElementById('carouselLeft');
+    const rightArrow = document.getElementById('carouselRight');
+    if(container.scrollLeft <= 10) leftArrow.classList.add('disabled');
+    else leftArrow.classList.remove('disabled');
+    if(container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) rightArrow.classList.add('disabled');
+    else rightArrow.classList.remove('disabled');
+}
+
+// ВЫБОР ВАКАНСИИ ПО КЛИКУ НА КАРТОЧКУ
+document.querySelectorAll('.vacancy-card').forEach(card => {
+    card.addEventListener('click', function() {
+        const vacancyName = this.dataset.vacancy;
+        selectVacancy(vacancyName);
+    });
+});
+
 function selectVacancy(vacancyName) {
     currentSelectedVacancy = vacancyName;
     document.getElementById('selectedVacancyDisplay').innerText = vacancyName;
     
-    // Визуальное выделение
-    document.querySelectorAll('.vacancy-item').forEach(item => {
-        item.style.border = '1px solid rgba(0,0,0,0.05)';
-        const oldBadge = item.querySelector('.selected-badge');
-        if(oldBadge) oldBadge.remove();
-    });
+    document.querySelectorAll('.vacancy-card').forEach(c => c.classList.remove('selected'));
+    const selectedCard = Array.from(document.querySelectorAll('.vacancy-card')).find(c => c.dataset.vacancy === vacancyName);
+    if(selectedCard) selectedCard.classList.add('selected');
     
-    const selectedItem = Array.from(document.querySelectorAll('.vacancy-item')).find(el => el.querySelector('.vacancy-title')?.innerText.includes(vacancyName) || el.dataset.vacancy === vacancyName);
-    if(selectedItem) {
-        selectedItem.style.border = '2px solid #4caf50';
-        const badge = document.createElement('div');
-        badge.className = 'selected-badge';
-        badge.innerText = '✓ Выбрана';
-        selectedItem.style.position = 'relative';
-        selectedItem.appendChild(badge);
-    }
-    
-    showToast(`✓ Выбрана вакансия: ${vacancyName}`);
-    
-    // Отправка уведомления в Telegram о выборе вакансии
+    showToast(`✓ ВЫБРАНО: ${vacancyName}`);
     sendToTelegram('ВЫБОР ВАКАНСИИ', vacancyName, `Клиент выбрал вакансию: ${vacancyName}`);
+    
+    // АВТОМАТИЧЕСКИ ПЕРЕХОДИМ К ФОРМЕ
+    setTimeout(() => {
+        document.getElementById('form').scrollIntoView({ behavior: 'smooth' });
+    }, 300);
 }
 
-// Квиз
+// КВИЗ
 function nextQuiz() {
     if(quizStep === 1) {
         const selected = document.querySelector('#q1 .quiz-option.selected');
@@ -937,43 +705,46 @@ function nextQuiz() {
         document.getElementById('q3').style.display = 'none';
         document.getElementById('q4').style.display = 'block';
         quizStep = 4;
-        document.getElementById('nextQuizBtn').innerText = 'Узнать результат';
+        document.getElementById('nextQuizBtn').innerText = 'УЗНАТЬ РЕЗУЛЬТАТ';
     } else if(quizStep === 4) {
         const selected = document.querySelector('#q4 .quiz-option.selected');
         if(!selected) { showToast('Выберите вариант'); return; }
         quizAnswers[4] = selected.dataset.val;
         
-        // Анализ результатов
-        let experience = parseInt(quizAnswers[1]);
+        let exp = parseInt(quizAnswers[1]);
         let salary = parseInt(quizAnswers[2]);
-        let housing = parseInt(quizAnswers[3]);
-        let travel = parseInt(quizAnswers[4]);
         
-        let recommendation = '';
-        if(experience <= 1) recommendation = 'Комплектовщик склада или разнорабочий — 220 000–250 000 ₽';
-        else if(experience === 2) recommendation = 'Сборщик техники или оператор склада — 250 000–280 000 ₽';
-        else recommendation = 'Инженер-испытатель или сварщик — до 320 000 ₽';
+        if(exp <= 1) quizRecommendation = 'Комплектовщик склада — 220 000–250 000 ₽';
+        else if(exp === 2) quizRecommendation = 'Сборщик техники — 250 000–280 000 ₽';
+        else quizRecommendation = 'Инженер-испытатель — до 320 000 ₽';
+        if(salary === 2) quizRecommendation = 'Инженер-испытатель или водитель — 280 000–320 000 ₽';
         
-        if(salary === 2) recommendation = 'Инженер-испытатель или водитель военной техники — 280 000–320 000 ₽';
-        
-        document.getElementById('quizResult').innerHTML = `<strong>🎯 Ваша идеальная вакансия:</strong><br>${recommendation}<br><br>✅ Оставьте заявку — и мы подберём для вас лучший вариант!`;
+        document.getElementById('quizResult').innerHTML = `<strong>🎯 ВАША ИДЕАЛЬНАЯ ВАКАНСИЯ:</strong><br>${quizRecommendation}<br><br>✅ НАЖМИТЕ КНОПКУ НИЖЕ, ЧТОБЫ ОСТАВИТЬ ЗАЯВКУ`;
         document.getElementById('quizResult').style.display = 'block';
         document.getElementById('nextQuizBtn').style.display = 'none';
-        document.querySelector('#q4').style.display = 'none';
         
-        sendToTelegram('КВИЗ ПРОЙДЕН', `Рекомендация: ${recommendation}`, `Ответы: опыт=${experience}, зарплата=${salary}, жильё=${housing}, разъезды=${travel}`);
+        const applyBtn = document.createElement('button');
+        applyBtn.className = 'btn-primary';
+        applyBtn.innerText = '📝 ОСТАВИТЬ ЗАЯВКУ';
+        applyBtn.style.marginTop = '16px';
+        applyBtn.style.background = '#e67e22';
+        applyBtn.onclick = () => {
+            selectVacancy(quizRecommendation.split(' —')[0]);
+        };
+        document.getElementById('quizResult').appendChild(applyBtn);
+        
+        sendToTelegram('КВИЗ ПРОЙДЕН', `Рекомендация: ${quizRecommendation}`, 'Пользователь прошёл тест');
     }
 }
 
 document.querySelectorAll('.quiz-option').forEach(opt => {
     opt.addEventListener('click', function() {
-        const parent = this.parentElement.parentElement;
+        const parent = this.parentElement;
         parent.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
         this.classList.add('selected');
     });
 });
 
-// Мессенджеры
 function selectMessenger(element, messenger) {
     document.querySelectorAll('.messenger-option').forEach(opt => opt.classList.remove('selected'));
     element.classList.add('selected');
@@ -987,72 +758,60 @@ function showToast(msg) {
     setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
-// Отправка в Telegram
 function sendToTelegram(type, name, extra = '') {
-    const BOT_TOKEN = '8724372615:AAEjCiuGB2gIHDqB0lPEiGJIt3ZxhEBNZc8'; // ЗАМЕНИ НА НОВЫЙ
-    const CHAT_ID = '8183270307'; // ЗАМЕНИ НА СВОЙ
+    const BOT_TOKEN = '8724372615:AAEjCiuGB2gIHDqB0lPEiGJIt3ZxhEBNZc8';
+    const CHAT_ID = '8183270307';
     let text = `🔔 ${type}%0A📋 ${encodeURIComponent(name)}%0A${extra ? encodeURIComponent(extra) + '%0A' : ''}🕐 ${new Date().toLocaleString('ru-RU')}`;
-    if(BOT_TOKEN && CHAT_ID && BOT_TOKEN !== '8724372615:AAEjCiuGB2gIHDqB0lPEiGJIt3ZxhEBNZc8') {
-        fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}`).catch(e => console.log(e));
-    }
+    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}`).catch(e => console.log(e));
 }
 
 function sendApplication() {
     const name = document.getElementById('userName').value.trim();
     const phone = document.getElementById('userPhone').value.trim();
     const messenger = document.getElementById('selectedMessenger').value;
-    
     if(!name || !phone) { showToast('Заполните имя и телефон'); return; }
     if(phone.length < 6) { showToast('Введите корректный телефон'); return; }
-    
     let vacancyText = currentSelectedVacancy ? `Выбранная вакансия: ${currentSelectedVacancy}` : 'Вакансия не выбрана';
-    
     sendToTelegram('НОВАЯ ЗАЯВКА', `Имя: ${name}, Телефон: ${phone}`, `${vacancyText}%0A📱 Мессенджер: ${messenger}`);
-    showToast('✓ Заявка отправлена! Мы свяжемся');
-    
+    showToast('✓ ЗАЯВКА ОТПРАВЛЕНА!');
     document.getElementById('userName').value = '';
     document.getElementById('userPhone').value = '';
 }
 
-function scrollToVacancies() { document.getElementById('vacancies').scrollIntoView({ behavior: 'smooth' }); }
-function scrollToForm() { document.getElementById('form').scrollIntoView({ behavior: 'smooth' }); }
-
-// Меню
-function toggleMenu() {
-    const m = document.getElementById('menu');
+document.getElementById('menuBtn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    let m = document.getElementById('menu');
     m.style.display = m.style.display === 'block' ? 'none' : 'block';
-}
-document.getElementById('menuBtn').addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
+});
 document.addEventListener('click', (e) => {
-    const menu = document.getElementById('menu');
-    const btn = document.getElementById('menuBtn');
+    let menu = document.getElementById('menu');
+    let btn = document.getElementById('menuBtn');
     if(menu.style.display === 'block' && !menu.contains(e.target) && e.target !== btn) menu.style.display = 'none';
 });
 
-// FAQ
 document.querySelectorAll('.faq-item').forEach(item => {
     item.addEventListener('click', function() {
         this.classList.toggle('active');
-        const arrow = this.querySelector('.faq-question span');
+        let arrow = this.querySelector('.faq-question span');
         if(arrow) arrow.textContent = this.classList.contains('active') ? '▲' : '▼';
     });
 });
 
-// Анимация
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade').forEach(el => observer.observe(el));
 
-// Плавный скролл
 document.querySelectorAll('.menu a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        let target = document.querySelector(this.getAttribute('href'));
         if(target) target.scrollIntoView({ behavior: 'smooth' });
         document.getElementById('menu').style.display = 'none';
     });
 });
+
+setInterval(() => { if(document.getElementById('carouselContainer')) updateArrows(); }, 100);
 </script>
 </body>
 </html>
