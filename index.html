@@ -1,10 +1,10 @@
-html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Работа на складе и заводе</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+<title>Работа на складах и заводах | Трудоустройство от 200 000 ₽</title>
+<meta name="description" content="Трудоустройство на склады и заводы от 200 000 ₽. Официально, проживание, питание. Помогли сотням людей с 2022 года.">
 
 <style>
 * {
@@ -14,16 +14,16 @@ html
 }
 
 body {
-    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
     background: #f5f7fa;
-    color: #111;
+    color: #1a1a2e;
     line-height: 1.5;
 }
 
 .container {
     max-width: 640px;
     margin: auto;
-    padding: 20px;
+    padding: 16px;
 }
 
 /* HEADER */
@@ -31,9 +31,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding: 12px 20px;
     background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -41,18 +41,24 @@ body {
 
 .logo {
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 800;
     background: linear-gradient(135deg, #e53935, #c62828);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
 
+.logo span {
+    background: none;
+    -webkit-background-clip: unset;
+    color: #1a1a2e;
+}
+
 .menu-btn {
-    font-size: 24px;
+    font-size: 26px;
     cursor: pointer;
     padding: 5px 10px;
-    border-radius: 8px;
+    border-radius: 10px;
     transition: background 0.3s;
 }
 
@@ -64,21 +70,22 @@ body {
     display: none;
     position: absolute;
     right: 20px;
-    top: 60px;
+    top: 55px;
     background: white;
-    border-radius: 12px;
+    border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     z-index: 9999;
     overflow: hidden;
-    min-width: 160px;
+    min-width: 180px;
 }
 
 .menu a {
     display: block;
-    padding: 12px 20px;
+    padding: 14px 20px;
     text-decoration: none;
     color: #333;
-    transition: background 0.2s;
+    font-weight: 500;
+    transition: all 0.2s;
 }
 
 .menu a:hover {
@@ -90,109 +97,251 @@ body {
 .hero {
     text-align: center;
     padding: 40px 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 24px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 28px;
     color: white;
     margin-bottom: 20px;
 }
 
 .hero h1 {
     font-size: 28px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
-.salary {
+.hero h1 span {
+    color: #ffd700;
+}
+
+.salary-badge {
     font-size: 48px;
-    font-weight: bold;
+    font-weight: 800;
     color: #ffd700;
     margin: 15px 0;
 }
 
-/* КНОПКИ */
 .btn {
     display: inline-block;
-    background: #e53935;
+    background: linear-gradient(135deg, #e53935, #c62828);
     color: white;
     padding: 14px 28px;
-    border-radius: 12px;
+    border-radius: 40px;
     text-decoration: none;
     font-weight: bold;
-    transition: transform 0.2s, background 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
     border: none;
     cursor: pointer;
     font-size: 16px;
+    box-shadow: 0 4px 12px rgba(229,57,53,0.3);
 }
 
 .btn:hover {
-    background: #c62828;
     transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(229,57,53,0.4);
 }
 
 .btn-block {
     display: block;
     width: 100%;
+    text-align: center;
+}
+
+/* СТАТИСТИКА С ЦИФРАМИ */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.stat-card {
+    background: white;
+    padding: 16px 8px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.stat-number {
+    font-size: 28px;
+    font-weight: 800;
+    color: #e53935;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
 }
 
 /* БЛОКИ */
 .block {
     background: white;
     padding: 24px;
-    border-radius: 20px;
+    border-radius: 24px;
     margin-top: 16px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    transition: box-shadow 0.3s;
-}
-
-.block:hover {
-    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
 }
 
 .block h2 {
     margin-bottom: 16px;
     font-size: 22px;
-    color: #1a1a2e;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.block p {
-    margin: 8px 0;
+.block h2::before {
+    content: "▎";
+    color: #e53935;
+    font-size: 28px;
+}
+
+/* КАРТОЧКИ ВАКАНСИЙ - ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 16px;
+}
+
+.scroll-hint {
+    font-size: 12px;
+    color: #999;
+}
+
+.vacancies-scroll {
+    overflow-x: auto;
+    display: flex;
+    gap: 16px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.vacancies-scroll::-webkit-scrollbar {
+    height: 4px;
+}
+
+.vacancies-scroll::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 10px;
+}
+
+.vacancies-scroll::-webkit-scrollbar-thumb {
+    background: #e53935;
+    border-radius: 10px;
+}
+
+.vacancy-card {
+    min-width: 280px;
+    background: #f8f9fa;
+    border-radius: 20px;
+    padding: 20px;
+    scroll-snap-align: start;
+    transition: transform 0.2s;
+    border: 1px solid #eee;
+}
+
+.vacancy-card:hover {
+    transform: translateY(-4px);
+}
+
+.vacancy-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.vacancy-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.vacancy-salary {
+    font-size: 22px;
+    font-weight: 800;
+    color: #e53935;
+    margin: 10px 0;
+}
+
+.vacancy-features {
+    font-size: 13px;
+    color: #555;
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.vacancy-features p {
+    margin: 4px 0;
+}
+
+.btn-small {
+    background: #e53935;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+/* ПРЕИМУЩЕСТВА */
+.features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.feature-icon {
+    font-size: 24px;
 }
 
 /* ОТЗЫВЫ */
 .review {
     background: #f8f9fa;
-    padding: 15px;
-    border-radius: 12px;
-    margin-top: 10px;
-    border-left: 4px solid #4caf50;
-    transition: transform 0.2s;
+    padding: 16px;
+    border-radius: 16px;
+    margin-top: 12px;
+    border-left: 4px solid #ffd700;
 }
 
-.review:hover {
-    transform: translateX(5px);
+.review-text {
+    font-style: italic;
+    margin-bottom: 8px;
 }
 
 .review-author {
-    font-size: 12px;
+    font-size: 13px;
     color: #666;
-    margin-top: 8px;
+    font-weight: 500;
 }
 
 /* FAQ */
-.faq {
+.faq-item {
     background: #f8f9fa;
-    padding: 15px;
-    border-radius: 12px;
+    padding: 16px;
+    border-radius: 16px;
     margin-top: 10px;
     cursor: pointer;
-    transition: background 0.2s;
-}
-
-.faq:hover {
-    background: #e9ecef;
+    transition: all 0.2s;
 }
 
 .faq-question {
-    font-weight: bold;
+    font-weight: 700;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -200,42 +349,44 @@ body {
 
 .faq-answer {
     display: none;
-    margin-top: 10px;
-    padding-top: 10px;
+    margin-top: 12px;
+    padding-top: 12px;
     border-top: 1px solid #ddd;
     color: #555;
+    font-size: 14px;
 }
 
-.faq.active .faq-answer {
+.faq-item.active .faq-answer {
     display: block;
 }
 
 /* ФОРМА */
 .form-group {
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 input, select {
     width: 100%;
-    padding: 12px 15px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid #e0e0e0;
     font-size: 16px;
-    transition: border-color 0.2s;
+    transition: all 0.2s;
 }
 
 input:focus, select:focus {
     outline: none;
     border-color: #e53935;
+    box-shadow: 0 0 0 3px rgba(229,57,53,0.1);
 }
 
-/* ТОСТ УВЕДОМЛЕНИЕ */
+/* ТОСТ */
 .toast {
     position: fixed;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    background: #333;
+    background: #1a1a2e;
     color: white;
     padding: 12px 24px;
     border-radius: 50px;
@@ -244,20 +395,21 @@ input:focus, select:focus {
     opacity: 0;
     transition: opacity 0.3s;
     pointer-events: none;
+    white-space: nowrap;
 }
 
 .toast.show {
     opacity: 1;
 }
 
-/* POPUP */
+/* ПОПАП */
 .popup {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.8);
     display: none;
     justify-content: center;
     align-items: center;
@@ -266,17 +418,17 @@ input:focus, select:focus {
 
 .popup-content {
     background: white;
-    padding: 24px;
-    border-radius: 20px;
+    padding: 28px;
+    border-radius: 28px;
     width: 90%;
-    max-width: 400px;
+    max-width: 380px;
     position: relative;
-    animation: popupSlide 0.3s ease;
+    animation: slideUp 0.3s ease;
 }
 
-@keyframes popupSlide {
+@keyframes slideUp {
     from {
-        transform: translateY(-30px);
+        transform: translateY(30px);
         opacity: 0;
     }
     to {
@@ -287,28 +439,18 @@ input:focus, select:focus {
 
 .popup-close {
     position: absolute;
-    top: 15px;
+    top: 16px;
     right: 20px;
-    font-size: 24px;
+    font-size: 28px;
     cursor: pointer;
     color: #999;
-    transition: color 0.2s;
 }
 
-.popup-close:hover {
-    color: #333;
-}
-
-.popup h3 {
-    margin-bottom: 20px;
-    color: #1a1a2e;
-}
-
-/* АНИМАЦИЯ */
+/* АНИМАЦИЯ ПОЯВЛЕНИЯ */
 .fade {
     opacity: 0;
-    transform: translateY(30px);
-    transition: 0.6s ease;
+    transform: translateY(20px);
+    transition: 0.5s ease;
 }
 
 .fade.show {
@@ -316,52 +458,50 @@ input:focus, select:focus {
     transform: translateY(0);
 }
 
-/* Преимущества сеткой */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin-top: 10px;
-}
-
-.feature-item {
-    background: #f8f9fa;
-    padding: 12px;
-    border-radius: 12px;
-    text-align: center;
-}
-
-/* Вакансии */
-.vacancy-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.vacancy-item {
-    background: #f8f9fa;
-    padding: 12px 15px;
-    border-radius: 12px;
+/* ТГ КАНАЛ БАННЕР */
+.tg-banner {
+    background: linear-gradient(135deg, #0088cc, #006699);
+    color: white;
+    padding: 16px 20px;
+    border-radius: 20px;
+    margin-top: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.vacancy-salary {
-    color: #4caf50;
+.tg-banner span {
     font-weight: bold;
+}
+
+.tg-btn {
+    background: white;
+    color: #0088cc;
+    padding: 8px 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* КНОПКА ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ */
+.consult-btn {
+    background: #ffd700;
+    color: #1a1a2e;
+    margin-top: 10px;
 }
 </style>
 </head>
 <body>
 
 <div class="header">
-    <div class="logo">💼 Работа</div>
+    <div class="logo">💼 <span>РАБОТА</span> | 2022</div>
     <div class="menu-btn" id="menuBtn">☰</div>
     <div class="menu" id="menu">
         <a href="#about">О нас</a>
         <a href="#vacancies">Вакансии</a>
-        <a href="#conditions">Условия</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#faq">Вопросы</a>
         <a href="#form">Контакты</a>
     </div>
 </div>
@@ -369,387 +509,379 @@ input:focus, select:focus {
 <div class="container">
     <!-- HERO -->
     <div class="hero fade">
-        <h1>Работа на складе и заводе</h1>
-        <div class="salary" id="salary">0 ₽</div>
-        <p>Стабильный доход без опыта работы</p>
-        <a href="#form" class="btn" style="margin-top: 20px;">📝 Подобрать вакансию</a>
+        <h1>Работа на <span>складах и заводах</span></h1>
+        <div class="salary-badge">от 200 000 ₽</div>
+        <p>Стабильный доход • Официально • Без опыта</p>
+        <a href="#form" class="btn" style="margin-top: 20px;">🔥 Подобрать вакансию</a>
+    </div>
+
+    <!-- СТАТИСТИКА -->
+    <div class="stats-grid fade">
+        <div class="stat-card">
+            <div class="stat-number">с 2022</div>
+            <div class="stat-label">года работаем</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">100+</div>
+            <div class="stat-label">довольных клиентов</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">30-70</div>
+            <div class="stat-label">человек в месяц</div>
+        </div>
+    </div>
+
+    <!-- КТО МЫ -->
+    <div class="block fade" id="about">
+        <h2>👋 Кто мы</h2>
+        <p style="margin-bottom: 12px;"><strong>Наша организация работает с 2022 года</strong> — за это время мы помогли <strong>сотням людей</strong> найти стабильную и высокооплачиваемую работу.</p>
+        <div class="features-list">
+            <div class="feature-item"><span class="feature-icon">📌</span> Трудоустройство на склады и заводы</div>
+            <div class="feature-item"><span class="feature-icon">🏭</span> Логистика и производственные объекты</div>
+            <div class="feature-item"><span class="feature-icon">✅</span> Работаем официально по контракту</div>
+            <div class="feature-item"><span class="feature-icon">🤝</span> Сотрудничаем с крупными предприятиями</div>
+        </div>
+        <p style="margin-top: 12px; background: #f0f0f0; padding: 10px; border-radius: 12px;">💬 У нас уже есть база довольных клиентов и реальные отзывы. Наша задача — не просто «дать вакансию», а реально устроить вас на работу с хорошими условиями.</p>
+    </div>
+
+    <!-- КАРТОЧКИ ВАКАНСИЙ (ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ) -->
+    <div class="block fade" id="vacancies">
+        <div class="section-header">
+            <h2>📦 Доступные вакансии</h2>
+            <div class="scroll-hint">→ листай →</div>
+        </div>
+        <div class="vacancies-scroll">
+            <div class="vacancy-card">
+                <div class="vacancy-icon">📦</div>
+                <div class="vacancy-title">Комплектовщик склада</div>
+                <div class="vacancy-salary">220 000 – 260 000 ₽</div>
+                <div class="vacancy-features">
+                    <p>✅ Оформление по ТК РФ</p>
+                    <p>🏠 Жильё предоставляется</p>
+                    <p>🍽️ Питание включено</p>
+                    <p>📍 Работа рядом с метро</p>
+                </div>
+                <button class="btn-small" onclick="openApplyForm('Комплектовщик склада')">Откликнуться →</button>
+            </div>
+
+            <div class="vacancy-card">
+                <div class="vacancy-icon">🏭</div>
+                <div class="vacancy-title">Оператор станка ЧПУ</div>
+                <div class="vacancy-salary">250 000 – 300 000 ₽</div>
+                <div class="vacancy-features">
+                    <p>✅ Обучение за счёт компании</p>
+                    <p>🏠 Проживание</p>
+                    <p>📈 Карьерный рост</p>
+                    <p>🎓 Опыт не обязателен</p>
+                </div>
+                <button class="btn-small" onclick="openApplyForm('Оператор станка ЧПУ')">Откликнуться →</button>
+            </div>
+
+            <div class="vacancy-card">
+                <div class="vacancy-icon">🚚</div>
+                <div class="vacancy-title">Водитель-экспедитор</div>
+                <div class="vacancy-salary">230 000 – 280 000 ₽</div>
+                <div class="vacancy-features">
+                    <p>✅ Автомобиль предоставляем</p>
+                    <p>🏠 Жильё</p>
+                    <p>⛽ Топливо за наш счёт</p>
+                </div>
+                <button class="btn-small" onclick="openApplyForm('Водитель-экспедитор')">Откликнуться →</button>
+            </div>
+
+            <div class="vacancy-card">
+                <div class="vacancy-icon">🔧</div>
+                <div class="vacancy-title">Разнорабочий на завод</div>
+                <div class="vacancy-salary">200 000 – 240 000 ₽</div>
+                <div class="vacancy-features">
+                    <p>✅ Проживание и питание</p>
+                    <p>👍 Без опыта</p>
+                    <p>📅 Стабильные смены</p>
+                </div>
+                <button class="btn-small" onclick="openApplyForm('Разнорабочий на завод')">Откликнуться →</button>
+            </div>
+
+            <div class="vacancy-card">
+                <div class="vacancy-icon">📋</div>
+                <div class="vacancy-title">Кладовщик</div>
+                <div class="vacancy-salary">210 000 – 250 000 ₽</div>
+                <div class="vacancy-features">
+                    <p>✅ Опыт не нужен</p>
+                    <p>🏠 Жильё рядом</p>
+                    <p>📱 Гибкий график</p>
+                </div>
+                <button class="btn-small" onclick="openApplyForm('Кладовщик')">Откликнуться →</button>
+            </div>
+
+            <div class="vacancy-card">
+                <div class="vacancy-icon">🎛️</div>
+                <div class="vacancy-title">Контролёр ОТК</div>
+                <div class="vacancy-salary">240 000 – 280 000 ₽</div>
+                <div class="vacancy-features">
+                    <p>✅ Стабильные выплаты</p>
+                    <p>🏠 Проживание</p>
+                    <p>🎓 Обучение</p>
+                </div>
+                <button class="btn-small" onclick="openApplyForm('Контролёр ОТК')">Откликнуться →</button>
+            </div>
+        </div>
     </div>
 
     <!-- ПРЕИМУЩЕСТВА -->
-    <div class="block fade" id="about">
-        <h2>✨ Почему выбирают нас</h2>
-        <div class="features-grid">
-            <div class="feature-item">✅ Официальное оформление</div>
-            <div class="feature-item">🏠 Бесплатное проживание</div>
-            <div class="feature-item">📚 Обучение за счёт компании</div>
-            <div class="feature-item">💰 Высокий доход до 300 000 ₽</div>
-        </div>
-    </div>
-
-    <!-- КАК ЭТО РАБОТАЕТ -->
     <div class="block fade">
-        <h2>🔄 Как проходит работа</h2>
-        <p>1️⃣ Вы оставляете заявку → 2️⃣ Мы связываемся → 3️⃣ Оформление → 4️⃣ Выход на работу</p>
-    </div>
-
-    <!-- ВАКАНСИИ -->
-    <div class="block fade" id="vacancies">
-        <h2>📋 Доступные вакансии</h2>
-        <div class="vacancy-list">
-            <div class="vacancy-item">
-                <span>📦 Складской сотрудник</span>
-                <span class="vacancy-salary">от 180 000 ₽</span>
-            </div>
-            <div class="vacancy-item">
-                <span>🏭 Оператор завода</span>
-                <span class="vacancy-salary">от 200 000 ₽</span>
-            </div>
-            <div class="vacancy-item">
-                <span>🚚 Водитель-курьер</span>
-                <span class="vacancy-salary">от 250 000 ₽</span>
-            </div>
-            <div class="vacancy-item">
-                <span>🔧 Разнорабочий</span>
-                <span class="vacancy-salary">от 160 000 ₽</span>
-            </div>
+        <h2>💼 Почему работа с нами — выгодно</h2>
+        <div class="features-list">
+            <div class="feature-item"><span class="feature-icon">🔥</span> Индивидуальный подход под ваш запрос</div>
+            <div class="feature-item"><span class="feature-icon">📊</span> В среднем трудоустраиваем 30–70 человек в месяц</div>
+            <div class="feature-item"><span class="feature-icon">⚡</span> Возможна вахта с проживанием и питанием</div>
+            <div class="feature-item"><span class="feature-icon">🤝</span> Индивидуальные договорённости — обсудим условия</div>
         </div>
-    </div>
-
-    <!-- УСЛОВИЯ -->
-    <div class="block fade" id="conditions">
-        <h2>🏢 Условия работы</h2>
-        <p>🏠 Комфортное проживание рядом с работой</p>
-        <p>🍽️ Питание или компенсация</p>
-        <p>📄 Контракт от 3 месяцев</p>
-        <p>🚌 Трансфер до места работы</p>
     </div>
 
     <!-- ОТЗЫВЫ -->
-    <div class="block fade">
-        <h2>⭐ Отзывы наших сотрудников</h2>
+    <div class="block fade" id="reviews">
+        <h2>⭐ Реальные отзывы</h2>
         <div class="review">
-            "Работаю 2 месяца, всё как обещали. Зарплата вовремя, жильё нормальное"
-            <div class="review-author">— Александр, 2 месяца</div>
+            <div class="review-text">«Работаю 2 месяца, всё как обещали. Зарплата вовремя, жильё нормальное. Спасибо ребятам!»</div>
+            <div class="review-author">— Александр, комплектовщик</div>
         </div>
         <div class="review">
-            "Помогли устроиться быстро, без лишних бумаг. Рекомендую"
-            <div class="review-author">— Екатерина, 1 месяц</div>
+            <div class="review-text">«Помогли устроиться за 3 дня. Без опыта, сразу на завод. ЗП 240к, доволен»</div>
+            <div class="review-author">— Дмитрий, оператор ЧПУ</div>
         </div>
         <div class="review">
-            "Хорошие условия, коллектив дружный. ЗП радует"
-            <div class="review-author">— Дмитрий, 4 месяца</div>
+            <div class="review-text">«Хорошие условия, коллектив дружный. Отдельное спасибо за жильё»</div>
+            <div class="review-author">— Екатерина, кладовщик</div>
         </div>
-    </div>
-
-    <!-- ЭТАПЫ -->
-    <div class="block fade">
-        <h2>📝 Как устроиться</h2>
-        <p>1️⃣ Оставляете заявку на сайте</p>
-        <p>2️⃣ Мы связываемся с вами в течение часа</p>
-        <p>3️⃣ Подбираем лучшую вакансию под вас</p>
-        <p>4️⃣ Вы проходите собеседование</p>
-        <p>5️⃣ Выходите на работу и получаете зарплату</p>
     </div>
 
     <!-- FAQ -->
-    <div class="block fade">
-        <h2>❓ Часто задаваемые вопросы</h2>
+    <div class="block fade" id="faq">
+        <h2>❓ Частые вопросы</h2>
         
-        <div class="faq">
-            <div class="faq-question">
-                Нужен ли опыт работы?
-                <span>▼</span>
-            </div>
-            <div class="faq-answer">Нет, опыт не требуется. Мы обучаем всех сотрудников на месте.</div>
+        <div class="faq-item">
+            <div class="faq-question">Нужен ли опыт работы? <span>▼</span></div>
+            <div class="faq-answer">Нет, опыт не требуется. Мы обучаем всех сотрудников на месте. Главное — ваше желание работать.</div>
         </div>
         
-        <div class="faq">
-            <div class="faq-question">
-                Сколько платят в месяц?
-                <span>▼</span>
-            </div>
-            <div class="faq-answer">Доход от 150 000 до 300 000 рублей в зависимости от вакансии и выработки.</div>
+        <div class="faq-item">
+            <div class="faq-question">Сколько платят в месяц? <span>▼</span></div>
+            <div class="faq-answer">Доход от 200 000 до 300 000 рублей в месяц в зависимости от вакансии и выработки. Выплаты стабильные, без задержек.</div>
         </div>
         
-        <div class="faq">
-            <div class="faq-question">
-                Предоставляется ли жильё?
-                <span>▼</span>
-            </div>
-            <div class="faq-answer">Да, предоставляем бесплатное проживание в уютных общежитиях рядом с работой.</div>
+        <div class="faq-item">
+            <div class="faq-question">Предоставляется ли жильё? <span>▼</span></div>
+            <div class="faq-answer">Да, на большинстве объектов предоставляем бесплатное проживание в уютных общежитиях или квартирах рядом с работой.</div>
         </div>
         
-        <div class="faq">
-            <div class="faq-question">
-                Есть ли испытательный срок?
-                <span>▼</span>
-            </div>
-            <div class="faq-answer">Испытательный срок 1 неделя, в течение которой вы получаете полную зарплату.</div>
+        <div class="faq-item">
+            <div class="faq-question">Есть ли питание? <span>▼</span></div>
+            <div class="faq-answer">Да, на многих объектах включено питание или предоставляется компенсация.</div>
         </div>
+    </div>
+
+    <!-- ТГ КАНАЛ -->
+    <div class="tg-banner fade">
+        <span>📢 Наш Telegram канал <br><strong>1300 подписчиков</strong></span>
+        <a href="https://t.me/+79290000000" class="tg-btn" target="_blank">Подписаться →</a>
     </div>
 
     <!-- ФОРМА -->
     <div class="block fade" id="formBlock">
         <h2 id="form">📞 Оставить заявку</h2>
-        <p style="margin-bottom: 15px;">Заполните форму, и мы свяжемся с вами в ближайшее время</p>
+        <p style="margin-bottom: 15px;">Заполните форму — мы подберём вакансию специально для вас</p>
         
         <div id="mainForm">
             <div class="form-group">
-                <input type="text" id="mainName" placeholder="Ваше имя" autocomplete="name">
+                <input type="text" id="mainName" placeholder="Ваше имя">
             </div>
             <div class="form-group">
-                <input type="tel" id="mainPhone" placeholder="Номер телефона" autocomplete="tel">
+                <input type="tel" id="mainPhone" placeholder="Номер телефона">
             </div>
             <div class="form-group">
-                <select id="mainMessenger">
-                    <option value="Telegram">Telegram</option>
-                    <option value="WhatsApp">WhatsApp</option>
-                    <option value="Viber">Viber</option>
+                <select id="mainVacancy">
+                    <option value="">Выберите вакансию (или любую)</option>
+                    <option>Комплектовщик склада</option>
+                    <option>Оператор станка ЧПУ</option>
+                    <option>Водитель-экспедитор</option>
+                    <option>Разнорабочий на завод</option>
+                    <option>Кладовщик</option>
+                    <option>Контролёр ОТК</option>
                 </select>
             </div>
-            <button class="btn btn-block" onclick="sendForm('main')">📨 Отправить заявку</button>
+            <button class="btn btn-block" onclick="sendForm('main')">🔥 Отправить заявку</button>
         </div>
+    </div>
+
+    <button class="btn btn-block consult-btn" onclick="showConsultPopup()">💬 Получить консультацию</button>
+    <div style="height: 20px;"></div>
+</div>
+
+<!-- POPUP ЗАЯВКИ -->
+<div class="popup" id="applyPopup">
+    <div class="popup-content">
+        <div class="popup-close" onclick="closeApplyPopup()">×</div>
+        <h3>📋 Отклик на вакансию</h3>
+        <p id="applyVacancyName" style="color:#e53935; font-weight:bold; margin:10px 0;"></p>
+        <div class="form-group">
+            <input type="text" id="applyName" placeholder="Ваше имя">
+        </div>
+        <div class="form-group">
+            <input type="tel" id="applyPhone" placeholder="Номер телефона">
+        </div>
+        <button class="btn btn-block" onclick="sendFromApply()">Отправить</button>
     </div>
 </div>
 
-<!-- POPUP -->
-<div class="popup" id="popup">
+<!-- POPUP КОНСУЛЬТАЦИЯ -->
+<div class="popup" id="consultPopup">
     <div class="popup-content">
-        <div class="popup-close" onclick="closePopup()">×</div>
-        <h3>🎁 Специальное предложение!</h3>
-        <p style="margin-bottom: 15px;">Оставьте заявку прямо сейчас и получите бесплатную консультацию!</p>
+        <div class="popup-close" onclick="closeConsultPopup()">×</div>
+        <h3>💬 Бесплатная консультация</h3>
+        <p>Оставьте номер — мы перезвоним через 5 минут</p>
         <div class="form-group">
-            <input type="text" id="popupName" placeholder="Ваше имя">
+            <input type="text" id="consultName" placeholder="Ваше имя">
         </div>
         <div class="form-group">
-            <input type="tel" id="popupPhone" placeholder="Номер телефона">
+            <input type="tel" id="consultPhone" placeholder="Номер телефона">
         </div>
-        <button class="btn btn-block" onclick="sendForm('popup')">Получить консультацию</button>
+        <button class="btn btn-block" onclick="sendConsult()">Перезвоните мне</button>
     </div>
 </div>
 
 <!-- TOAST -->
-<div class="toast" id="toast">✓ Заявка успешно отправлена!</div>
+<div class="toast" id="toast">✓ Заявка отправлена!</div>
 
 <script>
-// ═══════════════════════════════════════════════════════════
-// ДАННЫЕ ДЛЯ TELEGRAM (ЗАМЕНИ НА СВОИ)
-// ═══════════════════════════════════════════════════════════
-// ⚠️ ВНИМАНИЕ: Создай нового бота через @BotFather в Telegram!
-// Вставь сюда ТОКЕН нового бота и свой CHAT_ID
-const BOT_TOKEN = '8724372615:AAEjCiuGB2gIHDqB0lPEiGJIt3ZxhEBNZc8';  // ЗАМЕНИТЬ НА НОВЫЙ ТОКЕН!
-const CHAT_ID = '8183270307';                                   // ЗАМЕНИТЬ НА СВОЙ CHAT_ID
+// ⚠️ ВАЖНО: Замени на СВОЙ токен и chat_id Telegram бота
+const BOT_TOKEN = '8699028327:AAFVN1gCyUhSA2V6AFTgQFeMAdnef-enyqo';  
+const CHAT_ID = '8183270307'; 
 
-// Флаг, чтобы не спамить заявками
 let formSubmitted = false;
+let currentApplyVacancy = '';
 
-// ═══════════════════════════════════════════════════════════
-// ОТПРАВКА ФОРМЫ
-// ═══════════════════════════════════════════════════════════
-function sendForm(type) {
-    if (formSubmitted) {
-        showToast('✓ Заявка уже отправлена! Мы свяжемся с вами');
-        return;
+function showToast(msg) {
+    let toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+function sendToTelegram(name, phone, extra = '') {
+    let text = `📋 НОВАЯ ЗАЯВКА%0A👤 Имя: ${encodeURIComponent(name)}%0A📱 Телефон: ${encodeURIComponent(phone)}%0A${extra ? encodeURIComponent(extra) + '%0A' : ''}🕐 ${new Date().toLocaleString('ru-RU')}`;
+    if (BOT_TOKEN && CHAT_ID && BOT_TOKEN !== '8724372615:AAEjCiuGB2gIHDqB0lPEiGJIt3ZxhEBNZc8') {
+        fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}`).catch(e => console.log(e));
     }
-    
-    let name, phone, messenger = '';
-    
+}
+
+function sendForm(type) {
+    if (formSubmitted) { showToast('Заявка уже отправлена! Мы свяжемся'); return; }
+    let name, phone, vacancy = '';
     if (type === 'main') {
         name = document.getElementById('mainName').value.trim();
         phone = document.getElementById('mainPhone').value.trim();
-        messenger = document.getElementById('mainMessenger').value;
-    } else {
-        name = document.getElementById('popupName').value.trim();
-        phone = document.getElementById('popupPhone').value.trim();
+        vacancy = document.getElementById('mainVacancy').value;
+        if (!vacancy) vacancy = 'Любая вакансия';
     }
+    if (!name || !phone) { showToast('Заполните имя и телефон'); return; }
+    if (phone.length < 6) { showToast('Введите корректный телефон'); return; }
     
-    // Валидация
-    if (name === '') {
-        showToast('❌ Пожалуйста, введите ваше имя');
-        return;
-    }
-    
-    if (phone === '') {
-        showToast('❌ Пожалуйста, введите номер телефона');
-        return;
-    }
-    
-    if (phone.length < 6) {
-        showToast('❌ Введите корректный номер телефона');
-        return;
-    }
-    
-    // Формируем сообщение для Telegram
-    let message = `📋 НОВАЯ ЗАЯВКА%0A`;
-    message += `👤 Имя: ${encodeURIComponent(name)}%0A`;
-    message += `📱 Телефон: ${encodeURIComponent(phone)}%0A`;
-    if (messenger) {
-        message += `💬 Мессенджер: ${encodeURIComponent(messenger)}%0A`;
-    }
-    message += `🕐 Время: ${new Date().toLocaleString('ru-RU')}`;
-    
-    // Отправляем в Telegram (если указаны токен и chat_id)
-    if (BOT_TOKEN && CHAT_ID && BOT_TOKEN !== 'ТВОЙ_ТОКЕН_БОТА') {
-        fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${message}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.ok) {
-                    console.log('✓ Отправлено в Telegram');
-                } else {
-                    console.log('Ошибка Telegram:', data);
-                }
-            })
-            .catch(error => {
-                console.log('Ошибка отправки:', error);
-                // Даже если ошибка, показываем успех пользователю
-            });
-    } else {
-        console.log('Telegram не настроен, заявка сохранена локально');
-    }
-    
-    // Отмечаем, что заявка отправлена
     formSubmitted = true;
-    
-    // Очищаем поля
+    sendToTelegram(name, phone, `💼 Вакансия: ${vacancy}`);
+    showToast('✓ Заявка отправлена! Мы свяжемся');
     if (type === 'main') {
         document.getElementById('mainName').value = '';
         document.getElementById('mainPhone').value = '';
-    } else {
-        document.getElementById('popupName').value = '';
-        document.getElementById('popupPhone').value = '';
-        closePopup();
     }
-    
-    showToast('✓ Заявка отправлена! Мы свяжемся с вами');
 }
 
-// ═══════════════════════════════════════════════════════════
-// УВЕДОМЛЕНИЕ (TOAST)
-// ═══════════════════════════════════════════════════════════
-function showToast(message) {
-    const toast = document.getElementById('toast');
-    toast.textContent = message;
-    toast.classList.add('show');
-    
-    setTimeout(() => {
-        toast.classList.remove('show');
-    }, 3000);
+function openApplyForm(vacancy) {
+    currentApplyVacancy = vacancy;
+    document.getElementById('applyVacancyName').innerText = vacancy;
+    document.getElementById('applyPopup').style.display = 'flex';
 }
 
-// ═══════════════════════════════════════════════════════════
-// МЕНЮ
-// ═══════════════════════════════════════════════════════════
+function closeApplyPopup() {
+    document.getElementById('applyPopup').style.display = 'none';
+}
+
+function sendFromApply() {
+    if (formSubmitted) { showToast('Заявка уже отправлена'); closeApplyPopup(); return; }
+    let name = document.getElementById('applyName').value.trim();
+    let phone = document.getElementById('applyPhone').value.trim();
+    if (!name || !phone) { showToast('Заполните имя и телефон'); return; }
+    if (phone.length < 6) { showToast('Введите корректный телефон'); return; }
+    formSubmitted = true;
+    sendToTelegram(name, phone, `💼 Вакансия: ${currentApplyVacancy}`);
+    showToast('✓ Отклик отправлен!');
+    closeApplyPopup();
+    document.getElementById('applyName').value = '';
+    document.getElementById('applyPhone').value = '';
+}
+
+function showConsultPopup() {
+    document.getElementById('consultPopup').style.display = 'flex';
+}
+
+function closeConsultPopup() {
+    document.getElementById('consultPopup').style.display = 'none';
+}
+
+function sendConsult() {
+    if (formSubmitted) { showToast('Заявка уже отправлена'); closeConsultPopup(); return; }
+    let name = document.getElementById('consultName').value.trim();
+    let phone = document.getElementById('consultPhone').value.trim();
+    if (!name || !phone) { showToast('Заполните имя и телефон'); return; }
+    if (phone.length < 6) { showToast('Введите корректный телефон'); return; }
+    formSubmitted = true;
+    sendToTelegram(name, phone, '💬 Консультация');
+    showToast('Скоро перезвоним!');
+    closeConsultPopup();
+    document.getElementById('consultName').value = '';
+    document.getElementById('consultPhone').value = '';
+}
+
+// Меню
 function toggleMenu() {
-    const menu = document.getElementById('menu');
-    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    let m = document.getElementById('menu');
+    m.style.display = m.style.display === 'block' ? 'none' : 'block';
 }
-
-// Закрытие меню при клике вне
-document.addEventListener('click', function(e) {
-    const menu = document.getElementById('menu');
-    const menuBtn = document.getElementById('menuBtn');
-    
-    if (menu.style.display === 'block' && !menu.contains(e.target) && e.target !== menuBtn) {
-        menu.style.display = 'none';
-    }
+document.getElementById('menuBtn').addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
+document.addEventListener('click', (e) => {
+    let menu = document.getElementById('menu');
+    let btn = document.getElementById('menuBtn');
+    if (menu.style.display === 'block' && !menu.contains(e.target) && e.target !== btn) menu.style.display = 'none';
 });
 
-document.getElementById('menuBtn').addEventListener('click', function(e) {
-    e.stopPropagation();
-    toggleMenu();
-});
-
-// ═══════════════════════════════════════════════════════════
-// ПОПАП
-// ═══════════════════════════════════════════════════════════
-function showPopup() {
-    if (!formSubmitted) {
-        document.getElementById('popup').style.display = 'flex';
-    }
-}
-
-function closePopup() {
-    document.getElementById('popup').style.display = 'none';
-}
-
-// Закрытие попапа по клику на фон
-document.getElementById('popup').addEventListener('click', function(e) {
-    if (e.target === this) {
-        closePopup();
-    }
-});
-
-// Показываем попап через 12 секунд, если заявка не отправлена
-setTimeout(() => {
-    if (!formSubmitted) {
-        showPopup();
-    }
-}, 12000);
-
-// ═══════════════════════════════════════════════════════════
-// АНИМАЦИЯ ЗАРПЛАТЫ
-// ═══════════════════════════════════════════════════════════
-let currentSalary = 120000;
-const salaryElement = document.getElementById('salary');
-const targetSalary = 298000;
-
-function updateSalary() {
-    if (currentSalary < targetSalary) {
-        currentSalary += 2000;
-        if (currentSalary > targetSalary) currentSalary = targetSalary;
-        salaryElement.innerText = currentSalary.toLocaleString() + ' ₽';
-        setTimeout(updateSalary, 35);
-    }
-}
-
-updateSalary();
-
-// ═══════════════════════════════════════════════════════════
-// АНИМАЦИЯ ПРИ СКРОЛЛЕ
-// ═══════════════════════════════════════════════════════════
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        }
+// FAQ
+document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', function() {
+        this.classList.toggle('active');
+        let arrow = this.querySelector('.faq-question span');
+        if (arrow) arrow.textContent = this.classList.contains('active') ? '▲' : '▼';
     });
-}, { threshold: 0.1 });
+});
 
+// Анимация при скролле
+let observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+}, { threshold: 0.1 });
 document.querySelectorAll('.fade').forEach(el => observer.observe(el));
 
-// ═══════════════════════════════════════════════════════════
-// FAQ (РАСКРЫВАЮЩИЕСЯ ОТВЕТЫ)
-// ═══════════════════════════════════════════════════════════
-document.querySelectorAll('.faq').forEach(faq => {
-    faq.addEventListener('click', function() {
-        this.classList.toggle('active');
-        
-        // Меняем стрелку
-        const arrow = this.querySelector('.faq-question span');
-        if (arrow) {
-            arrow.textContent = this.classList.contains('active') ? '▲' : '▼';
-        }
-    });
-});
-
-// ═══════════════════════════════════════════════════════════
-// ПЛАВНЫЙ СКРОЛЛ К ЯКОРЯМ
-// ═══════════════════════════════════════════════════════════
+// Плавный скролл по якорям
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            // Закрываем меню после клика
-            document.getElementById('menu').style.display = 'none';
-        }
+        let target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('menu').style.display = 'none';
     });
 });
 
-console.log('Сайт загружен! 🔥');
+// Попап через 10 секунд если не отправлял
+setTimeout(() => {
+    if (!formSubmitted) showConsultPopup();
+}, 10000);
 </script>
-
 </body>
-</html>
 </html>
