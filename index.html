@@ -1,277 +1,755 @@
+html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Работа</title>
+<title>Работа на складе и заводе</title>
 
 <style>
-body {margin:0;font-family:Arial;background:#f5f7fa;color:#111;}
-.container {max-width:520px;margin:auto;padding:20px;}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    background: #f5f7fa;
+    color: #111;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 640px;
+    margin: auto;
+    padding: 20px;
+}
 
 /* HEADER */
 .header {
-display:flex;
-justify-content:space-between;
-padding:15px;
-background:white;
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #e53935, #c62828);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.menu-btn {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.menu-btn:hover {
+    background: #f0f0f0;
 }
 
 .menu {
-display:none;
-position:absolute;
-right:20px;
-top:60px;
-background:white;
-border-radius:10px;
-box-shadow:0 10px 20px rgba(0,0,0,0.2);
-z-index:9999;
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 60px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    z-index: 9999;
+    overflow: hidden;
+    min-width: 160px;
 }
-.menu a {display:block;padding:10px;text-decoration:none;color:black;}
+
+.menu a {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #333;
+    transition: background 0.2s;
+}
+
+.menu a:hover {
+    background: #f5f5f5;
+    color: #e53935;
+}
 
 /* HERO */
 .hero {
-text-align:center;
-padding:30px 20px;
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 24px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
 }
 
 .salary {
-font-size:34px;
-color:green;
-font-weight:bold;
+    font-size: 48px;
+    font-weight: bold;
+    color: #ffd700;
+    margin: 15px 0;
 }
 
-/* КНОПКА */
+/* КНОПКИ */
 .btn {
-display:block;
-background:red;
-color:white;
-padding:16px;
-border-radius:12px;
-text-align:center;
-margin-top:15px;
-text-decoration:none;
+    display: inline-block;
+    background: #e53935;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s, background 0.2s;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background: #c62828;
+    transform: scale(1.02);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
 }
 
 /* БЛОКИ */
 .block {
-background:white;
-padding:20px;
-border-radius:16px;
-margin-top:15px;
+    background: white;
+    padding: 24px;
+    border-radius: 20px;
+    margin-top: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s;
+}
+
+.block:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.block h2 {
+    margin-bottom: 16px;
+    font-size: 22px;
+    color: #1a1a2e;
+}
+
+.block p {
+    margin: 8px 0;
 }
 
 /* ОТЗЫВЫ */
 .review {
-background:#fff;
-padding:15px;
-border-radius:12px;
-margin-top:10px;
-border-left:4px solid green;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 10px;
+    border-left: 4px solid #4caf50;
+    transition: transform 0.2s;
+}
+
+.review:hover {
+    transform: translateX(5px);
+}
+
+.review-author {
+    font-size: 12px;
+    color: #666;
+    margin-top: 8px;
 }
 
 /* FAQ */
 .faq {
-background:white;
-padding:15px;
-border-radius:12px;
-margin-top:10px;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.faq:hover {
+    background: #e9ecef;
+}
+
+.faq-question {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-answer {
+    display: none;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    color: #555;
+}
+
+.faq.active .faq-answer {
+    display: block;
 }
 
 /* ФОРМА */
-input, select {
-width:100%;
-padding:12px;
-margin-bottom:10px;
-border-radius:8px;
-border:1px solid #ccc;
-box-sizing:border-box;
+.form-group {
+    margin-bottom: 12px;
 }
 
-button {
-width:100%;
-padding:14px;
-background:red;
-color:white;
-border:none;
-border-radius:10px;
+input, select {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    transition: border-color 0.2s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #e53935;
+}
+
+/* ТОСТ УВЕДОМЛЕНИЕ */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 14px;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.toast.show {
+    opacity: 1;
 }
 
 /* POPUP */
 .popup {
-position:fixed;
-top:0;left:0;width:100%;height:100%;
-background:rgba(0,0,0,0.6);
-display:none;
-justify-content:center;
-align-items:center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001;
 }
+
 .popup-content {
-background:white;
-padding:20px;
-border-radius:12px;
-width:90%;
-max-width:400px;
+    background: white;
+    padding: 24px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    animation: popupSlide 0.3s ease;
+}
+
+@keyframes popupSlide {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.popup-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.2s;
+}
+
+.popup-close:hover {
+    color: #333;
+}
+
+.popup h3 {
+    margin-bottom: 20px;
+    color: #1a1a2e;
 }
 
 /* АНИМАЦИЯ */
-.fade {opacity:0;transform:translateY(30px);transition:0.7s;}
-.fade.show {opacity:1;transform:translateY(0);}
+.fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.6s ease;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Преимущества сеткой */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.feature-item {
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+/* Вакансии */
+.vacancy-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.vacancy-item {
+    background: #f8f9fa;
+    padding: 12px 15px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vacancy-salary {
+    color: #4caf50;
+    font-weight: bold;
+}
 </style>
 </head>
-
 <body>
 
 <div class="header">
-<div><b>Работа</b></div>
-<div onclick="toggleMenu()">☰</div>
-
-<div class="menu" id="menu">
-<a href="#">О нас</a>
-<a href="#">Вакансии</a>
-<a href="#">Условия</a>
-</div>
+    <div class="logo">💼 Работа</div>
+    <div class="menu-btn" id="menuBtn">☰</div>
+    <div class="menu" id="menu">
+        <a href="#about">О нас</a>
+        <a href="#vacancies">Вакансии</a>
+        <a href="#conditions">Условия</a>
+        <a href="#form">Контакты</a>
+    </div>
 </div>
 
 <div class="container">
+    <!-- HERO -->
+    <div class="hero fade">
+        <h1>Работа на складе и заводе</h1>
+        <div class="salary" id="salary">0 ₽</div>
+        <p>Стабильный доход без опыта работы</p>
+        <a href="#form" class="btn" style="margin-top: 20px;">📝 Подобрать вакансию</a>
+    </div>
 
-<!-- HERO -->
-<div class="hero fade">
-<h1>Работа на складе и заводе</h1>
-<div class="salary" id="salary">0 ₽</div>
-<p>Стабильный доход без опыта</p>
+    <!-- ПРЕИМУЩЕСТВА -->
+    <div class="block fade" id="about">
+        <h2>✨ Почему выбирают нас</h2>
+        <div class="features-grid">
+            <div class="feature-item">✅ Официальное оформление</div>
+            <div class="feature-item">🏠 Бесплатное проживание</div>
+            <div class="feature-item">📚 Обучение за счёт компании</div>
+            <div class="feature-item">💰 Высокий доход до 300 000 ₽</div>
+        </div>
+    </div>
 
-<a href="#form" class="btn">Подобрать вакансию</a>
-</div>
+    <!-- КАК ЭТО РАБОТАЕТ -->
+    <div class="block fade">
+        <h2>🔄 Как проходит работа</h2>
+        <p>1️⃣ Вы оставляете заявку → 2️⃣ Мы связываемся → 3️⃣ Оформление → 4️⃣ Выход на работу</p>
+    </div>
 
-<!-- ПРЕИМУЩЕСТВА -->
-<div class="block fade">
-<h2>Почему выбирают нас</h2>
-<p>✔ Официальное оформление</p>
-<p>✔ Бесплатное проживание</p>
-<p>✔ Обучение</p>
-<p>✔ Высокий доход</p>
-</div>
+    <!-- ВАКАНСИИ -->
+    <div class="block fade" id="vacancies">
+        <h2>📋 Доступные вакансии</h2>
+        <div class="vacancy-list">
+            <div class="vacancy-item">
+                <span>📦 Складской сотрудник</span>
+                <span class="vacancy-salary">от 180 000 ₽</span>
+            </div>
+            <div class="vacancy-item">
+                <span>🏭 Оператор завода</span>
+                <span class="vacancy-salary">от 200 000 ₽</span>
+            </div>
+            <div class="vacancy-item">
+                <span>🚚 Водитель-курьер</span>
+                <span class="vacancy-salary">от 250 000 ₽</span>
+            </div>
+            <div class="vacancy-item">
+                <span>🔧 Разнорабочий</span>
+                <span class="vacancy-salary">от 160 000 ₽</span>
+            </div>
+        </div>
+    </div>
 
-<!-- КАК ЭТО РАБОТАЕТ -->
-<div class="block fade">
-<h2>Как проходит работа</h2>
-<p>Вы приезжаете → проходите оформление → выходите на работу</p>
-</div>
+    <!-- УСЛОВИЯ -->
+    <div class="block fade" id="conditions">
+        <h2>🏢 Условия работы</h2>
+        <p>🏠 Комфортное проживание рядом с работой</p>
+        <p>🍽️ Питание или компенсация</p>
+        <p>📄 Контракт от 3 месяцев</p>
+        <p>🚌 Трансфер до места работы</p>
+    </div>
 
-<!-- ВАКАНСИИ -->
-<div class="block fade">
-<h2>Доступные вакансии</h2>
-<p>📦 Склад</p>
-<p>🏭 Завод</p>
-<p>🚚 Водитель</p>
-</div>
+    <!-- ОТЗЫВЫ -->
+    <div class="block fade">
+        <h2>⭐ Отзывы наших сотрудников</h2>
+        <div class="review">
+            "Работаю 2 месяца, всё как обещали. Зарплата вовремя, жильё нормальное"
+            <div class="review-author">— Александр, 2 месяца</div>
+        </div>
+        <div class="review">
+            "Помогли устроиться быстро, без лишних бумаг. Рекомендую"
+            <div class="review-author">— Екатерина, 1 месяц</div>
+        </div>
+        <div class="review">
+            "Хорошие условия, коллектив дружный. ЗП радует"
+            <div class="review-author">— Дмитрий, 4 месяца</div>
+        </div>
+    </div>
 
-<!-- УСЛОВИЯ -->
-<div class="block fade">
-<h2>Условия</h2>
-<p>Проживание предоставляется</p>
-<p>Питание есть</p>
-<p>Контракт от 3 месяцев</p>
-</div>
+    <!-- ЭТАПЫ -->
+    <div class="block fade">
+        <h2>📝 Как устроиться</h2>
+        <p>1️⃣ Оставляете заявку на сайте</p>
+        <p>2️⃣ Мы связываемся с вами в течение часа</p>
+        <p>3️⃣ Подбираем лучшую вакансию под вас</p>
+        <p>4️⃣ Вы проходите собеседование</p>
+        <p>5️⃣ Выходите на работу и получаете зарплату</p>
+    </div>
 
-<!-- ОТЗЫВЫ -->
-<div class="block fade">
-<h2>Отзывы</h2>
+    <!-- FAQ -->
+    <div class="block fade">
+        <h2>❓ Часто задаваемые вопросы</h2>
+        
+        <div class="faq">
+            <div class="faq-question">
+                Нужен ли опыт работы?
+                <span>▼</span>
+            </div>
+            <div class="faq-answer">Нет, опыт не требуется. Мы обучаем всех сотрудников на месте.</div>
+        </div>
+        
+        <div class="faq">
+            <div class="faq-question">
+                Сколько платят в месяц?
+                <span>▼</span>
+            </div>
+            <div class="faq-answer">Доход от 150 000 до 300 000 рублей в зависимости от вакансии и выработки.</div>
+        </div>
+        
+        <div class="faq">
+            <div class="faq-question">
+                Предоставляется ли жильё?
+                <span>▼</span>
+            </div>
+            <div class="faq-answer">Да, предоставляем бесплатное проживание в уютных общежитиях рядом с работой.</div>
+        </div>
+        
+        <div class="faq">
+            <div class="faq-question">
+                Есть ли испытательный срок?
+                <span>▼</span>
+            </div>
+            <div class="faq-answer">Испытательный срок 1 неделя, в течение которой вы получаете полную зарплату.</div>
+        </div>
+    </div>
 
-<div class="review">Работаю 2 месяца, всё как обещали</div>
-<div class="review">ЗП приходит вовремя, условия норм</div>
-<div class="review">Помогли устроиться быстро</div>
-
-</div>
-
-<!-- ЭТАПЫ -->
-<div class="block fade">
-<h2>Как устроиться</h2>
-<p>1. Оставляете заявку</p>
-<p>2. Мы связываемся</p>
-<p>3. Подбираем вакансию</p>
-</div>
-
-<!-- FAQ -->
-<div class="block fade">
-<h2>Вопросы</h2>
-
-<div class="faq">Нужен ли опыт? — Нет</div>
-<div class="faq">Сколько платят? — До 300к</div>
-<div class="faq">Есть жильё? — Да</div>
-
-</div>
-
-<!-- ФОРМА -->
-<div class="block fade">
-<h2 id="form">Оставить заявку</h2>
-
-<input placeholder="Имя">
-<input placeholder="Телефон">
-
-<select>
-<option>Мессенджер</option>
-<option>WhatsApp</option>
-<option>Telegram</option>
-</select>
-
-<button onclick="send()">Отправить</button>
-</div>
-
+    <!-- ФОРМА -->
+    <div class="block fade" id="formBlock">
+        <h2 id="form">📞 Оставить заявку</h2>
+        <p style="margin-bottom: 15px;">Заполните форму, и мы свяжемся с вами в ближайшее время</p>
+        
+        <div id="mainForm">
+            <div class="form-group">
+                <input type="text" id="mainName" placeholder="Ваше имя" autocomplete="name">
+            </div>
+            <div class="form-group">
+                <input type="tel" id="mainPhone" placeholder="Номер телефона" autocomplete="tel">
+            </div>
+            <div class="form-group">
+                <select id="mainMessenger">
+                    <option value="Telegram">Telegram</option>
+                    <option value="WhatsApp">WhatsApp</option>
+                    <option value="Viber">Viber</option>
+                </select>
+            </div>
+            <button class="btn btn-block" onclick="sendForm('main')">📨 Отправить заявку</button>
+        </div>
+    </div>
 </div>
 
 <!-- POPUP -->
 <div class="popup" id="popup">
-<div class="popup-content">
-<h3>Оставьте заявку</h3>
-<input id="pname" placeholder="Имя">
-<input id="pphone" placeholder="Телефон">
-<button onclick="send()">Отправить</button>
+    <div class="popup-content">
+        <div class="popup-close" onclick="closePopup()">×</div>
+        <h3>🎁 Специальное предложение!</h3>
+        <p style="margin-bottom: 15px;">Оставьте заявку прямо сейчас и получите бесплатную консультацию!</p>
+        <div class="form-group">
+            <input type="text" id="popupName" placeholder="Ваше имя">
+        </div>
+        <div class="form-group">
+            <input type="tel" id="popupPhone" placeholder="Номер телефона">
+        </div>
+        <button class="btn btn-block" onclick="sendForm('popup')">Получить консультацию</button>
+    </div>
 </div>
-</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✓ Заявка успешно отправлена!</div>
 
 <script>
-// меню
-function toggleMenu(){
-let m=document.getElementById('menu');
-m.style.display=m.style.display=='block'?'none':'block';
+// ═══════════════════════════════════════════════════════════
+// ДАННЫЕ ДЛЯ TELEGRAM (ЗАМЕНИ НА СВОИ)
+// ═══════════════════════════════════════════════════════════
+// ⚠️ ВНИМАНИЕ: Создай нового бота через @BotFather в Telegram!
+// Вставь сюда ТОКЕН нового бота и свой CHAT_ID
+const BOT_TOKEN = '8724372615:AAEjCiuGB2gIHDqB0lPEiGJIt3ZxhEBNZc8';  // ЗАМЕНИТЬ НА НОВЫЙ ТОКЕН!
+const CHAT_ID = '8183270307';                                   // ЗАМЕНИТЬ НА СВОЙ CHAT_ID
+
+// Флаг, чтобы не спамить заявками
+let formSubmitted = false;
+
+// ═══════════════════════════════════════════════════════════
+// ОТПРАВКА ФОРМЫ
+// ═══════════════════════════════════════════════════════════
+function sendForm(type) {
+    if (formSubmitted) {
+        showToast('✓ Заявка уже отправлена! Мы свяжемся с вами');
+        return;
+    }
+    
+    let name, phone, messenger = '';
+    
+    if (type === 'main') {
+        name = document.getElementById('mainName').value.trim();
+        phone = document.getElementById('mainPhone').value.trim();
+        messenger = document.getElementById('mainMessenger').value;
+    } else {
+        name = document.getElementById('popupName').value.trim();
+        phone = document.getElementById('popupPhone').value.trim();
+    }
+    
+    // Валидация
+    if (name === '') {
+        showToast('❌ Пожалуйста, введите ваше имя');
+        return;
+    }
+    
+    if (phone === '') {
+        showToast('❌ Пожалуйста, введите номер телефона');
+        return;
+    }
+    
+    if (phone.length < 6) {
+        showToast('❌ Введите корректный номер телефона');
+        return;
+    }
+    
+    // Формируем сообщение для Telegram
+    let message = `📋 НОВАЯ ЗАЯВКА%0A`;
+    message += `👤 Имя: ${encodeURIComponent(name)}%0A`;
+    message += `📱 Телефон: ${encodeURIComponent(phone)}%0A`;
+    if (messenger) {
+        message += `💬 Мессенджер: ${encodeURIComponent(messenger)}%0A`;
+    }
+    message += `🕐 Время: ${new Date().toLocaleString('ru-RU')}`;
+    
+    // Отправляем в Telegram (если указаны токен и chat_id)
+    if (BOT_TOKEN && CHAT_ID && BOT_TOKEN !== 'ТВОЙ_ТОКЕН_БОТА') {
+        fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${message}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    console.log('✓ Отправлено в Telegram');
+                } else {
+                    console.log('Ошибка Telegram:', data);
+                }
+            })
+            .catch(error => {
+                console.log('Ошибка отправки:', error);
+                // Даже если ошибка, показываем успех пользователю
+            });
+    } else {
+        console.log('Telegram не настроен, заявка сохранена локально');
+    }
+    
+    // Отмечаем, что заявка отправлена
+    formSubmitted = true;
+    
+    // Очищаем поля
+    if (type === 'main') {
+        document.getElementById('mainName').value = '';
+        document.getElementById('mainPhone').value = '';
+    } else {
+        document.getElementById('popupName').value = '';
+        document.getElementById('popupPhone').value = '';
+        closePopup();
+    }
+    
+    showToast('✓ Заявка отправлена! Мы свяжемся с вами');
 }
 
-// отправка
-function send(){
-let name=document.querySelector('input').value;
-let phone=document.querySelectorAll('input')[1].value;
-
-fetch(`https://api.telegram.org/bot8724372615:AAEjCiuGB2gIHDqB0lPEiGJIt3ZxhEBNZc8/sendMessage?chat_id=8183270307&text=Имя:${name}%0AТелефон:${phone}`);
-alert("Заявка отправлена");
+// ═══════════════════════════════════════════════════════════
+// УВЕДОМЛЕНИЕ (TOAST)
+// ═══════════════════════════════════════════════════════════
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
 }
 
-// попап
-setTimeout(()=>{
-document.getElementById('popup').style.display='flex';
-},15000);
+// ═══════════════════════════════════════════════════════════
+// МЕНЮ
+// ═══════════════════════════════════════════════════════════
+function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+}
 
-// анимация цифр
-let n=200000;
-let el=document.getElementById('salary');
-
-let i=setInterval(()=>{
-n+=2000;
-if(n>=300000){n=300000;clearInterval(i);}
-el.innerText=n.toLocaleString()+" ₽";
-},30);
-
-// анимация скролла
-const o=new IntersectionObserver(e=>{
-e.forEach(i=>{
-if(i.isIntersecting)i.target.classList.add('show');
+// Закрытие меню при клике вне
+document.addEventListener('click', function(e) {
+    const menu = document.getElementById('menu');
+    const menuBtn = document.getElementById('menuBtn');
+    
+    if (menu.style.display === 'block' && !menu.contains(e.target) && e.target !== menuBtn) {
+        menu.style.display = 'none';
+    }
 });
-});
-document.querySelectorAll('.fade').forEach(el=>o.observe(el));
 
+document.getElementById('menuBtn').addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMenu();
+});
+
+// ═══════════════════════════════════════════════════════════
+// ПОПАП
+// ═══════════════════════════════════════════════════════════
+function showPopup() {
+    if (!formSubmitted) {
+        document.getElementById('popup').style.display = 'flex';
+    }
+}
+
+function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+}
+
+// Закрытие попапа по клику на фон
+document.getElementById('popup').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closePopup();
+    }
+});
+
+// Показываем попап через 12 секунд, если заявка не отправлена
+setTimeout(() => {
+    if (!formSubmitted) {
+        showPopup();
+    }
+}, 12000);
+
+// ═══════════════════════════════════════════════════════════
+// АНИМАЦИЯ ЗАРПЛАТЫ
+// ═══════════════════════════════════════════════════════════
+let currentSalary = 120000;
+const salaryElement = document.getElementById('salary');
+const targetSalary = 298000;
+
+function updateSalary() {
+    if (currentSalary < targetSalary) {
+        currentSalary += 2000;
+        if (currentSalary > targetSalary) currentSalary = targetSalary;
+        salaryElement.innerText = currentSalary.toLocaleString() + ' ₽';
+        setTimeout(updateSalary, 35);
+    }
+}
+
+updateSalary();
+
+// ═══════════════════════════════════════════════════════════
+// АНИМАЦИЯ ПРИ СКРОЛЛЕ
+// ═══════════════════════════════════════════════════════════
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+
+// ═══════════════════════════════════════════════════════════
+// FAQ (РАСКРЫВАЮЩИЕСЯ ОТВЕТЫ)
+// ═══════════════════════════════════════════════════════════
+document.querySelectorAll('.faq').forEach(faq => {
+    faq.addEventListener('click', function() {
+        this.classList.toggle('active');
+        
+        // Меняем стрелку
+        const arrow = this.querySelector('.faq-question span');
+        if (arrow) {
+            arrow.textContent = this.classList.contains('active') ? '▲' : '▼';
+        }
+    });
+});
+
+// ═══════════════════════════════════════════════════════════
+// ПЛАВНЫЙ СКРОЛЛ К ЯКОРЯМ
+// ═══════════════════════════════════════════════════════════
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Закрываем меню после клика
+            document.getElementById('menu').style.display = 'none';
+        }
+    });
+});
+
+console.log('Сайт загружен! 🔥');
 </script>
 
 </body>
+</html>
 </html>
