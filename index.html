@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-<title>Оборонпром | Трудоустройство на военные заводы и склады</title>
+<title>Оборонпром | Работа на военных заводах и складах</title>
 <style>
 * {
     margin: 0;
@@ -12,8 +12,8 @@
 }
 
 body {
-    font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
-    background: #0a0f1a;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #0f1a2c;
     color: #e8eef2;
     line-height: 1.5;
 }
@@ -26,13 +26,13 @@ body {
     z-index: 1;
 }
 
-/* ВОЕННЫЙ/ИНДУСТРИАЛЬНЫЙ СТИЛЬ */
+/* СТИЛИ (военный/индустриальный) */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 12px 20px;
-    background: #0f1622;
+    background: #0a1220;
     border-bottom: 2px solid #c0392b;
     position: sticky;
     top: 0;
@@ -51,18 +51,15 @@ body {
 
 .badge {
     background: #c0392b;
-    color: white;
     padding: 4px 10px;
     border-radius: 4px;
     font-size: 10px;
-    font-weight: 600;
     margin-left: 8px;
 }
 
 .menu-btn {
     font-size: 24px;
     cursor: pointer;
-    color: #e8eef2;
 }
 
 .menu {
@@ -70,11 +67,11 @@ body {
     position: absolute;
     right: 20px;
     top: 55px;
-    background: #0f1622;
+    background: #0a1220;
     border: 1px solid #2c3e50;
     border-radius: 8px;
-    z-index: 9999;
     min-width: 180px;
+    z-index: 9999;
 }
 
 .menu a {
@@ -87,12 +84,10 @@ body {
 
 .menu a:hover {
     background: #c0392b;
-    color: white;
 }
 
-/* ГЕРОЙ */
 .hero {
-    background: linear-gradient(135deg, #0a0f1a 0%, #141c2c 100%);
+    background: linear-gradient(135deg, #0a1220, #0f1a2c);
     border: 1px solid #2c3e50;
     border-radius: 12px;
     padding: 32px 24px;
@@ -103,7 +98,6 @@ body {
 .hero h1 {
     font-size: 28px;
     margin-bottom: 12px;
-    color: #fff;
 }
 
 .hero h1 span {
@@ -111,7 +105,7 @@ body {
 }
 
 .salary-badge {
-    font-size: 40px;
+    font-size: 44px;
     font-weight: 800;
     color: #e67e22;
     margin: 15px 0 8px;
@@ -127,15 +121,14 @@ body {
     cursor: pointer;
     font-size: 16px;
     width: 100%;
-    text-align: center;
     transition: all 0.2s;
 }
 
 .btn-primary:hover {
     background: #a93226;
+    transform: scale(1.02);
 }
 
-/* СТАТИСТИКА */
 .stats-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -144,11 +137,17 @@ body {
 }
 
 .stat-card {
-    background: #0f1622;
+    background: #0a1220;
     border: 1px solid #2c3e50;
     padding: 16px 8px;
     text-align: center;
     border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    border-color: #c0392b;
 }
 
 .stat-number {
@@ -161,7 +160,6 @@ body {
     font-size: 11px;
     color: #8a9bb5;
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 .section-title {
@@ -172,7 +170,7 @@ body {
     padding-left: 12px;
 }
 
-/* КАРУСЕЛЬ ВАКАНСИЙ СО СТРЕЛКАМИ */
+/* КАРУСЕЛЬ ВАКАНСИЙ */
 .vacancies-carousel {
     position: relative;
     margin-bottom: 20px;
@@ -183,7 +181,6 @@ body {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    padding: 4px 0;
 }
 
 .carousel-container::-webkit-scrollbar {
@@ -198,22 +195,23 @@ body {
 
 .vacancy-card {
     min-width: 280px;
-    background: #0f1622;
+    background: #0a1220;
     border: 1px solid #2c3e50;
     border-radius: 12px;
     padding: 20px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
 }
 
 .vacancy-card:hover {
+    transform: translateY(-5px);
     border-color: #c0392b;
-    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(192,57,43,0.2);
 }
 
 .vacancy-card.selected {
     border: 2px solid #c0392b;
-    background: #1a2535;
+    background: #152032;
 }
 
 .vacancy-title {
@@ -241,7 +239,6 @@ body {
     padding: 4px 10px;
     border-radius: 4px;
     font-size: 11px;
-    color: #8a9bb5;
 }
 
 /* СТРЕЛКИ */
@@ -258,28 +255,17 @@ body {
     justify-content: center;
     cursor: pointer;
     z-index: 10;
-    font-size: 20px;
     font-weight: bold;
-    color: white;
     opacity: 0.9;
 }
 
-.carousel-arrow.left {
-    left: -12px;
-}
-
-.carousel-arrow.right {
-    right: -12px;
-}
-
-.carousel-arrow.disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
+.carousel-arrow.left { left: -12px; }
+.carousel-arrow.right { right: -12px; }
+.carousel-arrow.disabled { opacity: 0.3; cursor: not-allowed; }
 
 /* ФОРМА */
 .form-block {
-    background: #0f1622;
+    background: #0a1220;
     border: 1px solid #2c3e50;
     border-radius: 12px;
     padding: 24px;
@@ -300,7 +286,7 @@ body {
     font-size: 16px;
 }
 
-.form-group input:focus, .form-group select:focus {
+.form-group input:focus {
     outline: none;
     border-color: #c0392b;
 }
@@ -320,6 +306,7 @@ body {
     border: 1px solid #2c3e50;
     border-radius: 8px;
     cursor: pointer;
+    transition: all 0.2s;
 }
 
 .messenger-option.selected {
@@ -344,7 +331,7 @@ body {
 
 /* КВИЗ */
 .quiz-block {
-    background: #0f1622;
+    background: #0a1220;
     border: 1px solid #2c3e50;
     border-radius: 12px;
     padding: 24px;
@@ -362,15 +349,32 @@ body {
     margin-bottom: 8px;
     cursor: pointer;
     border: 1px solid #2c3e50;
+    transition: all 0.2s;
 }
 
 .quiz-option:hover {
     border-color: #c0392b;
+    transform: translateX(5px);
 }
 
 .quiz-option.selected {
     border-color: #c0392b;
     background: #c0392b20;
+}
+
+.quiz-progress {
+    height: 4px;
+    background: #2c3e50;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.quiz-progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #c0392b;
+    transition: width 0.3s ease;
 }
 
 .quiz-result {
@@ -381,28 +385,114 @@ body {
     display: none;
 }
 
-/* ОТЗЫВЫ */
+/* АНИМАЦИЯ ПОЯВЛЕНИЯ */
+.fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ПЛАВАЮЩАЯ КНОПКА С ПУЛЬСАЦИЕЙ */
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(192,57,43,0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(192,57,43,0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(192,57,43,0); }
+}
+
+.floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #c0392b;
+    color: white;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999;
+    font-size: 24px;
+    animation: pulse 2s infinite;
+    transition: all 0.2s;
+}
+
+.floating-btn:hover {
+    transform: scale(1.1);
+    animation: none;
+}
+
+/* СПИННЕР */
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #c0392b;
+    padding: 12px 24px;
+    border-radius: 8px;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.toast.show { opacity: 1; }
+
+.tg-banner {
+    background: linear-gradient(135deg, #1e3a5f, #0a1220);
+    border: 1px solid #2c3e50;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tg-banner a {
+    background: #c0392b;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
 .review-card {
-    background: #0f1622;
+    background: #0a1220;
     border: 1px solid #2c3e50;
     border-radius: 8px;
     padding: 16px;
     margin-bottom: 12px;
+    transition: all 0.2s;
 }
 
-.review-text {
-    font-style: italic;
-    margin-bottom: 8px;
+.review-card:hover {
+    transform: translateX(5px);
+    border-color: #c0392b;
 }
 
-.review-author {
-    font-size: 12px;
-    color: #8a9bb5;
-}
-
-/* FAQ */
 .faq-item {
-    background: #0f1622;
+    background: #0a1220;
     border: 1px solid #2c3e50;
     border-radius: 8px;
     padding: 16px;
@@ -427,70 +517,6 @@ body {
 .faq-item.active .faq-answer {
     display: block;
 }
-
-.tg-banner {
-    background: linear-gradient(135deg, #1e3a5f, #0f1622);
-    border: 1px solid #2c3e50;
-    border-radius: 12px;
-    padding: 16px 20px;
-    margin: 20px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.tg-banner a {
-    background: #c0392b;
-    color: white;
-    padding: 8px 18px;
-    border-radius: 6px;
-    text-decoration: none;
-}
-
-.toast {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #c0392b;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    z-index: 10000;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.toast.show { opacity: 1; }
-
-.floating-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #c0392b;
-    color: white;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 999;
-    font-size: 24px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-.fade {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: 0.5s ease;
-}
-
-.fade.show {
-    opacity: 1;
-    transform: translateY(0);
-}
 </style>
 </head>
 <body>
@@ -510,59 +536,52 @@ body {
 <div class="container">
     <div class="hero fade">
         <h1>Работа на <span>оборонном заводе</span><br>и военном складе</h1>
-        <div class="salary-badge">от 200 000 ₽</div>
+        <div class="salary-badge" id="salaryCounter">0 ₽</div>
         <p>Официально • Жильё • Питание • Бронь</p>
-        <button class="btn-primary" style="margin-top: 20px;" onclick="document.getElementById('vacancies').scrollIntoView({behavior:'smooth'})">🔥 Выбрать вакансию</button>
+        <button class="btn-primary" style="margin-top: 20px;" onclick="document.getElementById('vacancies').scrollIntoView({behavior:'smooth'})">🔥 ВЫБРАТЬ ВАКАНСИЮ</button>
     </div>
 
-    <div class="stats-row fade">
-        <div class="stat-card"><div class="stat-number">с 2022</div><div class="stat-label">года работаем</div></div>
-        <div class="stat-card"><div class="stat-number">1000+</div><div class="stat-label">трудоустроено</div></div>
-        <div class="stat-card"><div class="stat-number">30-70</div><div class="stat-label">человек в месяц</div></div>
+    <div class="stats-row fade" id="statsBlock">
+        <div class="stat-card"><div class="stat-number" id="statYear">0</div><div class="stat-label">года работаем</div></div>
+        <div class="stat-card"><div class="stat-number" id="statClients">0</div><div class="stat-label">трудоустроено</div></div>
+        <div class="stat-card"><div class="stat-number" id="statMonth">0</div><div class="stat-label">человек в месяц</div></div>
     </div>
 
-    <!-- КАРУСЕЛЬ ВАКАНСИЙ СО СТРЕЛКАМИ -->
     <div class="fade" id="vacancies">
         <div class="section-title">📦 ВАКАНСИИ ОБОРОННЫХ ПРЕДПРИЯТИЙ</div>
         <div class="vacancies-carousel">
             <div class="carousel-arrow left" id="carouselLeft" onclick="scrollCarousel(-1)">◀</div>
             <div class="carousel-arrow right" id="carouselRight" onclick="scrollCarousel(1)">▶</div>
             <div class="carousel-container" id="carouselContainer">
-                <div class="carousel-track" id="carouselTrack">
-                    <div class="vacancy-card" data-vacancy="Сборщик военной техники">
+                <div class="carousel-track">
+                    <div class="vacancy-card" data-vacancy="Сборщик военной техники" data-salary="240 000 – 290 000">
                         <div class="vacancy-title">🔧 Сборщик военной техники</div>
                         <div class="vacancy-salary">240 000 – 290 000 ₽</div>
                         <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🍽️ Питание</span><span class="feature-tag">✅ Официально</span></div>
-                        <div class="vacancy-desc">Сборка военной техники на заводе. Бронь от призыва.</div>
                     </div>
-                    <div class="vacancy-card" data-vacancy="Оператор военного склада">
+                    <div class="vacancy-card" data-vacancy="Оператор военного склада" data-salary="210 000 – 250 000">
                         <div class="vacancy-title">📦 Оператор военного склада</div>
                         <div class="vacancy-salary">210 000 – 250 000 ₽</div>
                         <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">📋 Учёт</span><span class="feature-tag">🛡️ Бронь</span></div>
                     </div>
-                    <div class="vacancy-card" data-vacancy="Водитель военной техники">
+                    <div class="vacancy-card" data-vacancy="Водитель военной техники" data-salary="250 000 – 300 000">
                         <div class="vacancy-title">🚚 Водитель военной техники</div>
                         <div class="vacancy-salary">250 000 – 300 000 ₽</div>
                         <div class="vacancy-features"><span class="feature-tag">🚛 КамАЗ</span><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">⛽ Топливо</span></div>
                     </div>
-                    <div class="vacancy-card" data-vacancy="Инженер-испытатель">
+                    <div class="vacancy-card" data-vacancy="Инженер-испытатель" data-salary="270 000 – 320 000">
                         <div class="vacancy-title">⚙️ Инженер-испытатель</div>
                         <div class="vacancy-salary">270 000 – 320 000 ₽</div>
                         <div class="vacancy-features"><span class="feature-tag">📐 Высшее</span><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🎓 Обучение</span></div>
-                    </div>
-                    <div class="vacancy-card" data-vacancy="Сварщик оборонного завода">
-                        <div class="vacancy-title">🔥 Сварщик оборонного завода</div>
-                        <div class="vacancy-salary">230 000 – 280 000 ₽</div>
-                        <div class="vacancy-features"><span class="feature-tag">🛠️ 4-6 разряд</span><span class="feature-tag">🏠 Жильё</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- КВИЗ -->
     <div class="quiz-block fade" id="quiz">
         <h3 style="margin-bottom: 16px;">🎯 ПОДБОР ВАКАНСИИ ЗА 2 МИНУТЫ</h3>
+        <div class="quiz-progress"><div class="quiz-progress-bar" id="quizProgress"></div></div>
         <div id="quizContainer">
             <div class="quiz-question" id="q1">
                 <p>1. Какой у вас опыт работы?</p>
@@ -594,8 +613,8 @@ body {
 
     <div class="fade" id="reviews">
         <div class="section-title">⭐ РЕАЛЬНЫЕ ОТЗЫВЫ</div>
-        <div class="review-card"><div class="review-text">«Устроился на военный склад за 3 дня. ЗП 245к, жильё дали. Всё честно!»</div><div class="review-author">— Дмитрий, оператор склада</div></div>
-        <div class="review-card"><div class="review-text">«Работаю сборщиком уже 4 месяца. Зарплата вовремя, бронь от призыва. Спасибо!»</div><div class="review-author">— Александр, сборщик</div></div>
+        <div class="review-card"><div class="review-text">«Устроился на военный склад за 3 дня. ЗП 245к, жильё дали. Всё честно!»</div><div class="review-author">— Дмитрий</div></div>
+        <div class="review-card"><div class="review-text">«Работаю сборщиком уже 4 месяца. Зарплата вовремя, бронь от призыва»</div><div class="review-author">— Александр</div></div>
     </div>
 
     <div class="fade" id="faq">
@@ -610,7 +629,6 @@ body {
         <a href="https://t.me/zavodrabotarf" target="_blank">ПОДПИСАТЬСЯ →</a>
     </div>
 
-    <!-- ФОРМА -->
     <div class="form-block fade" id="form">
         <div class="section-title">📞 ОСТАВИТЬ ЗАЯВКУ</div>
         <p style="margin-bottom: 16px; color: #8a9bb5;">Выбранная вакансия: <strong id="selectedVacancyDisplay" style="color:#e67e22;">не выбрана</strong></p>
@@ -625,158 +643,198 @@ body {
             </div>
             <input type="hidden" id="selectedMessenger" value="Telegram">
         </div>
-        <button class="btn-primary" onclick="sendApplication()">🚀 ОТПРАВИТЬ ЗАЯВКУ</button>
+        <button class="btn-primary" id="submitBtn" onclick="sendApplication()">🚀 ОТПРАВИТЬ ЗАЯВКУ</button>
     </div>
 </div>
 
-<div class="floating-btn" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})">✉️</div>
+<div class="floating-btn" onclick="openContactMenu()">📞</div>
 <div class="toast" id="toast">✓ ЗАЯВКА ОТПРАВЛЕНА!</div>
 
 <script>
-let currentSelectedVacancy = null;
-let quizStep = 1;
-let quizAnswers = {1: null, 2: null, 3: null, 4: null};
-let quizRecommendation = '';
-
-// КАРУСЕЛЬ СО СТРЕЛКАМИ
-function scrollCarousel(direction) {
-    const container = document.getElementById('carouselContainer');
-    const scrollAmount = 300;
-    if(direction === 1) container.scrollLeft += scrollAmount;
-    else container.scrollLeft -= scrollAmount;
-    updateArrows();
+// АНИМАЦИЯ СЧЁТЧИКА ЗАРПЛАТЫ
+function animateSalary() {
+    let el = document.getElementById('salaryCounter');
+    let start = 0, end = 210000, duration = 1500;
+    let startTime = null;
+    function update(currentTime) {
+        if (!startTime) startTime = currentTime;
+        let progress = Math.min((currentTime - startTime) / duration, 1);
+        el.innerText = Math.floor(progress * (end - start) + start).toLocaleString() + ' ₽';
+        if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
 }
 
-function updateArrows() {
-    const container = document.getElementById('carouselContainer');
-    const leftArrow = document.getElementById('carouselLeft');
-    const rightArrow = document.getElementById('carouselRight');
-    if(container.scrollLeft <= 10) leftArrow.classList.add('disabled');
-    else leftArrow.classList.remove('disabled');
-    if(container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) rightArrow.classList.add('disabled');
-    else rightArrow.classList.remove('disabled');
+// АНИМАЦИЯ СТАТИСТИКИ
+function animateStats() {
+    animateNumber('statYear', 0, 2022, 1000);
+    animateNumber('statClients', 0, 1000, 1000);
+    animateNumber('statMonth', 0, 70, 1000);
 }
 
-// ВЫБОР ВАКАНСИИ ПО КЛИКУ НА КАРТОЧКУ
-document.querySelectorAll('.vacancy-card').forEach(card => {
-    card.addEventListener('click', function() {
-        const vacancyName = this.dataset.vacancy;
-        selectVacancy(vacancyName);
-    });
-});
+function animateNumber(id, start, end, duration) {
+    let el = document.getElementById(id);
+    if (!el) return;
+    let startTime = null;
+    function update(currentTime) {
+        if (!startTime) startTime = currentTime;
+        let progress = Math.min((currentTime - startTime) / duration, 1);
+        let val = Math.floor(progress * (end - start) + start);
+        el.innerText = val + (id === 'statClients' ? '+' : '');
+        if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+}
 
-function selectVacancy(vacancyName) {
+// ВЫБОР ВАКАНСИИ
+function selectVacancy(vacancyName, salary) {
     currentSelectedVacancy = vacancyName;
-    document.getElementById('selectedVacancyDisplay').innerText = vacancyName;
+    document.getElementById('selectedVacancyDisplay').innerHTML = `${vacancyName} | ${salary} ₽`;
     
     document.querySelectorAll('.vacancy-card').forEach(c => c.classList.remove('selected'));
-    const selectedCard = Array.from(document.querySelectorAll('.vacancy-card')).find(c => c.dataset.vacancy === vacancyName);
+    let selectedCard = Array.from(document.querySelectorAll('.vacancy-card')).find(c => c.dataset.vacancy === vacancyName);
     if(selectedCard) selectedCard.classList.add('selected');
     
-    showToast(`✓ ВЫБРАНО: ${vacancyName}`);
-    sendToTelegram('ВЫБОР ВАКАНСИИ', vacancyName, `Клиент выбрал вакансию: ${vacancyName}`);
+    showToast(`✓ ВЫБРАНО: ${vacancyName} | ${salary} ₽`);
     
-    // АВТОМАТИЧЕСКИ ПЕРЕХОДИМ К ФОРМЕ
     setTimeout(() => {
         document.getElementById('form').scrollIntoView({ behavior: 'smooth' });
     }, 300);
 }
 
+document.querySelectorAll('.vacancy-card').forEach(card => {
+    card.addEventListener('click', () => selectVacancy(card.dataset.vacancy, card.querySelector('.vacancy-salary')?.innerText || '200 000+'));
+});
+
+// КАРУСЕЛЬ
+function scrollCarousel(direction) {
+    const container = document.getElementById('carouselContainer');
+    container.scrollLeft += direction * 300;
+    setTimeout(updateArrows, 100);
+}
+
+function updateArrows() {
+    let container = document.getElementById('carouselContainer');
+    let left = document.getElementById('carouselLeft');
+    let right = document.getElementById('carouselRight');
+    if(container.scrollLeft <= 10) left.classList.add('disabled');
+    else left.classList.remove('disabled');
+    if(container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) right.classList.add('disabled');
+    else right.classList.remove('disabled');
+}
+
 // КВИЗ
+let quizStep = 1;
+let quizAnswers = {1: null, 2: null, 3: null, 4: null};
+
+function updateQuizProgress() {
+    let answered = [quizAnswers[1], quizAnswers[2], quizAnswers[3], quizAnswers[4]].filter(v => v !== null).length;
+    document.getElementById('quizProgress').style.width = (answered * 25) + '%';
+}
+
 function nextQuiz() {
     if(quizStep === 1) {
-        const selected = document.querySelector('#q1 .quiz-option.selected');
+        let selected = document.querySelector('#q1 .quiz-option.selected');
         if(!selected) { showToast('Выберите вариант'); return; }
         quizAnswers[1] = selected.dataset.val;
         document.getElementById('q1').style.display = 'none';
         document.getElementById('q2').style.display = 'block';
         quizStep = 2;
+        updateQuizProgress();
     } else if(quizStep === 2) {
-        const selected = document.querySelector('#q2 .quiz-option.selected');
+        let selected = document.querySelector('#q2 .quiz-option.selected');
         if(!selected) { showToast('Выберите вариант'); return; }
         quizAnswers[2] = selected.dataset.val;
         document.getElementById('q2').style.display = 'none';
         document.getElementById('q3').style.display = 'block';
         quizStep = 3;
+        updateQuizProgress();
     } else if(quizStep === 3) {
-        const selected = document.querySelector('#q3 .quiz-option.selected');
+        let selected = document.querySelector('#q3 .quiz-option.selected');
         if(!selected) { showToast('Выберите вариант'); return; }
         quizAnswers[3] = selected.dataset.val;
         document.getElementById('q3').style.display = 'none';
         document.getElementById('q4').style.display = 'block';
         quizStep = 4;
         document.getElementById('nextQuizBtn').innerText = 'УЗНАТЬ РЕЗУЛЬТАТ';
+        updateQuizProgress();
     } else if(quizStep === 4) {
-        const selected = document.querySelector('#q4 .quiz-option.selected');
+        let selected = document.querySelector('#q4 .quiz-option.selected');
         if(!selected) { showToast('Выберите вариант'); return; }
         quizAnswers[4] = selected.dataset.val;
         
         let exp = parseInt(quizAnswers[1]);
         let salary = parseInt(quizAnswers[2]);
+        let rec = exp <= 1 ? 'Комплектовщик склада' : (exp === 2 ? 'Сборщик техники' : 'Инженер-испытатель');
+        if(salary === 2) rec = 'Инженер-испытатель или водитель';
         
-        if(exp <= 1) quizRecommendation = 'Комплектовщик склада — 220 000–250 000 ₽';
-        else if(exp === 2) quizRecommendation = 'Сборщик техники — 250 000–280 000 ₽';
-        else quizRecommendation = 'Инженер-испытатель — до 320 000 ₽';
-        if(salary === 2) quizRecommendation = 'Инженер-испытатель или водитель — 280 000–320 000 ₽';
-        
-        document.getElementById('quizResult').innerHTML = `<strong>🎯 ВАША ИДЕАЛЬНАЯ ВАКАНСИЯ:</strong><br>${quizRecommendation}<br><br>✅ НАЖМИТЕ КНОПКУ НИЖЕ, ЧТОБЫ ОСТАВИТЬ ЗАЯВКУ`;
+        document.getElementById('quizResult').innerHTML = `<strong>🎯 ВАША ИДЕАЛЬНАЯ ВАКАНСИЯ:</strong><br>${rec}<br><br><button class="btn-primary" style="background:#e67e22" onclick="selectVacancy('${rec}', '260 000+'); document.getElementById('form').scrollIntoView({behavior:'smooth'})">📝 ОСТАВИТЬ ЗАЯВКУ</button>`;
         document.getElementById('quizResult').style.display = 'block';
         document.getElementById('nextQuizBtn').style.display = 'none';
-        
-        const applyBtn = document.createElement('button');
-        applyBtn.className = 'btn-primary';
-        applyBtn.innerText = '📝 ОСТАВИТЬ ЗАЯВКУ';
-        applyBtn.style.marginTop = '16px';
-        applyBtn.style.background = '#e67e22';
-        applyBtn.onclick = () => {
-            selectVacancy(quizRecommendation.split(' —')[0]);
-        };
-        document.getElementById('quizResult').appendChild(applyBtn);
-        
-        sendToTelegram('КВИЗ ПРОЙДЕН', `Рекомендация: ${quizRecommendation}`, 'Пользователь прошёл тест');
+        updateQuizProgress();
     }
 }
 
 document.querySelectorAll('.quiz-option').forEach(opt => {
     opt.addEventListener('click', function() {
-        const parent = this.parentElement;
-        parent.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+        this.parentElement.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
         this.classList.add('selected');
     });
 });
 
-function selectMessenger(element, messenger) {
-    document.querySelectorAll('.messenger-option').forEach(opt => opt.classList.remove('selected'));
-    element.classList.add('selected');
+function selectMessenger(el, messenger) {
+    document.querySelectorAll('.messenger-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
     document.getElementById('selectedMessenger').value = messenger;
 }
 
 function showToast(msg) {
-    const toast = document.getElementById('toast');
-    toast.textContent = msg;
+    let toast = document.getElementById('toast');
+    toast.innerText = msg;
     toast.classList.add('show');
     setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
 function sendToTelegram(type, name, extra = '') {
-    const BOT_TOKEN = '8724372615:AAEjCiuGB2gIHDqB0lPEiGJIt3ZxhEBNZc8';
-    const CHAT_ID = '8183270307';
     let text = `🔔 ${type}%0A📋 ${encodeURIComponent(name)}%0A${extra ? encodeURIComponent(extra) + '%0A' : ''}🕐 ${new Date().toLocaleString('ru-RU')}`;
-    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${text}`).catch(e => console.log(e));
+    fetch(`https://api.telegram.org/bot8724372615:AAEjCiuGB2gIHDqB0lPEiGJIt3ZxhEBNZc8/sendMessage?chat_id=8183270307&text=${text}`).catch(e => console.log(e));
 }
 
 function sendApplication() {
-    const name = document.getElementById('userName').value.trim();
-    const phone = document.getElementById('userPhone').value.trim();
-    const messenger = document.getElementById('selectedMessenger').value;
-    if(!name || !phone) { showToast('Заполните имя и телефон'); return; }
-    if(phone.length < 6) { showToast('Введите корректный телефон'); return; }
-    let vacancyText = currentSelectedVacancy ? `Выбранная вакансия: ${currentSelectedVacancy}` : 'Вакансия не выбрана';
-    sendToTelegram('НОВАЯ ЗАЯВКА', `Имя: ${name}, Телефон: ${phone}`, `${vacancyText}%0A📱 Мессенджер: ${messenger}`);
-    showToast('✓ ЗАЯВКА ОТПРАВЛЕНА!');
-    document.getElementById('userName').value = '';
-    document.getElementById('userPhone').value = '';
+    let btn = document.getElementById('submitBtn');
+    let originalText = btn.innerText;
+    btn.innerHTML = '<span class="spinner"></span> ОТПРАВЛЯЕМ...';
+    btn.disabled = true;
+    
+    setTimeout(() => {
+        let name = document.getElementById('userName').value.trim();
+        let phone = document.getElementById('userPhone').value.trim();
+        let messenger = document.getElementById('selectedMessenger').value;
+        if(!name || !phone) { showToast('Заполните имя и телефон'); btn.innerHTML = originalText; btn.disabled = false; return; }
+        sendToTelegram('НОВАЯ ЗАЯВКА', `Имя: ${name}, Телефон: ${phone}`, `Вакансия: ${currentSelectedVacancy || 'не выбрана'}%0A📱 ${messenger}`);
+        showToast('✓ ЗАЯВКА ОТПРАВЛЕНА! Ожидайте звонка');
+        btn.innerHTML = '✓ ОТПРАВЛЕНО';
+        setTimeout(() => { btn.innerHTML = originalText; btn.disabled = false; }, 3000);
+        document.getElementById('userName').value = '';
+        document.getElementById('userPhone').value = '';
+    }, 800);
 }
+
+function openContactMenu() {
+    let msg = encodeURIComponent('Здравствуйте! Хочу узнать о работе на заводе');
+    window.open(`https://t.me/zavodrabotarf`, '_blank');
+}
+
+// АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ
+let observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+        if(e.isIntersecting) {
+            e.target.classList.add('show');
+            if(e.target.id === 'statsBlock') animateStats();
+        }
+    });
+}, { threshold: 0.2 });
+document.querySelectorAll('.fade').forEach(el => observer.observe(el));
 
 document.getElementById('menuBtn').addEventListener('click', (e) => {
     e.stopPropagation();
@@ -793,14 +851,9 @@ document.querySelectorAll('.faq-item').forEach(item => {
     item.addEventListener('click', function() {
         this.classList.toggle('active');
         let arrow = this.querySelector('.faq-question span');
-        if(arrow) arrow.textContent = this.classList.contains('active') ? '▲' : '▼';
+        if(arrow) arrow.innerText = this.classList.contains('active') ? '▲' : '▼';
     });
 });
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade').forEach(el => observer.observe(el));
 
 document.querySelectorAll('.menu a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -811,7 +864,8 @@ document.querySelectorAll('.menu a').forEach(anchor => {
     });
 });
 
-setInterval(() => { if(document.getElementById('carouselContainer')) updateArrows(); }, 100);
+setTimeout(() => { animateSalary(); updateArrows(); }, 100);
+setInterval(updateArrows, 200);
 </script>
 </body>
 </html>
