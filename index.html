@@ -49,7 +49,8 @@ body {
 }
 
 .badge {
-    background: #c0392b;
+    background: black;
+    color: white;
     padding: 4px 10px;
     border-radius: 4px;
     font-size: 10px;
@@ -810,7 +811,7 @@ function sendToTelegram(name, phone, vacancy, messenger) {
         .then(response => response.json());
 }
 
-// ========== ОТПРАВКА ФОРМЫ (КНОПКА РАБОТАЕТ) ==========
+// ========== ОТПРАВКА ФОРМЫ ==========
 function sendApplication() {
     let name = document.getElementById('userName').value.trim();
     let phone = document.getElementById('userPhone').value.trim();
