@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-<title>Работа на заводе | Вакансии с зарплатой от 200 000 ₽</title>
+<title>Работа на заводе | Вакансии с зарплатой до 300 000 ₽</title>
 <style>
 * {
     margin: 0;
@@ -27,7 +27,6 @@ body {
     z-index: 1;
 }
 
-/* ЗАТЕМНЕНИЕ ПРИ ОТКРЫТОМ МОДАЛЬНОМ ОКНЕ */
 body.modal-open {
     overflow: hidden;
 }
@@ -38,8 +37,8 @@ body.modal-open {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(8px);
     z-index: 2000;
     display: none;
     justify-content: center;
@@ -60,17 +59,12 @@ body.modal-open {
     text-align: center;
     animation: modalPop 0.3s ease-out;
     box-shadow: 0 0 30px rgba(192, 57, 43, 0.5);
+    position: relative;
 }
 
 @keyframes modalPop {
-    0% {
-        transform: scale(0.7);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 .modal-card .vacancy-title {
@@ -81,25 +75,38 @@ body.modal-open {
 .modal-card .vacancy-salary {
     font-size: 28px;
     margin: 15px 0;
+    color: #e67e22;
 }
 
 .modal-card .vacancy-features {
     justify-content: center;
     margin: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 .modal-close {
     position: absolute;
     top: 15px;
     right: 20px;
-    font-size: 28px;
+    font-size: 20px;
     cursor: pointer;
-    color: #8a9bb5;
-    transition: color 0.2s;
+    color: white;
+    background: #c0392b;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-weight: bold;
 }
 
 .modal-close:hover {
-    color: #c0392b;
+    background: #a93226;
+    transform: scale(1.1);
 }
 
 .modal-card .btn-primary {
@@ -211,6 +218,7 @@ body.modal-open {
 .btn-primary:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+    transform: none;
 }
 
 .stats-row {
@@ -689,7 +697,7 @@ body.modal-open {
 <div class="container">
     <div class="hero fade">
         <h1>Работа на <span>заводе</span> и <span>складе</span></h1>
-        <div class="salary-badge">от 200 000 до 300 000 ₽</div>
+        <div class="salary-badge">до 300 000 ₽</div>
         <p>Официально • Жильё • Питание • Стабильные выплаты</p>
         <button class="btn-primary" style="margin-top: 20px;" onclick="document.getElementById('vacancies').scrollIntoView({behavior:'smooth'})">ВЫБРАТЬ ВАКАНСИЮ</button>
     </div>
@@ -719,8 +727,8 @@ body.modal-open {
                         <div class="vacancy-header"><span class="vacancy-title">🚚 Водитель на завод</span><span class="vacancy-salary">230 000 – 280 000 ₽</span></div>
                         <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🚛 Категория C</span><span class="feature-tag">✅ Официально</span></div>
                     </div>
-                    <div class="vacancy-card" data-vacancy="Инженер на производство" data-salary="260 000 – 320 000" data-features="🏠 Жильё, 📐 Высшее, 🎓 Обучение">
-                        <div class="vacancy-header"><span class="vacancy-title">⚙️ Инженер на производство</span><span class="vacancy-salary">260 000 – 320 000 ₽</span></div>
+                    <div class="vacancy-card" data-vacancy="Инженер на производство" data-salary="260 000 – 300 000" data-features="🏠 Жильё, 📐 Высшее, 🎓 Обучение">
+                        <div class="vacancy-header"><span class="vacancy-title">⚙️ Инженер на производство</span><span class="vacancy-salary">260 000 – 300 000 ₽</span></div>
                         <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">📐 Высшее</span><span class="feature-tag">🎓 Обучение</span></div>
                     </div>
                     <div class="vacancy-card" data-vacancy="Сварщик на завод" data-salary="240 000 – 290 000" data-features="🏠 Жильё, 🛠️ Разряды 4-6, 🍽️ Питание">
@@ -744,7 +752,7 @@ body.modal-open {
         </div>
     </div>
 
-    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ ВАКАНСИИ -->
+    <!-- МОДАЛЬНОЕ ОКНО -->
     <div class="modal-overlay" id="vacancyModal" onclick="closeModal(event)">
         <div class="modal-card" id="modalCard">
             <div class="modal-close" onclick="closeModal()">✕</div>
@@ -788,7 +796,7 @@ body.modal-open {
         <div class="quiz-result" id="quizResult"></div>
     </div>
 
-    <!-- ОТЗЫВЫ - КАРУСЕЛЬ -->
+    <!-- ОТЗЫВЫ -->
     <div class="fade" id="reviews">
         <div class="section-title">⭐ ОТЗЫВЫ НАШИХ СОТРУДНИКОВ</div>
         <div class="reviews-carousel">
@@ -880,7 +888,7 @@ function openModal(vacancyCard) {
 }
 
 function closeModal(event) {
-    if (event && event.target !== event.currentTarget && event.target.className !== 'modal-close') return;
+    if (event && event.target !== event.currentTarget && !event.target.classList.contains('modal-close')) return;
     document.getElementById('vacancyModal').classList.remove('show');
     document.body.classList.remove('modal-open');
 }
@@ -941,7 +949,7 @@ function selectVacancy(vacancyName, salary) {
     showToast(`✓ ВЫБРАНО: ${vacancyName} | ${salary} ₽`);
 }
 
-// ОБРАБОТЧИК КЛИКА ПО ВАКАНСИИ (ОТКРЫВАЕТ МОДАЛЬНОЕ ОКНО)
+// ОБРАБОТЧИК КЛИКА ПО ВАКАНСИИ
 document.querySelectorAll('.vacancy-card').forEach(card => {
     card.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -1026,6 +1034,7 @@ function showToast(msg) {
     setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
+// ОТПРАВКА В TELEGRAM (РАБОТАЕТ)
 function sendToTelegram(name, phone, vacancy, messenger) {
     const BOT_TOKEN = '8724372615:AAEjCiuGB2gIHDqB0lPEiGJIt3ZxhEBNZc8';
     const CHAT_ID = '8183270307';
@@ -1036,6 +1045,7 @@ function sendToTelegram(name, phone, vacancy, messenger) {
         .then(response => response.json());
 }
 
+// ОТПРАВКА ФОРМЫ (КНОПКА РАБОТАЕТ)
 function sendApplication() {
     let name = document.getElementById('userName').value.trim();
     let phone = document.getElementById('userPhone').value.trim();
