@@ -104,7 +104,7 @@ body {
 }
 
 .salary-badge {
-    font-size: 44px;
+    font-size: 36px;
     font-weight: 800;
     color: #e67e22;
     margin: 15px 0 8px;
@@ -167,15 +167,31 @@ body {
     padding-left: 12px;
 }
 
-/* ВАКАНСИИ СЕТКОЙ */
-.vacancies-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+/* КАРУСЕЛЬ ВАКАНСИЙ */
+.vacancies-carousel {
+    position: relative;
     margin-bottom: 20px;
 }
 
+.vacancies-container {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.vacancies-container::-webkit-scrollbar {
+    display: none;
+}
+
+.vacancies-track {
+    display: flex;
+    gap: 16px;
+    padding: 4px;
+}
+
 .vacancy-card {
+    min-width: 280px;
     background: #0a1220;
     border: 1px solid #2c3e50;
     border-radius: 12px;
@@ -186,7 +202,7 @@ body {
 
 .vacancy-card:hover {
     border-color: #c0392b;
-    transform: translateX(5px);
+    transform: translateY(-3px);
 }
 
 .vacancy-card.selected {
@@ -227,7 +243,7 @@ body {
     font-size: 11px;
 }
 
-/* ФОРМА С ВЫБОРОМ КОДА СТРАНЫ */
+/* ФОРМА */
 .form-block {
     background: #0a1220;
     border: 1px solid #2c3e50;
@@ -244,31 +260,33 @@ body {
     display: flex;
     gap: 12px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .country-code {
-    width: 90px;
+    width: 100px;
     background: #1a2535;
     border: 1px solid #2c3e50;
     border-radius: 6px;
     color: white;
-    padding: 12px 8px;
+    padding: 14px 8px;
     font-size: 16px;
 }
 
 .phone-input {
     flex: 1;
+    min-width: 200px;
     background: #1a2535;
     border: 1px solid #2c3e50;
     border-radius: 6px;
     color: white;
-    padding: 12px 16px;
+    padding: 14px 16px;
     font-size: 16px;
 }
 
 .form-group input, .form-group select {
     width: 100%;
-    padding: 12px 16px;
+    padding: 14px 16px;
     background: #1a2535;
     border: 1px solid #2c3e50;
     border-radius: 6px;
@@ -461,7 +479,7 @@ body {
     display: block;
 }
 
-/* ПЛАВАЮЩАЯ КНОПКА С ПАНЕЛЬЮ */
+/* ПЛАВАЮЩАЯ КНОПКА */
 .floating-menu {
     position: fixed;
     bottom: 20px;
@@ -481,11 +499,6 @@ body {
     cursor: pointer;
     font-size: 24px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: all 0.2s;
-}
-
-.floating-btn:hover {
-    transform: scale(1.05);
 }
 
 .floating-panel {
@@ -615,44 +628,50 @@ body {
 <div class="container">
     <div class="hero fade">
         <h1>Работа на <span>заводе</span> и <span>складе</span></h1>
-        <div class="salary-badge" id="salaryCounter">0 ₽</div>
+        <div class="salary-badge">от 200 000 до 300 000 ₽</div>
         <p>Официально • Жильё • Питание • Стабильные выплаты</p>
         <button class="btn-primary" style="margin-top: 20px;" onclick="document.getElementById('vacancies').scrollIntoView({behavior:'smooth'})">ВЫБРАТЬ ВАКАНСИЮ</button>
     </div>
 
     <div class="stats-row fade">
-        <div class="stat-card"><div class="stat-number" id="statYear">0</div><div class="stat-label">года работаем</div></div>
-        <div class="stat-card"><div class="stat-number" id="statClients">0</div><div class="stat-label">трудоустроено</div></div>
-        <div class="stat-card"><div class="stat-number" id="statMonth">0</div><div class="stat-label">человек в месяц</div></div>
+        <div class="stat-card"><div class="stat-number">с 2022</div><div class="stat-label">года работаем</div></div>
+        <div class="stat-card"><div class="stat-number">1000+</div><div class="stat-label">трудоустроено</div></div>
+        <div class="stat-card"><div class="stat-number">30-70</div><div class="stat-label">человек в месяц</div></div>
     </div>
 
-    <!-- ВАКАНСИИ - РЕАЛЬНЫЕ ПРОФЕССИИ -->
+    <!-- ВАКАНСИИ - ГОРИЗОНТАЛЬНАЯ КАРУСЕЛЬ -->
     <div class="fade" id="vacancies">
         <div class="section-title">📦 ДОСТУПНЫЕ ВАКАНСИИ</div>
-        <div class="vacancies-grid" id="vacanciesGrid">
-            <div class="vacancy-card" data-vacancy="Водитель на завод" data-salary="230 000 – 280 000">
-                <div class="vacancy-header"><span class="vacancy-title">🚚 Водитель на завод</span><span class="vacancy-salary">230 000 – 280 000 ₽</span></div>
-                <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🚛 Категория C</span><span class="feature-tag">✅ Официально</span></div>
-            </div>
-            <div class="vacancy-card" data-vacancy="Инженер на производство" data-salary="260 000 – 320 000">
-                <div class="vacancy-header"><span class="vacancy-title">⚙️ Инженер на производство</span><span class="vacancy-salary">260 000 – 320 000 ₽</span></div>
-                <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">📐 Высшее</span><span class="feature-tag">🎓 Обучение</span></div>
-            </div>
-            <div class="vacancy-card" data-vacancy="Сварщик на завод" data-salary="240 000 – 290 000">
-                <div class="vacancy-header"><span class="vacancy-title">🔥 Сварщик на завод</span><span class="vacancy-salary">240 000 – 290 000 ₽</span></div>
-                <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🛠️ Разряды 4-6</span><span class="feature-tag">🍽️ Питание</span></div>
-            </div>
-            <div class="vacancy-card" data-vacancy="Разнорабочий на завод" data-salary="200 000 – 240 000">
-                <div class="vacancy-header"><span class="vacancy-title">🔧 Разнорабочий на завод</span><span class="vacancy-salary">200 000 – 240 000 ₽</span></div>
-                <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">👍 Без опыта</span><span class="feature-tag">🍽️ Питание</span></div>
-            </div>
-            <div class="vacancy-card" data-vacancy="Кладовщик на склад" data-salary="210 000 – 250 000">
-                <div class="vacancy-header"><span class="vacancy-title">📦 Кладовщик на склад</span><span class="vacancy-salary">210 000 – 250 000 ₽</span></div>
-                <div class="vacancy-features"><span class="feature-tag">🏠 Жильё рядом</span><span class="feature-tag">📋 Учёт</span><span class="feature-tag">✅ Официально</span></div>
-            </div>
-            <div class="vacancy-card" data-vacancy="Оператор склада" data-salary="220 000 – 260 000">
-                <div class="vacancy-header"><span class="vacancy-title">📦 Оператор склада</span><span class="vacancy-salary">220 000 – 260 000 ₽</span></div>
-                <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🖥️ Работа с ПК</span><span class="feature-tag">✅ Опыт не нужен</span></div>
+        <div class="vacancies-carousel">
+            <div class="carousel-arrow left" id="vacanciesLeft" onclick="scrollVacancies(-1)">◀</div>
+            <div class="carousel-arrow right" id="vacanciesRight" onclick="scrollVacancies(1)">▶</div>
+            <div class="vacancies-container" id="vacanciesContainer">
+                <div class="vacancies-track">
+                    <div class="vacancy-card" data-vacancy="Водитель на завод" data-salary="230 000 – 280 000">
+                        <div class="vacancy-header"><span class="vacancy-title">🚚 Водитель на завод</span><span class="vacancy-salary">230 000 – 280 000 ₽</span></div>
+                        <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🚛 Категория C</span><span class="feature-tag">✅ Официально</span></div>
+                    </div>
+                    <div class="vacancy-card" data-vacancy="Инженер на производство" data-salary="260 000 – 320 000">
+                        <div class="vacancy-header"><span class="vacancy-title">⚙️ Инженер на производство</span><span class="vacancy-salary">260 000 – 320 000 ₽</span></div>
+                        <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">📐 Высшее</span><span class="feature-tag">🎓 Обучение</span></div>
+                    </div>
+                    <div class="vacancy-card" data-vacancy="Сварщик на завод" data-salary="240 000 – 290 000">
+                        <div class="vacancy-header"><span class="vacancy-title">🔥 Сварщик на завод</span><span class="vacancy-salary">240 000 – 290 000 ₽</span></div>
+                        <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🛠️ Разряды 4-6</span><span class="feature-tag">🍽️ Питание</span></div>
+                    </div>
+                    <div class="vacancy-card" data-vacancy="Разнорабочий на завод" data-salary="200 000 – 240 000">
+                        <div class="vacancy-header"><span class="vacancy-title">🔧 Разнорабочий на завод</span><span class="vacancy-salary">200 000 – 240 000 ₽</span></div>
+                        <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">👍 Без опыта</span><span class="feature-tag">🍽️ Питание</span></div>
+                    </div>
+                    <div class="vacancy-card" data-vacancy="Кладовщик на склад" data-salary="210 000 – 250 000">
+                        <div class="vacancy-header"><span class="vacancy-title">📦 Кладовщик на склад</span><span class="vacancy-salary">210 000 – 250 000 ₽</span></div>
+                        <div class="vacancy-features"><span class="feature-tag">🏠 Жильё рядом</span><span class="feature-tag">📋 Учёт</span><span class="feature-tag">✅ Официально</span></div>
+                    </div>
+                    <div class="vacancy-card" data-vacancy="Оператор склада" data-salary="220 000 – 260 000">
+                        <div class="vacancy-header"><span class="vacancy-title">📦 Оператор склада</span><span class="vacancy-salary">220 000 – 260 000 ₽</span></div>
+                        <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🖥️ Работа с ПК</span><span class="feature-tag">✅ Опыт не нужен</span></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -723,7 +742,7 @@ body {
         <a href="https://t.me/zavodrabotarf" target="_blank">ПОДПИСАТЬСЯ →</a>
     </div>
 
-    <!-- ФОРМА С ВЫБОРОМ КОДА СТРАНЫ -->
+    <!-- ФОРМА -->
     <div class="form-block fade" id="form">
         <div class="section-title">📞 ОСТАВИТЬ ЗАЯВКУ</div>
         <p style="margin-bottom: 16px; color: #8a9bb5;">Выбранная вакансия: <strong id="selectedVacancyDisplay" style="color:#e67e22;">не выбрана</strong></p>
@@ -732,7 +751,6 @@ body {
             <div class="phone-group">
                 <select id="countryCode" class="country-code">
                     <option value="7">+7 (РФ)</option>
-                    <option value="380">+380 (Украина)</option>
                     <option value="375">+375 (Беларусь)</option>
                     <option value="996">+996 (Кыргызстан)</option>
                     <option value="998">+998 (Узбекистан)</option>
@@ -754,7 +772,7 @@ body {
     </div>
 </div>
 
-<!-- ПЛАВАЮЩАЯ КНОПКА С ПАНЕЛЬЮ -->
+<!-- ПЛАВАЮЩАЯ КНОПКА -->
 <div class="floating-menu">
     <div class="floating-btn" onclick="toggleFloatingPanel()">📞</div>
     <div class="floating-panel" id="floatingPanel">
@@ -772,38 +790,38 @@ body {
 <script>
 let currentSelectedVacancy = null;
 
-// АНИМАЦИИ
-function animateSalary() {
-    let el = document.getElementById('salaryCounter');
-    let start = 0, end = 210000, duration = 1500;
-    let startTime = null;
-    function update(currentTime) {
-        if (!startTime) startTime = currentTime;
-        let progress = Math.min((currentTime - startTime) / duration, 1);
-        el.innerText = Math.floor(progress * (end - start) + start).toLocaleString() + ' ₽';
-        if (progress < 1) requestAnimationFrame(update);
-    }
-    requestAnimationFrame(update);
+// КАРУСЕЛЬ ВАКАНСИЙ
+function scrollVacancies(direction) {
+    const container = document.getElementById('vacanciesContainer');
+    container.scrollLeft += direction * 300;
+    setTimeout(updateVacanciesArrows, 100);
 }
 
-function animateNumber(id, start, end, duration) {
-    let el = document.getElementById(id);
-    if (!el) return;
-    let startTime = null;
-    function update(currentTime) {
-        if (!startTime) startTime = currentTime;
-        let progress = Math.min((currentTime - startTime) / duration, 1);
-        let val = Math.floor(progress * (end - start) + start);
-        el.innerText = val + (id === 'statClients' ? '+' : '');
-        if (progress < 1) requestAnimationFrame(update);
-    }
-    requestAnimationFrame(update);
+function updateVacanciesArrows() {
+    let container = document.getElementById('vacanciesContainer');
+    let left = document.getElementById('vacanciesLeft');
+    let right = document.getElementById('vacanciesRight');
+    if(container.scrollLeft <= 10) left.classList.add('disabled');
+    else left.classList.remove('disabled');
+    if(container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) right.classList.add('disabled');
+    else right.classList.remove('disabled');
 }
 
-function animateStats() {
-    animateNumber('statYear', 0, 2022, 1000);
-    animateNumber('statClients', 0, 1000, 1000);
-    animateNumber('statMonth', 0, 70, 1000);
+// КАРУСЕЛЬ ОТЗЫВОВ
+function scrollReviews(direction) {
+    const container = document.getElementById('reviewsContainer');
+    container.scrollLeft += direction * 300;
+    setTimeout(updateReviewsArrows, 100);
+}
+
+function updateReviewsArrows() {
+    let container = document.getElementById('reviewsContainer');
+    let left = document.getElementById('reviewsLeft');
+    let right = document.getElementById('reviewsRight');
+    if(container.scrollLeft <= 10) left.classList.add('disabled');
+    else left.classList.remove('disabled');
+    if(container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) right.classList.add('disabled');
+    else right.classList.remove('disabled');
 }
 
 // ВЫБОР ВАКАНСИИ
@@ -825,23 +843,6 @@ function selectVacancy(vacancyName, salary) {
 document.querySelectorAll('.vacancy-card').forEach(card => {
     card.addEventListener('click', () => selectVacancy(card.dataset.vacancy, card.querySelector('.vacancy-salary')?.innerText || '200 000+'));
 });
-
-// КАРУСЕЛЬ ОТЗЫВОВ
-function scrollReviews(direction) {
-    const container = document.getElementById('reviewsContainer');
-    container.scrollLeft += direction * 300;
-    setTimeout(updateReviewsArrows, 100);
-}
-
-function updateReviewsArrows() {
-    let container = document.getElementById('reviewsContainer');
-    let left = document.getElementById('reviewsLeft');
-    let right = document.getElementById('reviewsRight');
-    if(container.scrollLeft <= 10) left.classList.add('disabled');
-    else left.classList.remove('disabled');
-    if(container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) right.classList.add('disabled');
-    else right.classList.remove('disabled');
-}
 
 // КВИЗ
 let quizStep = 1;
@@ -902,20 +903,17 @@ document.querySelectorAll('.quiz-option').forEach(opt => {
     });
 });
 
-// МЕССЕНДЖЕРЫ
 function selectMessenger(el, messenger) {
     document.querySelectorAll('.messenger-option').forEach(o => o.classList.remove('selected'));
     el.classList.add('selected');
     document.getElementById('selectedMessenger').value = messenger;
 }
 
-// ПЛАВАЮЩАЯ ПАНЕЛЬ
 function toggleFloatingPanel() {
     let panel = document.getElementById('floatingPanel');
     panel.classList.toggle('show');
 }
 
-// УВЕДОМЛЕНИЯ
 function showToast(msg) {
     let toast = document.getElementById('toast');
     toast.innerText = msg;
@@ -923,7 +921,6 @@ function showToast(msg) {
     setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
-// ОТПРАВКА В TELEGRAM
 function sendToTelegram(name, phone, vacancy, messenger, countryCode) {
     const BOT_TOKEN = '8724372615:AAEjCiuGB2gIHDqB0lPEiGJIt3ZxhEBNZc8';  // ЗАМЕНИТЬ НА НОВЫЙ ТОКЕН!
     const CHAT_ID = '8183270307';  // ЗАМЕНИТЬ НА ВАШ CHAT_ID
@@ -935,7 +932,6 @@ function sendToTelegram(name, phone, vacancy, messenger, countryCode) {
         .then(response => response.json());
 }
 
-// ОТПРАВКА ФОРМЫ С ПРОВЕРКОЙ НОМЕРА
 function sendApplication() {
     let name = document.getElementById('userName').value.trim();
     let phone = document.getElementById('userPhone').value.trim();
@@ -1018,7 +1014,6 @@ let observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
         if(e.isIntersecting) {
             e.target.classList.add('show');
-            if(e.target.id === 'statsBlock') animateStats();
         }
     });
 }, { threshold: 0.2 });
@@ -1026,16 +1021,19 @@ document.querySelectorAll('.fade').forEach(el => observer.observe(el));
 
 // ЗАПУСК
 setTimeout(() => {
-    animateSalary();
+    updateVacanciesArrows();
     updateReviewsArrows();
 }, 100);
-setInterval(updateReviewsArrows, 200);
+setInterval(() => {
+    updateVacanciesArrows();
+    updateReviewsArrows();
+}, 200);
 
 // Закрывать панель при клике вне
 document.addEventListener('click', function(e) {
     let panel = document.getElementById('floatingPanel');
     let btn = document.querySelector('.floating-btn');
-    if(panel.classList.contains('show') && !panel.contains(e.target) && e.target !== btn) {
+    if(panel && panel.classList.contains('show') && !panel.contains(e.target) && e.target !== btn) {
         panel.classList.remove('show');
     }
 });
