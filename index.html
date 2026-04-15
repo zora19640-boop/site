@@ -264,13 +264,14 @@ body {
 }
 
 .country-code {
-    width: 100px;
+    width: 120px;
     background: #1a2535;
     border: 1px solid #2c3e50;
     border-radius: 6px;
     color: white;
     padding: 14px 8px;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .phone-input {
@@ -282,6 +283,11 @@ body {
     color: white;
     padding: 14px 16px;
     font-size: 16px;
+}
+
+.phone-input:focus {
+    outline: none;
+    border-color: #c0392b;
 }
 
 .form-group input, .form-group select {
@@ -639,7 +645,7 @@ body {
         <div class="stat-card"><div class="stat-number">30-70</div><div class="stat-label">человек в месяц</div></div>
     </div>
 
-    <!-- ВАКАНСИИ - ГОРИЗОНТАЛЬНАЯ КАРУСЕЛЬ -->
+    <!-- ВАКАНСИИ - КАРУСЕЛЬ -->
     <div class="fade" id="vacancies">
         <div class="section-title">📦 ДОСТУПНЫЕ ВАКАНСИИ</div>
         <div class="vacancies-carousel">
@@ -709,7 +715,7 @@ body {
         <div class="quiz-result" id="quizResult"></div>
     </div>
 
-    <!-- ОТЗЫВЫ - ГОРИЗОНТАЛЬНАЯ КАРУСЕЛЬ -->
+    <!-- ОТЗЫВЫ - КАРУСЕЛЬ -->
     <div class="fade" id="reviews">
         <div class="section-title">⭐ ОТЗЫВЫ НАШИХ СОТРУДНИКОВ</div>
         <div class="reviews-carousel">
@@ -742,21 +748,21 @@ body {
         <a href="https://t.me/zavodrabotarf" target="_blank">ПОДПИСАТЬСЯ →</a>
     </div>
 
-    <!-- ФОРМА -->
+    <!-- ФОРМА С АВТОПОДСТАНОВКОЙ КОДА СТРАНЫ -->
     <div class="form-block fade" id="form">
         <div class="section-title">📞 ОСТАВИТЬ ЗАЯВКУ</div>
         <p style="margin-bottom: 16px; color: #8a9bb5;">Выбранная вакансия: <strong id="selectedVacancyDisplay" style="color:#e67e22;">не выбрана</strong></p>
         <div class="form-group"><input type="text" id="userName" placeholder="Ваше имя"></div>
         <div class="form-group">
             <div class="phone-group">
-                <select id="countryCode" class="country-code">
-                    <option value="7">+7 (РФ)</option>
+                <select id="countryCode" class="country-code" onchange="updatePhonePrefix()">
+                    <option value="7">+7 (Россия)</option>
                     <option value="375">+375 (Беларусь)</option>
                     <option value="996">+996 (Кыргызстан)</option>
                     <option value="998">+998 (Узбекистан)</option>
                     <option value="992">+992 (Таджикистан)</option>
                 </select>
-                <input type="tel" id="userPhone" class="phone-input" placeholder="Номер телефона">
+                <input type="tel" id="userPhone" class="phone-input" placeholder="Номер телефона" oninput="validatePhone()">
             </div>
         </div>
         <div class="form-group">
@@ -789,6 +795,38 @@ body {
 
 <script>
 let currentSelectedVacancy = null;
+let currentCountryCode = '7';
+
+// ФУНКЦИЯ ДЛЯ АВТОПОДСТАНОВКИ КОДА СТРАНЫ
+function updatePhonePrefix() {
+    let select = document.getElementById('countryCode');
+    let phoneInput = document.getElementById('userPhone');
+    currentCountryCode = select.value;
+    
+    let currentValue = phoneInput.value;
+    if (!currentValue.startsWith('+')) {
+        phoneInput.value = '';
+        phoneInput.placeholder = `+${currentCountryCode} XXX XXX XX XX`;
+    }
+}
+
+function validatePhone() {
+    let phoneInput = document.getElementById('userPhone');
+    let value = phoneInput.value;
+    let code = document.getElementById('countryCode').value;
+    
+    if (value.length > 0 && !value.startsWith('+')) {
+        if (!value.startsWith(code)) {
+            // Не трогаем, просто очищаем от пробелов
+        }
+    }
+}
+
+// При загрузке устанавливаем плейсхолдер
+document.addEventListener('DOMContentLoaded', function() {
+    let code = document.getElementById('countryCode').value;
+    document.getElementById('userPhone').placeholder = `+${code} XXX XXX XX XX`;
+});
 
 // КАРУСЕЛЬ ВАКАНСИЙ
 function scrollVacancies(direction) {
@@ -922,8 +960,8 @@ function showToast(msg) {
 }
 
 function sendToTelegram(name, phone, vacancy, messenger, countryCode) {
-    const BOT_TOKEN = '8699028327:AAFVN1gCyUhSA2V6AFTgQFeMAdnef-enyqo';  // ЗАМЕНИТЬ НА НОВЫЙ ТОКЕН!
-    const CHAT_ID = '8183270307';  // ЗАМЕНИТЬ НА ВАШ CHAT_ID
+    const BOT_TOKEN = '8724372615:AAEjCiuGB2gIHDqB0lPEiGJIt3ZxhEBNZc8';
+    const CHAT_ID = '8183270307';
     
     let fullPhone = `+${countryCode} ${phone}`;
     let text = `🔔 НОВАЯ ЗАЯВКА%0A👤 Имя: ${encodeURIComponent(name)}%0A📱 Телефон: ${encodeURIComponent(fullPhone)}%0A💼 Вакансия: ${encodeURIComponent(vacancy || 'не выбрана')}%0A📱 Мессенджер: ${encodeURIComponent(messenger)}%0A🕐 ${new Date().toLocaleString('ru-RU')}`;
