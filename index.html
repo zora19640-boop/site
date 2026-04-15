@@ -3,77 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Работа на складе или заводе</title>
+<title>Работа</title>
 
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     background: #f2f3f5;
-    color: #222;
 }
 
+/* АНИМАЦИЯ */
+.fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* HEADER */
 .header {
-    background: #1f2937;
+    background: #111;
     color: white;
     padding: 15px;
-    position: sticky;
-    top: 0;
 }
 
-.menu-btn {
-    float: right;
-    font-size: 26px;
-    cursor: pointer;
-}
-
-.menu {
-    display: none;
-    background: white;
-    position: absolute;
-    right: 10px;
-    top: 50px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.menu a {
-    display: block;
-    padding: 12px;
-    text-decoration: none;
-    color: black;
-}
-
+/* КОНТЕЙНЕР */
 .container {
     padding: 20px;
 }
 
+/* HERO */
 .hero {
     background: white;
     padding: 20px;
     border-radius: 16px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
+    text-align: center;
 }
 
-.hero h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
+/* ЦИФРЫ */
+.salary {
+    font-size: 28px;
+    font-weight: bold;
+    color: #16a34a;
+    margin: 10px 0;
 }
 
-.hero p {
-    color: #555;
-}
-
-.cards {
-    display: grid;
-    gap: 10px;
-    margin-top: 15px;
-}
-
+/* КАРТОЧКИ */
 .card {
     padding: 12px;
     border-radius: 10px;
+    margin: 5px 0;
     color: white;
     font-weight: bold;
 }
@@ -83,53 +66,65 @@ body {
 .blue { background: #2563eb; }
 .dark { background: #374151; }
 
+/* КНОПКА */
 .btn {
     display: block;
+    background: red;
+    color: white;
     text-align: center;
     padding: 15px;
-    background: #ef4444;
-    color: white;
     border-radius: 12px;
+    margin-top: 10px;
     text-decoration: none;
-    margin-top: 15px;
-    font-weight: bold;
 }
 
+/* БЛОК */
 .block {
     background: white;
     padding: 20px;
     border-radius: 16px;
-    margin-bottom: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-top: 20px;
 }
 
+/* ФОРМА */
 input, select {
     width: 100%;
     padding: 12px;
     margin-bottom: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
 }
 
 button {
     width: 100%;
-    padding: 14px;
-    background: #ef4444;
+    padding: 15px;
+    background: red;
     color: white;
     border: none;
-    border-radius: 10px;
-    font-size: 16px;
 }
 
-.fixed-wa {
+/* POPUP */
+.popup {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25d366;
-    color: white;
-    padding: 15px;
-    border-radius: 50%;
-    text-decoration: none;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.7);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.popup-content {
+    background:white;
+    padding:20px;
+    border-radius:16px;
+    width:90%;
+    max-width:400px;
+}
+
+.close {
+    float:right;
+    cursor:pointer;
 }
 </style>
 </head>
@@ -137,44 +132,36 @@ button {
 <body>
 
 <div class="header">
-Работа
-<span class="menu-btn" onclick="toggleMenu()">☰</span>
-
-<div class="menu-content" id="menu">
-<a href="index.html">Главная</a>
-<a href="about.html">О нас</a>
-<a href="jobs.html">Вакансии</a>
-<a href="conditions.html">Условия</a>
+Работа на складе / заводе
 </div>
 
 <div class="container">
 
-<div class="hero">
-<h1>Работа на складе или заводе</h1>
-<p>Зарплата 250 000 – 300 000 ₽ в месяц<br>Без опыта • Быстрое оформление</p>
+<div class="hero fade">
+<h1>Работа с доходом</h1>
 
-<div class="cards">
-<div class="card yellow">💰 Доход до 300 000 ₽</div>
+<div class="salary" id="salary">0 ₽</div>
+
+<p>Без опыта • Быстрое оформление</p>
+
+<div class="card yellow">💰 Высокий доход</div>
 <div class="card green">✅ Официально</div>
-<div class="card blue">🤝 Контракт 3 мес – 3 года</div>
-<div class="card dark">🚚 Есть вакансии водителей</div>
-</div>
+<div class="card blue">🤝 Контракт</div>
+<div class="card dark">🚚 Есть водитель</div>
 
 <a href="#form" class="btn">ПОДОБРАТЬ ВАКАНСИЮ</a>
 </div>
 
-<div class="block">
-<h2>Почему стоит выбрать эту работу</h2>
-<p>Работа не сложная, подходит без опыта. Вас обучат на месте и помогут освоиться.</p>
-<p>Есть разные варианты: склад, завод, водитель.</p>
-<p>Можно выбрать удобный срок — от 3 месяцев до 3 лет.</p>
+<div class="block fade">
+<h2>О работе</h2>
+<p>Работа не сложная. Всему обучают на месте.</p>
+<p>Подходит без опыта.</p>
 </div>
 
-<div class="block">
-<h2 id="form">Подобрать вакансию</h2>
-<p>Оставьте данные и мы подберём для вас лучший вариант</p>
+<div class="block fade">
+<h2 id="form">Оставить заявку</h2>
 
-<input type="text" placeholder="Ваше имя">
+<input type="text" placeholder="Имя">
 <input type="tel" placeholder="Телефон">
 
 <select>
@@ -184,33 +171,44 @@ button {
 <option>MAX</option>
 </select>
 
-<button onclick="sendForm()">Отправить заявку</button>
+<button onclick="sendForm()">Отправить</button>
 </div>
 
 </div>
 
-<a href="#" class="fixed-wa">💬</a>
+<!-- POPUP -->
+<div class="popup" id="popup">
+<div class="popup-content">
+<span class="close" onclick="closePopup()">✖</span>
+<h3>Подберём вам работу</h3>
+
+<input type="text" id="pname" placeholder="Имя">
+<input type="tel" id="pphone" placeholder="Телефон">
+
+<button onclick="sendPopup()">Отправить</button>
+</div>
+</div>
 
 <script>
-function toggleMenu() {
-let menu = document.getElementById('menu');
-menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-}
-
+// TELEGRAM
 function sendForm() {
 let name = document.querySelector('input[type="text"]').value;
 let phone = document.querySelector('input[type="tel"]').value;
-let messenger = document.querySelector('select').value;
-
-if (!name || !phone) {
-alert("Введите данные");
-return;
+sendToTG(name, phone);
 }
 
-let text = "Новая заявка:%0AИмя: " + name + "%0AТелефон: " + phone + "%0AМессенджер: " + messenger;
+function sendPopup() {
+let name = document.getElementById('pname').value;
+let phone = document.getElementById('pphone').value;
+sendToTG(name, phone);
+closePopup();
+}
 
+function sendToTG(name, phone) {
 let token = "8724372615:AAEjCiuGB2gIHDqB0lPEiGJIt3ZxhEBNZc8";
 let chat_id = "8183270307";
+
+let text = "Новая заявка:%0AИмя: " + name + "%0AТелефон: " + phone;
 
 let url = "https://api.telegram.org/bot" + token + "/sendMessage?chat_id=" + chat_id + "&text=" + text;
 
@@ -218,6 +216,63 @@ fetch(url)
 .then(() => alert("Заявка отправлена"))
 .catch(() => alert("Ошибка"));
 }
+
+// POPUP
+function closePopup() {
+document.getElementById('popup').style.display = "none";
+}
+
+setTimeout(() => {
+document.getElementById('popup').style.display = "flex";
+}, 2000);
+
+// АНИМАЦИЯ СКРОЛЛА
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('show');
+}
+});
+});
+
+document.querySelectorAll('.fade').forEach(el => {
+observer.observe(el);
+});
+
+// АНИМАЦИЯ ЦИФР
+let started = false;
+
+function animateSalary() {
+if (started) return;
+started = true;
+
+let el = document.getElementById("salary");
+let start = 0;
+let end = 300000;
+let duration = 2000;
+let stepTime = 20;
+let increment = end / (duration / stepTime);
+
+let counter = setInterval(() => {
+start += increment;
+if (start >= end) {
+start = end;
+clearInterval(counter);
+}
+el.innerText = Math.floor(start).toLocaleString() + " ₽";
+}, stepTime);
+}
+
+// запуск при появлении блока
+const salaryObserver = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+animateSalary();
+}
+});
+});
+
+salaryObserver.observe(document.getElementById("salary"));
 </script>
 
 </body>
