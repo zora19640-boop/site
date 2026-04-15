@@ -17,21 +17,35 @@ body {
     margin: 0;
     padding: 0;
     font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #eef2f6 100%);
+    background: linear-gradient(145deg, #e8edf2 0%, #dce2e8 100%);
     color: #1a1a2e;
     line-height: 1.5;
     position: relative;
     min-height: 100vh;
 }
 
+/* ЯРКИЙ СВЕТОВОЙ ЭФФЕКТ НА ФОНЕ */
 body::before {
     content: '';
     position: fixed;
-    top: -30%;
-    left: -20%;
-    width: 140%;
-    height: 140%;
-    background: radial-gradient(circle at 20% 30%, rgba(229,57,53,0.04) 0%, rgba(255,215,0,0.02) 50%, transparent 70%);
+    top: -20%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle at 30% 20%, rgba(229,57,53,0.12) 0%, rgba(255,215,0,0.06) 40%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ВТОРОЙ СЛОЙ ДЛЯ ГЛУБИНЫ */
+body::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 80% 90%, rgba(26,26,46,0.05) 0%, transparent 60%);
     pointer-events: none;
     z-index: 0;
 }
@@ -121,6 +135,7 @@ body::before {
     border-radius: 28px;
     color: white;
     margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
 .hero h1 {
@@ -174,12 +189,12 @@ body::before {
 }
 
 .stat-card {
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.92);
     backdrop-filter: blur(4px);
     padding: 16px 8px;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
 .stat-number {
@@ -190,18 +205,18 @@ body::before {
 
 .stat-label {
     font-size: 12px;
-    color: #666;
+    color: #555;
     margin-top: 5px;
 }
 
 /* БЛОКИ */
 .block {
-    background: rgba(255,255,255,0.95);
+    background: rgba(255,255,255,0.96);
     backdrop-filter: blur(2px);
     padding: 24px;
     border-radius: 24px;
     margin-top: 16px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.04), 0 2px 4px rgba(0,0,0,0.02);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.02);
 }
 
 .block h2 {
@@ -520,7 +535,7 @@ input:focus, select:focus {
     margin-top: 10px;
 }
 
-/* МЕССЕНДЖЕРЫ В ФОРМЕ */
+/* МЕССЕНДЖЕРЫ В ФОРМЕ - С АВАТАРКАМИ */
 .messenger-group {
     display: flex;
     gap: 12px;
@@ -544,19 +559,37 @@ input:focus, select:focus {
     box-shadow: 0 0 0 2px rgba(229,57,53,0.2);
 }
 
-.messenger-option span {
-    font-size: 20px;
-    display: block;
-    margin-bottom: 4px;
+.messenger-option .avatar {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 6px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.messenger-option .tg-avatar {
+    background: linear-gradient(135deg, #29a9e1, #1e88e5);
+}
+
+.messenger-option .wa-avatar {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.messenger-option .max-avatar {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
 }
 
 .messenger-option small {
     font-size: 11px;
     color: #666;
+    display: block;
 }
 
 /* Скрытый инпут для мессенджера */
-#selectedMessenger {
+#selectedMessenger, #popupMessenger, #consultMessenger {
     display: none;
 }
 </style>
@@ -779,21 +812,21 @@ input:focus, select:focus {
                 </select>
             </div>
             
-            <!-- ВЫБОР МЕССЕНДЖЕРА -->
+            <!-- ВЫБОР МЕССЕНДЖЕРА С АВАТАРКАМИ -->
             <div class="form-group">
                 <label style="font-size: 14px; color: #555; margin-bottom: 8px; display: block;">📱 Удобный способ связи:</label>
                 <div class="messenger-group">
                     <div class="messenger-option selected" data-messenger="Telegram" onclick="selectMessenger(this, 'Telegram')">
-                        <span>📨</span>
+                        <div class="avatar tg-avatar">📨</div>
                         <small>Telegram</small>
                     </div>
                     <div class="messenger-option" data-messenger="WhatsApp" onclick="selectMessenger(this, 'WhatsApp')">
-                        <span>💚</span>
+                        <div class="avatar wa-avatar">💚</div>
                         <small>WhatsApp</small>
                     </div>
-                    <div class="messenger-option" data-messenger="Viber" onclick="selectMessenger(this, 'Viber')">
-                        <span>💜</span>
-                        <small>Viber</small>
+                    <div class="messenger-option" data-messenger="MAX" onclick="selectMessenger(this, 'MAX')">
+                        <div class="avatar max-avatar">⭐</div>
+                        <small>МАХ</small>
                     </div>
                 </div>
                 <input type="hidden" id="selectedMessenger" value="Telegram">
@@ -823,16 +856,16 @@ input:focus, select:focus {
             <label style="font-size: 14px; color: #555; margin-bottom: 8px; display: block;">📱 Мессенджер:</label>
             <div class="messenger-group">
                 <div class="messenger-option selected" data-messenger="Telegram" onclick="selectPopupMessenger(this, 'Telegram')">
-                    <span>📨</span>
+                    <div class="avatar tg-avatar">📨</div>
                     <small>Telegram</small>
                 </div>
                 <div class="messenger-option" data-messenger="WhatsApp" onclick="selectPopupMessenger(this, 'WhatsApp')">
-                    <span>💚</span>
+                    <div class="avatar wa-avatar">💚</div>
                     <small>WhatsApp</small>
                 </div>
-                <div class="messenger-option" data-messenger="Viber" onclick="selectPopupMessenger(this, 'Viber')">
-                    <span>💜</span>
-                    <small>Viber</small>
+                <div class="messenger-option" data-messenger="MAX" onclick="selectPopupMessenger(this, 'MAX')">
+                    <div class="avatar max-avatar">⭐</div>
+                    <small>МАХ</small>
                 </div>
             </div>
             <input type="hidden" id="popupMessenger" value="Telegram">
@@ -857,16 +890,16 @@ input:focus, select:focus {
             <label style="font-size: 14px; color: #555; margin-bottom: 8px; display: block;">📱 Мессенджер:</label>
             <div class="messenger-group">
                 <div class="messenger-option selected" data-messenger="Telegram" onclick="selectConsultMessenger(this, 'Telegram')">
-                    <span>📨</span>
+                    <div class="avatar tg-avatar">📨</div>
                     <small>Telegram</small>
                 </div>
                 <div class="messenger-option" data-messenger="WhatsApp" onclick="selectConsultMessenger(this, 'WhatsApp')">
-                    <span>💚</span>
+                    <div class="avatar wa-avatar">💚</div>
                     <small>WhatsApp</small>
                 </div>
-                <div class="messenger-option" data-messenger="Viber" onclick="selectConsultMessenger(this, 'Viber')">
-                    <span>💜</span>
-                    <small>Viber</small>
+                <div class="messenger-option" data-messenger="MAX" onclick="selectConsultMessenger(this, 'MAX')">
+                    <div class="avatar max-avatar">⭐</div>
+                    <small>МАХ</small>
                 </div>
             </div>
             <input type="hidden" id="consultMessenger" value="Telegram">
