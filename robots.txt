@@ -1,0 +1,3 @@
+User-agent: Yandex
+Disallow:
+Sitemap: https://zora19640-boop.github.io/site/sitemap.xml
