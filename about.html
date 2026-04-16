@@ -3,65 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>О нас</title>
-
+<title>О компании | Работа на заводе</title>
 <style>
-body {margin:0;font-family:Arial;background:#eef1f5;}
-.container {max-width:500px;margin:auto;padding:20px;}
-
-.hero {
-background: linear-gradient(135deg,#111827,#1f2937);
-color:white;
-padding:25px;
-border-radius:20px;
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #0f1a2c;
+    color: #e8eef2;
+    margin: 0;
+    padding: 20px;
 }
-
-.block {
-background:white;
-padding:20px;
-border-radius:20px;
-margin-top:20px;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #0a1220;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #2c3e50;
 }
-
-.fade {opacity:0;transform:translateY(30px);transition:0.8s;}
-.fade.show {opacity:1;transform:translateY(0);}
+h1 { color: #e67e22; margin-bottom: 20px; }
+p { margin-bottom: 16px; line-height: 1.6; }
+.back-link { color: #c0392b; text-decoration: none; }
 </style>
 </head>
-
 <body>
-
 <div class="container">
-
-<div class="hero fade">
-<h1>О нашей компании</h1>
-<p>Работаем с 2022 года</p>
+    <a href="index.html" class="back-link">← На главную</a>
+    <h1>О компании</h1>
+    <p><strong>ООО "ОБОРОНПРОМ"</strong> — компания, специализирующаяся на трудоустройстве на промышленные предприятия.</p>
+    <p>Мы работаем с 2022 года и за это время помогли более 1000 человек найти стабильную работу с достойной зарплатой.</p>
+    <p>Наши партнёры — крупнейшие заводы и склады России, которые ценят своих сотрудников.</p>
+    <p><strong>ИНН:</strong> 1234567890</p>
+    <p><strong>ОГРН:</strong> 123456789012345</p>
+    <p><strong>Адрес:</strong> г. Москва, ул. Производственная, д. 10</p>
 </div>
-
-<div class="block fade">
-<p>👋 Кто мы и чем занимаемся</p>
-<p>Мы помогли сотням людей найти стабильную работу с хорошим доходом.</p>
-</div>
-
-<div class="block fade">
-<p>📌 Направления:</p>
-<p>— склады</p>
-<p>— заводы</p>
-<p>— логистика</p>
-</div>
-
-<div class="block fade">
-<p>💬 Наша задача — реально устроить вас на работу</p>
-</div>
-
-</div>
-
-<script>
-const observer = new IntersectionObserver(entries=>{
-entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show');});
-});
-document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
-</script>
-
 </body>
 </html>
