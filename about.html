@@ -1,40 +1,100 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>О компании | Работа на заводе</title>
-<style>
-body {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    background: #0f1a2c;
-    color: #e8eef2;
-    margin: 0;
-    padding: 20px;
-}
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: #0a1220;
-    padding: 40px;
-    border-radius: 20px;
-    border: 1px solid #2c3e50;
-}
-h1 { color: #e67e22; margin-bottom: 20px; }
-p { margin-bottom: 16px; line-height: 1.6; }
-.back-link { color: #c0392b; text-decoration: none; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О компании | АО «НПП «Мотор»</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #0f1a2c;
+            color: #e8eef2;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .card {
+            background: #0a1220;
+            border: 1px solid #2c3e50;
+            border-radius: 20px;
+            padding: 40px;
+        }
+        h1 {
+            color: #e67e22;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+        h2 {
+            color: #c0392b;
+            margin: 25px 0 15px 0;
+            font-size: 22px;
+        }
+        p {
+            margin-bottom: 16px;
+            color: #e8eef2;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #e67e22;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        hr {
+            border-color: #2c3e50;
+            margin: 20px 0;
+        }
+        .info-block {
+            background: #1a2535;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
     <a href="index.html" class="back-link">← На главную</a>
-    <h1>О компании</h1>
-    <p><strong>ООО "ОБОРОНПРОМ"</strong> — компания, специализирующаяся на трудоустройстве на промышленные предприятия.</p>
-    <p>Мы работаем с 2022 года и за это время помогли более 1000 человек найти стабильную работу с достойной зарплатой.</p>
-    <p>Наши партнёры — крупнейшие заводы и склады России, которые ценят своих сотрудников.</p>
-    <p><strong>ИНН:</strong> 1234567890</p>
-    <p><strong>ОГРН:</strong> 123456789012345</p>
-    <p><strong>Адрес:</strong> г. Москва, ул. Производственная, д. 10</p>
+    <div class="card">
+        <h1>О компании</h1>
+        <p><strong>АО «НПП «Мотор»</strong> — ведущая компания в сфере трудоустройства на промышленные предприятия.</p>
+        
+        <h2>📊 Наши достижения</h2>
+        <div class="info-block">
+            <p>✓ Работаем с <strong>2022 года</strong></p>
+            <p>✓ Помогли трудоустроиться <strong>более 1000 человек</strong></p>
+            <p>✓ Трудоустраиваем <strong>30–70 человек в месяц</strong></p>
+        </div>
+        
+        <h2>🏭 Наши партнёры</h2>
+        <p>Мы сотрудничаем с крупнейшими заводами и складами России, которые ценят своих сотрудников и предлагают стабильные условия работы.</p>
+        
+        <h2>📋 Реквизиты</h2>
+        <div class="info-block">
+            <p><strong>Полное наименование:</strong> АО «НПП «Мотор»</p>
+            <p><strong>ИНН:</strong> 1234567890</p>
+            <p><strong>ОГРН:</strong> 123456789012345</p>
+            <p><strong>Юридический адрес:</strong> г. Москва, ул. Производственная, д. 10</p>
+        </div>
+        
+        <h2>🕐 Режим работы</h2>
+        <div class="info-block">
+            <p>Понедельник – пятница: <strong>10:00 – 20:00</strong> (по МСК)</p>
+            <p>Суббота – воскресенье: <strong>выходной</strong></p>
+        </div>
+        
+        <h2>📞 Контакты</h2>
+        <div class="info-block">
+            <p>Telegram: <a href="https://t.me/zavodrabotarf" target="_blank" style="color:#e67e22;">@zavodrabotarf</a></p>
+            <p>Email: info@oboronprom.ru</p>
+        </div>
+    </div>
 </div>
 </body>
 </html>
