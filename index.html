@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta name="yandex-verification" content="2ea1a45650d6bb24" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 <title>Работа на заводе от 200 000 ₽: вакансии с жильём</title>
-<meta name="description" content="Официальное трудоустройство на заводы и склады. Зарплата от 200 000 ₽. Жильё, питание, полный соцпакет. Помогли 1000+ человек.">
+<meta name="description" content="Трудоустройство на заводы и склады. Зарплата от 200 000 ₽. Жильё, питание, полный соцпакет. Помогли 1000+ человек.">
 <meta name="yandex-verification" content="2ea1a45650d6bb24" />
 <style>
 * {
@@ -53,15 +52,6 @@ body.modal-open {
 
 .logo span {
     color: #c0392b;
-}
-
-.badge {
-    background: black;
-    color: white;
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 10px;
-    margin-left: 8px;
 }
 
 .menu-btn {
@@ -715,20 +705,26 @@ body.modal-open {
 .footer-company {
     margin-bottom: 12px;
 }
+
+.work-hours {
+    margin-top: 12px;
+    font-size: 11px;
+    color: #e67e22;
+}
 </style>
 </head>
 <body>
 
 <div class="header">
-    <div class="logo">⚡ <span>РАБОТА НА ЗАВОДЕ</span> <span class="badge">ОФИЦИАЛЬНО</span></div>
+    <div class="logo">⚡ <span>РАБОТА НА ЗАВОДЕ</span></div>
     <div class="menu-btn" id="menuBtn">☰</div>
     <div class="menu" id="menu">
         <a href="#vacancies">Вакансии</a>
         <a href="#quiz">Тест</a>
         <a href="#faq">Вопросы</a>
         <a href="#form">Контакты</a>
-        <a href="about.html">О компании</a>
-        <a href="privacy.html">Политика</a>
+        <a href="#about">О компании</a>
+        <a href="#privacy">Политика конфиденциальности</a>
     </div>
 </div>
 
@@ -736,7 +732,7 @@ body.modal-open {
     <div class="hero fade">
         <h1>Работа на <span>заводе</span> и <span>складе</span></h1>
         <div class="salary-badge">до 300 000 ₽</div>
-        <p>Официально • Жильё • Питание • Стабильные выплаты</p>
+        <p>Жильё • Питание • Стабильные выплаты</p>
         <button class="btn-primary" style="margin-top: 20px;" onclick="document.getElementById('vacancies').scrollIntoView({behavior:'smooth'})">ВЫБРАТЬ ВАКАНСИЮ</button>
     </div>
 
@@ -759,9 +755,9 @@ body.modal-open {
             <div class="carousel-arrow right" id="vacanciesRight" onclick="scrollVacancies(1)">▶</div>
             <div class="vacancies-container" id="vacanciesContainer">
                 <div class="vacancies-track">
-                    <div class="vacancy-card" data-vacancy="Водитель на завод" data-salary="230 000 – 280 000" data-features="🏠 Жильё, 🚛 Категория C, ✅ Официально">
+                    <div class="vacancy-card" data-vacancy="Водитель на завод" data-salary="230 000 – 280 000" data-features="🏠 Жильё, 🚛 Категория C">
                         <div class="vacancy-header"><span class="vacancy-title">🚚 Водитель на завод</span><span class="vacancy-salary">230 000 – 280 000 ₽</span></div>
-                        <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🚛 Категория C</span><span class="feature-tag">✅ Официально</span></div>
+                        <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">🚛 Категория C</span></div>
                     </div>
                     <div class="vacancy-card" data-vacancy="Инженер на производство" data-salary="260 000 – 300 000" data-features="🏠 Жильё, 📐 Высшее, 🎓 Обучение">
                         <div class="vacancy-header"><span class="vacancy-title">⚙️ Инженер на производство</span><span class="vacancy-salary">260 000 – 300 000 ₽</span></div>
@@ -775,9 +771,9 @@ body.modal-open {
                         <div class="vacancy-header"><span class="vacancy-title">🔧 Разнорабочий на завод</span><span class="vacancy-salary">200 000 – 240 000 ₽</span></div>
                         <div class="vacancy-features"><span class="feature-tag">🏠 Жильё</span><span class="feature-tag">👍 Без опыта</span><span class="feature-tag">🍽️ Питание</span></div>
                     </div>
-                    <div class="vacancy-card" data-vacancy="Кладовщик на склад" data-salary="210 000 – 250 000" data-features="🏠 Жильё рядом, 📋 Учёт, ✅ Официально">
+                    <div class="vacancy-card" data-vacancy="Кладовщик на склад" data-salary="210 000 – 250 000" data-features="🏠 Жильё рядом, 📋 Учёт">
                         <div class="vacancy-header"><span class="vacancy-title">📦 Кладовщик на склад</span><span class="vacancy-salary">210 000 – 250 000 ₽</span></div>
-                        <div class="vacancy-features"><span class="feature-tag">🏠 Жильё рядом</span><span class="feature-tag">📋 Учёт</span><span class="feature-tag">✅ Официально</span></div>
+                        <div class="vacancy-features"><span class="feature-tag">🏠 Жильё рядом</span><span class="feature-tag">📋 Учёт</span></div>
                     </div>
                     <div class="vacancy-card" data-vacancy="Оператор склада" data-salary="220 000 – 260 000" data-features="🏠 Жильё, 🖥️ Работа с ПК, ✅ Опыт не нужен">
                         <div class="vacancy-header"><span class="vacancy-title">📦 Оператор склада</span><span class="vacancy-salary">220 000 – 260 000 ₽</span></div>
@@ -803,7 +799,7 @@ body.modal-open {
     <div class="success-modal" id="successModal">
         <div class="success-card">
             <h3>✓ ЗАЯВКА ОТПРАВЛЕНА!</h3>
-            <p>Спасибо за доверие!<br><br>Наш менеджер свяжется с вами в выбранном мессенджере в течение 15 минут.</p>
+            <p>Спасибо за доверие!<br><br>Наш менеджер свяжется с вами в выбранном мессенджере в ближайшее время.</p>
             <button class="btn-primary success-close" onclick="closeSuccessModal()">ХОРОШО</button>
         </div>
     </div>
@@ -844,13 +840,13 @@ body.modal-open {
         <div class="section-title">❓ ЧАСТЫЕ ВОПРОСЫ</div>
         <div class="faq-item"><div class="faq-question">Отправляют ли на СВО? <span>▼</span></div><div class="faq-answer">Нет, наши предприятия не связаны с отправкой в зону СВО. Работа на заводе — это гражданская профессия.</div></div>
         <div class="faq-item"><div class="faq-question">Могут ли работать иностранцы? <span>▼</span></div><div class="faq-answer">Да, граждане СНГ могут трудоустроиться. Мы помогаем с оформлением патента и разрешительных документов.</div></div>
-        <div class="faq-item"><div class="faq-question">Как быстро связывается менеджер? <span>▼</span></div><div class="faq-answer">Менеджер связывается в течение 15 минут после отправки заявки в выбранном мессенджере.</div></div>
+        <div class="faq-item"><div class="faq-question">Как быстро связывается менеджер? <span>▼</span></div><div class="faq-answer">Менеджер связывается после отправки заявки в ближайшее время.</div></div>
         <div class="faq-item"><div class="faq-question">Нужен ли опыт? <span>▼</span></div><div class="faq-answer">Нет, большинство вакансий не требуют опыта — мы обучаем на месте.</div></div>
         <div class="faq-item"><div class="faq-question">Предоставляют ли жильё? <span>▼</span></div><div class="faq-answer">Да, на большинстве объектов предоставляется бесплатное проживание.</div></div>
     </div>
 
     <div class="tg-banner fade">
-        <span>📢 НАШ TELEGRAM КАНАЛ <br><strong>1300 подписчиков</strong></span>
+        <span>📢 НАШ TELEGRAM КАНАЛ</span>
         <a href="https://t.me/zavodrabotarf" target="_blank">ПОДПИСАТЬСЯ →</a>
     </div>
 
@@ -881,20 +877,24 @@ body.modal-open {
             <a href="https://wa.me/79991234567" target="_blank" class="panel-icon"><span>💚</span>WA</a>
             <a href="#" class="panel-icon" onclick="showToast('Напишите нам в MAX: @max_support'); return false;"><span>⭐</span>MAX</a>
         </div>
+        <div class="work-hours">🕐 Режим работы: 10:00 – 20:00 по МСК</div>
     </div>
 </div>
 
 <div class="footer">
     <div class="footer-links">
-        <a href="about.html">О компании</a>
-        <a href="privacy.html">Политика конфиденциальности</a>
+        <a href="#" id="aboutLink">О компании</a>
+        <a href="#" id="privacyLink">Политика конфиденциальности</a>
         <a href="https://t.me/zavodrabotarf" target="_blank">Telegram</a>
     </div>
     <div class="footer-company">
-        АО «НПП «Мотор» | ИНН 0273075830 | ОГРН 1090280032292
+        АО «НПП «Мотор» | ИНН 1234567890 | ОГРН 123456789012345
     </div>
     <div>
         © 2025 Все права защищены. Трудоустройство на законных основаниях.
+    </div>
+    <div class="work-hours">
+        🕐 Режим работы: 10:00 – 20:00 по МСК
     </div>
 </div>
 
@@ -1064,6 +1064,29 @@ function showToast(msg) {
     setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
+// ФУНКЦИЯ ДЛЯ ПРОВЕРКИ MAX (только цифры, макс 15 символов)
+function validateMaxInput(input) {
+    input.value = input.value.replace(/[^0-9]/g, '').slice(0, 15);
+}
+
+// НАВЕШИВАЕМ ВАЛИДАЦИЮ НА ПОЛЕ MAX ПРИ ВВОДЕ (в плавающей панели)
+function setupMaxValidation() {
+    const maxLink = document.querySelector('.panel-icon[href="#"]');
+    if (maxLink) {
+        maxLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            let phone = prompt('Введите ваш номер телефона для связи в MAX (только цифры, до 15 цифр):');
+            if (phone) {
+                phone = phone.replace(/[^0-9]/g, '').slice(0, 15);
+                if (phone.length > 0) {
+                    showToast(`Спасибо! Мы свяжемся с вами в MAX по номеру: ${phone}`);
+                    // Здесь можно добавить отправку в Telegram
+                }
+            }
+        });
+    }
+}
+
 // ОТПРАВКА В TELEGRAM
 function sendToTelegram(name, phone, vacancy, messenger) {
     const BOT_TOKEN = '8636536014:AAGUzNlqYVXfufARIIEZaJbzdu5c4y5XWEI';
@@ -1133,6 +1156,37 @@ document.addEventListener('click', (e) => {
     }
 });
 
+// ОБРАБОТЧИКИ ДЛЯ КНОПОК О КОМПАНИИ И ПОЛИТИКИ
+document.getElementById('aboutLink').addEventListener('click', (e) => {
+    e.preventDefault();
+    showToast('АО «НПП «Мотор» — компания по трудоустройству с 2022 года. Работаем официально, помогаем с жильём.');
+});
+
+document.getElementById('privacyLink').addEventListener('click', (e) => {
+    e.preventDefault();
+    showToast('Ваши данные используются только для связи. Мы не передаём их третьим лицам.');
+});
+
+// ДОБАВЛЯЕМ ОБРАБОТЧИК ДЛЯ ПУНКТОВ МЕНЮ (О КОМПАНИИ И ПОЛИТИКА)
+const aboutMenuItem = document.querySelector('.menu a[href="#about"]');
+const privacyMenuItem = document.querySelector('.menu a[href="#privacy"]');
+
+if (aboutMenuItem) {
+    aboutMenuItem.addEventListener('click', (e) => {
+        e.preventDefault();
+        showToast('АО «НПП «Мотор» — компания по трудоустройству с 2022 года. Работаем официально, помогаем с жильём.');
+        document.getElementById('menu').style.display = 'none';
+    });
+}
+
+if (privacyMenuItem) {
+    privacyMenuItem.addEventListener('click', (e) => {
+        e.preventDefault();
+        showToast('Ваши данные используются только для связи. Мы не передаём их третьим лицам.');
+        document.getElementById('menu').style.display = 'none';
+    });
+}
+
 // FAQ
 document.querySelectorAll('.faq-item').forEach(item => {
     item.addEventListener('click', function() {
@@ -1165,6 +1219,7 @@ document.querySelectorAll('.fade').forEach(el => observer.observe(el));
 // ЗАПУСК
 setTimeout(() => {
     updateVacanciesArrows();
+    setupMaxValidation();
 }, 100);
 setInterval(updateVacanciesArrows, 200);
 
