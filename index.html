@@ -67,7 +67,7 @@ body.modal-open {
     background: #0a1220;
     border: 1px solid #2c3e50;
     border-radius: 8px;
-    min-width: 180px;
+    min-width: 200px;
     z-index: 9999;
 }
 
@@ -723,8 +723,8 @@ body.modal-open {
         <a href="#quiz">Тест</a>
         <a href="#faq">Вопросы</a>
         <a href="#form">Контакты</a>
-        <a href="#about">О компании</a>
-        <a href="#privacy">Политика конфиденциальности</a>
+        <a href="about.html">О компании</a>
+        <a href="privacy.html">Политика конфиденциальности</a>
     </div>
 </div>
 
@@ -883,8 +883,8 @@ body.modal-open {
 
 <div class="footer">
     <div class="footer-links">
-        <a href="#" id="aboutLink">О компании</a>
-        <a href="#" id="privacyLink">Политика конфиденциальности</a>
+        <a href="about.html">О компании</a>
+        <a href="privacy.html">Политика конфиденциальности</a>
         <a href="https://t.me/zavodrabotarf" target="_blank">Telegram</a>
     </div>
     <div class="footer-company">
@@ -1064,29 +1064,6 @@ function showToast(msg) {
     setTimeout(() => toast.classList.remove('show'), 3000);
 }
 
-// ФУНКЦИЯ ДЛЯ ПРОВЕРКИ MAX (только цифры, макс 15 символов)
-function validateMaxInput(input) {
-    input.value = input.value.replace(/[^0-9]/g, '').slice(0, 15);
-}
-
-// НАВЕШИВАЕМ ВАЛИДАЦИЮ НА ПОЛЕ MAX ПРИ ВВОДЕ (в плавающей панели)
-function setupMaxValidation() {
-    const maxLink = document.querySelector('.panel-icon[href="#"]');
-    if (maxLink) {
-        maxLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            let phone = prompt('Введите ваш номер телефона для связи в MAX (только цифры, до 15 цифр):');
-            if (phone) {
-                phone = phone.replace(/[^0-9]/g, '').slice(0, 15);
-                if (phone.length > 0) {
-                    showToast(`Спасибо! Мы свяжемся с вами в MAX по номеру: ${phone}`);
-                    // Здесь можно добавить отправку в Telegram
-                }
-            }
-        });
-    }
-}
-
 // ОТПРАВКА В TELEGRAM
 function sendToTelegram(name, phone, vacancy, messenger) {
     const BOT_TOKEN = '8636536014:AAGUzNlqYVXfufARIIEZaJbzdu5c4y5XWEI';
@@ -1156,37 +1133,6 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// ОБРАБОТЧИКИ ДЛЯ КНОПОК О КОМПАНИИ И ПОЛИТИКИ
-document.getElementById('aboutLink').addEventListener('click', (e) => {
-    e.preventDefault();
-    showToast('АО «НПП «Мотор» — компания по трудоустройству с 2022 года. Работаем официально, помогаем с жильём.');
-});
-
-document.getElementById('privacyLink').addEventListener('click', (e) => {
-    e.preventDefault();
-    showToast('Ваши данные используются только для связи. Мы не передаём их третьим лицам.');
-});
-
-// ДОБАВЛЯЕМ ОБРАБОТЧИК ДЛЯ ПУНКТОВ МЕНЮ (О КОМПАНИИ И ПОЛИТИКА)
-const aboutMenuItem = document.querySelector('.menu a[href="#about"]');
-const privacyMenuItem = document.querySelector('.menu a[href="#privacy"]');
-
-if (aboutMenuItem) {
-    aboutMenuItem.addEventListener('click', (e) => {
-        e.preventDefault();
-        showToast('АО «НПП «Мотор» — компания по трудоустройству с 2022 года. Работаем официально, помогаем с жильём.');
-        document.getElementById('menu').style.display = 'none';
-    });
-}
-
-if (privacyMenuItem) {
-    privacyMenuItem.addEventListener('click', (e) => {
-        e.preventDefault();
-        showToast('Ваши данные используются только для связи. Мы не передаём их третьим лицам.');
-        document.getElementById('menu').style.display = 'none';
-    });
-}
-
 // FAQ
 document.querySelectorAll('.faq-item').forEach(item => {
     item.addEventListener('click', function() {
@@ -1201,7 +1147,7 @@ document.querySelectorAll('.menu a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
         let target = document.querySelector(this.getAttribute('href'));
-        if(target) target.scrollIntoView({ behavior: 'smooth' });
+        if(target && target !== '#') target.scrollIntoView({ behavior: 'smooth' });
         document.getElementById('menu').style.display = 'none';
     });
 });
@@ -1219,7 +1165,6 @@ document.querySelectorAll('.fade').forEach(el => observer.observe(el));
 // ЗАПУСК
 setTimeout(() => {
     updateVacanciesArrows();
-    setupMaxValidation();
 }, 100);
 setInterval(updateVacanciesArrows, 200);
 
