@@ -1,103 +1,175 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Политика конфиденциальности | АО «НПП «Мотор»</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background: #0f1a2c;
-            color: #e8eef2;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .card {
-            background: #0a1220;
-            border: 1px solid #2c3e50;
-            border-radius: 20px;
-            padding: 40px;
-        }
-        h1 {
-            color: #e67e22;
-            margin-bottom: 20px;
-            font-size: 32px;
-        }
-        h2 {
-            color: #c0392b;
-            margin: 25px 0 15px 0;
-            font-size: 22px;
-        }
-        p {
-            margin-bottom: 16px;
-            color: #e8eef2;
-        }
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #e67e22;
-            text-decoration: none;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        hr {
-            border-color: #2c3e50;
-            margin: 20px 0;
-        }
-        .info-block {
-            background: #1a2535;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-        }
-        ul {
-            padding-left: 20px;
-            margin: 15px 0;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Политика конфиденциальности — АО «НПП «Мотор»</title>
+<style>
+:root {
+  --bg: #0b0e0b;
+  --bg2: #111611;
+  --panel: #1a211a;
+  --border: #2a3828;
+  --border-bright: #3d5c38;
+  --green: #4a7c3f;
+  --green-bright: #6db85c;
+  --green-neon: #7fff5c;
+  --amber: #e8a020;
+  --red: #c0392b;
+  --text: #c8d8c0;
+  --text-dim: #6a8060;
+  --text-bright: #e8f0e0;
+  --mono: 'Share Tech Mono', monospace;
+  --display: 'Oswald', sans-serif;
+  --body: 'Barlow', sans-serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: var(--body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  padding: 20px;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--bg2);
+  border: 1px solid var(--border-bright);
+  padding: 40px;
+  position: relative;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green), var(--amber), var(--green));
+}
+h1 {
+  font-family: var(--display);
+  font-size: 32px;
+  letter-spacing: 2px;
+  color: var(--green-bright);
+  margin-bottom: 8px;
+  border-left: 4px solid var(--amber);
+  padding-left: 20px;
+}
+.date {
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 11px;
+  margin-bottom: 30px;
+  border-left: 4px solid var(--amber);
+  padding-left: 20px;
+}
+h2 {
+  font-family: var(--display);
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: var(--amber);
+  margin: 25px 0 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+h2::before {
+  content: '▸';
+  color: var(--green);
+  font-size: 14px;
+}
+p {
+  margin-bottom: 16px;
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 14px;
+}
+ul {
+  margin: 10px 0 20px 30px;
+  color: var(--text-dim);
+}
+li {
+  margin-bottom: 8px;
+}
+.info-block {
+  background: var(--panel);
+  border-left: 3px solid var(--green-bright);
+  padding: 20px;
+  margin: 20px 0;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--green-bright);
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.back-link:hover { color: var(--green-neon); }
+hr {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 20px 0;
+}
+</style>
 </head>
 <body>
 <div class="container">
-    <a href="index.html" class="back-link">← На главную</a>
-    <div class="card">
-        <h1>Политика конфиденциальности</h1>
-        <p>Настоящий документ определяет порядок обработки и защиты персональных данных пользователей сайта.</p>
-        
-        <h2>1. Сбор персональных данных</h2>
-        <p>Мы собираем только те данные, которые вы добровольно предоставляете при заполнении формы заявки: <strong>имя и номер телефона</strong>. Эти данные необходимы для связи с вами по вопросам трудоустройства.</p>
-        
-        <h2>2. Использование персональных данных</h2>
-        <p>Ваши персональные данные используются исключительно для:</p>
-        <ul>
-            <li>Связи с вами по вопросам подбора вакансий</li>
-            <li>Уточнения деталей трудоустройства</li>
-            <li>Информирования о новых вакансиях (только с вашего согласия)</li>
-        </ul>
-        
-        <h2>3. Передача персональных данных третьим лицам</h2>
-        <p>Мы <strong>не передаём</strong> ваши персональные данные третьим лицам без вашего явного согласия, за исключением случаев, предусмотренных законодательством РФ.</p>
-        
-        <h2>4. Хранение и защита данных</h2>
-        <p>Ваши данные хранятся в зашифрованном виде и доступны только уполномоченным сотрудникам компании. Мы принимаем все необходимые меры для защиты вашей информации от несанкционированного доступа.</p>
-        
-        <h2>5. Удаление персональных данных</h2>
-        <p>Вы можете запросить удаление ваших персональных данных в любое время, направив запрос на электронную почту: <strong>privacy@oboronprom.ru</strong>. Данные будут удалены в течение 7 рабочих дней.</p>
-        
-        <h2>6. Изменение политики конфиденциальности</h2>
-        <p>Мы оставляем за собой право вносить изменения в настоящую политику. Обновленная версия публикуется на этой странице с указанием даты последнего изменения.</p>
-        
-        <hr>
-        <p><em>Дата последнего обновления: 17.04.2025</em></p>
-    </div>
+  <a href="index.html" class="back-link">← НА ГЛАВНУЮ</a>
+  
+  <h1>Политика конфиденциальности</h1>
+  <div class="date">Актуально на 2025 год</div>
+
+  <p>АО «НПП «Мотор» (далее — «Компания») уважает ваше право на конфиденциальность и обязуется защищать персональные данные пользователей сайта <strong>zavodrabota.ru</strong> (далее — «Сайт»). Настоящий документ регулирует порядок сбора, хранения и использования информации, полученной от посетителей сайта.</p>
+
+  <h2>1. Какие данные мы собираем</h2>
+  <p>При заполнении формы заявки на Сайте вы добровольно предоставляете следующие персональные данные:<br>
+  — Ваше имя (для персонализации общения);<br>
+  — Номер телефона (для связи по вопросам трудоустройства);<br>
+  — Предпочитаемый мессенджер (Telegram, WhatsApp, MAX).</p>
+
+  <h2>2. Цели обработки данных</h2>
+  <p>Собранная информация используется исключительно для:<br>
+  — Связи с вами для уточнения деталей по выбранной вакансии;<br>
+  — Подбора оптимальных условий работы (жильё, питание, график);<br>
+  — Предоставления информации о статусе рассмотрения заявки;<br>
+  — Улучшения качества предоставляемых услуг.</p>
+
+  <h2>3. Передача данных третьим лицам</h2>
+  <p>Компания гарантирует, что не передаёт ваши персональные данные третьим лицам без вашего явного согласия, за исключением случаев, прямо предусмотренных законодательством Российской Федерации (например, по требованию суда или правоохранительных органов).<br><br>
+  <strong>Важно:</strong> Данные, переданные в мессенджеры (Telegram, WhatsApp), защищены политикой конфиденциальности соответствующих платформ. Мы рекомендуем ознакомиться с ними отдельно.</p>
+
+  <h2>4. Хранение и защита данных</h2>
+  <p>Персональные данные хранятся в зашифрованном виде на защищённых серверах. Доступ к ним имеют только уполномоченные сотрудники АО «НПП «Мотор», непосредственно связанные с обработкой заявок. Мы принимаем все необходимые организационные и технические меры для предотвращения несанкционированного доступа, утраты или раскрытия информации.</p>
+
+  <h2>5. Ваши права</h2>
+  <p>Вы имеете право:<br>
+  — Запросить информацию о том, какие ваши данные хранятся в нашей системе;<br>
+  — Потребовать удаления ваших персональных данных из нашей базы;<br>
+  — Отозвать согласие на обработку данных в любое время.<br><br>
+  Для реализации этих прав направьте запрос на электронную почту: <strong>privacy@motor-odk.ru</strong>. Запрос будет обработан в течение 7 рабочих дней.</p>
+
+  <h2>6. Срок хранения данных</h2>
+  <p>Персональные данные хранятся до момента достижения цели их обработки (трудоустройство либо отказ от услуг) либо до момента поступления от вас требования об удалении данных. По истечении срока хранения данные подлежат уничтожению.</p>
+
+  <h2>7. Изменение политики конфиденциальности</h2>
+  <p>Компания оставляет за собой право вносить изменения в настоящую политику. Актуальная версия всегда доступна по этому адресу. При существенных изменениях уведомление будет размещено на главной странице сайта.</p>
+
+  <div class="info-block">
+    <strong>📬 Контакты ответственного за обработку данных:</strong><br>
+    АО «НПП «Мотор»<br>
+    Адрес: 450030, г. Уфа, ул. Сельская Богородская, д. 2<br>
+    E-mail: privacy@motor-odk.ru<br>
+    Тел.: (347) 238-86-81
+  </div>
+
+  <hr>
+  <p style="font-size: 12px; color: var(--text-dim);">© 2025 АО «НПП «Мотор». Все права защищены.</p>
 </div>
 </body>
 </html>
