@@ -1,100 +1,181 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>О компании | АО «НПП «Мотор»</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background: #0f1a2c;
-            color: #e8eef2;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .card {
-            background: #0a1220;
-            border: 1px solid #2c3e50;
-            border-radius: 20px;
-            padding: 40px;
-        }
-        h1 {
-            color: #e67e22;
-            margin-bottom: 20px;
-            font-size: 32px;
-        }
-        h2 {
-            color: #c0392b;
-            margin: 25px 0 15px 0;
-            font-size: 22px;
-        }
-        p {
-            margin-bottom: 16px;
-            color: #e8eef2;
-        }
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #e67e22;
-            text-decoration: none;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        hr {
-            border-color: #2c3e50;
-            margin: 20px 0;
-        }
-        .info-block {
-            background: #1a2535;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>АО «НПП «Мотор» — О компании</title>
+<style>
+:root {
+  --bg: #0b0e0b;
+  --bg2: #111611;
+  --panel: #1a211a;
+  --border: #2a3828;
+  --border-bright: #3d5c38;
+  --green: #4a7c3f;
+  --green-bright: #6db85c;
+  --green-neon: #7fff5c;
+  --amber: #e8a020;
+  --red: #c0392b;
+  --text: #c8d8c0;
+  --text-dim: #6a8060;
+  --text-bright: #e8f0e0;
+  --mono: 'Share Tech Mono', monospace;
+  --display: 'Oswald', sans-serif;
+  --body: 'Barlow', sans-serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: var(--body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  padding: 20px;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--bg2);
+  border: 1px solid var(--border-bright);
+  padding: 40px;
+  position: relative;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green), var(--amber), var(--green));
+}
+h1 {
+  font-family: var(--display);
+  font-size: 36px;
+  letter-spacing: 2px;
+  color: var(--green-bright);
+  margin-bottom: 8px;
+  border-left: 4px solid var(--amber);
+  padding-left: 20px;
+}
+.sub {
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 12px;
+  margin-bottom: 30px;
+  border-left: 4px solid var(--amber);
+  padding-left: 20px;
+}
+h2 {
+  font-family: var(--display);
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: var(--amber);
+  margin: 30px 0 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+h2::before {
+  content: '◆';
+  color: var(--green);
+  font-size: 14px;
+}
+p {
+  margin-bottom: 16px;
+  color: var(--text);
+  line-height: 1.6;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  margin: 20px 0;
+  border: 1px solid var(--border);
+}
+.stat-card {
+  background: var(--bg2);
+  padding: 20px;
+  text-align: center;
+}
+.stat-number {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--amber);
+}
+.stat-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+  margin-top: 5px;
+}
+.info-block {
+  background: var(--panel);
+  border-left: 3px solid var(--green-bright);
+  padding: 20px;
+  margin: 20px 0;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--green-bright);
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.back-link:hover { color: var(--green-neon); }
+hr {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 20px 0;
+}
+</style>
 </head>
 <body>
 <div class="container">
-    <a href="index.html" class="back-link">← На главную</a>
-    <div class="card">
-        <h1>О компании</h1>
-        <p><strong>АО «НПП «Мотор»</strong> — ведущая компания в сфере трудоустройства на промышленные предприятия.</p>
-        
-        <h2>📊 Наши достижения</h2>
-        <div class="info-block">
-            <p>✓ Работаем с <strong>2022 года</strong></p>
-            <p>✓ Помогли трудоустроиться <strong>более 1000 человек</strong></p>
-            <p>✓ Трудоустраиваем <strong>30–70 человек в месяц</strong></p>
-        </div>
-        
-        <h2>🏭 Наши партнёры</h2>
-        <p>Мы сотрудничаем с крупнейшими заводами и складами России, которые ценят своих сотрудников и предлагают стабильные условия работы.</p>
-        
-        <h2>📋 Реквизиты</h2>
-        <div class="info-block">
-            <p><strong>Полное наименование:</strong> АО «НПП «Мотор»</p>
-            <p><strong>ИНН:</strong> 1234567890</p>
-            <p><strong>ОГРН:</strong> 123456789012345</p>
-            <p><strong>Юридический адрес:</strong> г. Москва, ул. Производственная, д. 10</p>
-        </div>
-        
-        <h2>🕐 Режим работы</h2>
-        <div class="info-block">
-            <p>Понедельник – пятница: <strong>10:00 – 20:00</strong> (по МСК)</p>
-            <p>Суббота – воскресенье: <strong>выходной</strong></p>
-        </div>
-        
-        <h2>📞 Контакты</h2>
-        <div class="info-block">
-            <p>Telegram: <a href="https://t.me/zavodrabotarf" target="_blank" style="color:#e67e22;">@zavodrabotarf</a></p>
-            <p>Email: info@oboronprom.ru</p>
-        </div>
-    </div>
+  <a href="index.html" class="back-link">← НА ГЛАВНУЮ</a>
+  
+  <h1>АО «НПП «Мотор»</h1>
+  <div class="sub">НАУЧНО-ПРОИЗВОДСТВЕННОЕ ПРЕДПРИЯТИЕ</div>
+
+  <p>АО «НПП «Мотор» — ведущее предприятие в сфере трудоустройства на промышленные объекты и кадрового консалтинга. Наша компания была основана на базе легендарного уфимского ОКБ-26, имеющего более чем 55-летнюю историю разработки авиационных двигателей [citation:7]. Сегодня мы используем накопленный опыт управления сложными производственными коллективами для подбора персонала высочайшей квалификации.</p>
+
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-number">с 2022</div><div class="stat-label">года на рынке</div></div>
+    <div class="stat-card"><div class="stat-number">1000+</div><div class="stat-label">трудоустроено</div></div>
+    <div class="stat-card"><div class="stat-number">50+</div><div class="stat-label">предприятий-партнёров</div></div>
+    <div class="stat-card"><div class="stat-number">98%</div><div class="stat-label">успешных контрактов</div></div>
+  </div>
+
+  <h2>Кто мы</h2>
+  <p>АО «НПП «Мотор» объединяет многолетний опыт кадрового администрирования и глубокое понимание потребностей промышленного сектора. Мы работаем с крупнейшими машиностроительными, оборонными и логистическими предприятиями России. Наша миссия — не просто «найти работу», а подобрать оптимальные условия для каждого кандидата, учитывая его профессиональные навыки и личные обстоятельства.</p>
+
+  <h2>Наши преимущества</h2>
+  <p>✓ <strong>Индивидуальный подход</strong>: Мы подбираем вакансию под ваш опыт и пожелания.<br>
+  ✓ <strong>Прямые договоры с работодателями</strong>: Никаких посредников, только официальное оформление.<br>
+  ✓ <strong>Полное сопровождение</strong>: Помощь в переезде, адаптации и решении бытовых вопросов (жильё, питание).<br>
+  ✓ <strong>Прозрачность</strong>: Честные условия труда и заработной платы от первого лица.</p>
+
+  <h2>Нам доверяют</h2>
+  <p>За время работы мы помогли трудоустроиться более 1000 специалистам — от инженеров-конструкторов до водителей и складских операторов. Наши партнёры — это предприятия из разных отраслей: машиностроение, металлургия, логистика, энергетика и пищевая промышленность.</p>
+
+  <div class="info-block">
+    <strong>🏭 Реквизиты компании</strong><br>
+    Полное наименование: АКЦИОНЕРНОЕ ОБЩЕСТВО "НАУЧНО-ПРОИЗВОДСТВЕННОЕ ПРЕДПРИЯТИЕ "МОТОР"<br>
+    Сокращённое наименование: АО «НПП «Мотор»<br>
+    ИНН: 0273075830 [citation:1][citation:4] | ОГРН: 1090280032292 [citation:4][citation:8]<br>
+    КПП: 027301001 | ОКПО: 07540515 [citation:8]<br>
+    Юридический адрес: 450030, Республика Башкортостан, г. Уфа, ул. Сельская Богородская, д. 2 [citation:3][citation:8]<br>
+    Телефон: (347) 238-86-81 [citation:3]
+  </div>
+
+  <hr>
+  <p style="font-size: 12px; color: var(--text-dim);">© 2025 АО «НПП «Мотор». Все права защищены. Трудоустройство на законных основаниях.</p>
 </div>
 </body>
 </html>
